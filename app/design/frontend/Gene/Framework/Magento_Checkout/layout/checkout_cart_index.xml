@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Checkout Cart Index Layout
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="checkout_cart_item_renderers"/>
+    <body>
+        <!-- Remove All Edit Buttons on cart items -->
+        <referenceBlock name="checkout.cart.item.renderers.default.actions.edit" remove="true"/>
+        <referenceBlock name="checkout.cart.item.renderers.configurable.actions.edit" remove="true"/>
+        <referenceBlock name="checkout.cart.item.renderers.simple.actions.edit" remove="true"/>
+        <referenceBlock name="checkout.cart.item.renderers.virtual.actions.edit" remove="true"/>
+        <referenceBlock name="checkout.cart.item.renderers.giftcard.actions.edit" remove="true"/>
+        <referenceBlock name="checkout.cart.item.renderers.grouped.actions.edit" remove="true"/>
+        <referenceBlock name="checkout.cart.item.renderers.downloadable.actions.edit" remove="true"/>
+        <referenceBlock name="checkout.cart.item.renderers.bundle.actions.edit" remove="true"/>
+        <referenceContainer name="checkout.cart.totals.container" htmlTag="div" htmlClass="checkout-cart-totals-wrapper" />
+
+        <move element="cart.summary" destination="checkout.cart.container" after="checkout.cart.form" />
+        <move element="page.main.title.buttons" destination="page.main.title" after="-" />
+        <move element="checkout.cart.methods.bottom" destination="checkout.cart.totals.container" after="-" />
+
+    </body>
+</page>

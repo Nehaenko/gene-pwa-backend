@@ -1,0 +1,18 @@
+<?php
+/**
+ * Category Sub Title block
+ * @var \Magento\Catalog\Block\Category\View $block
+ */
+
+// @codingStandardsIgnoreLine
+$helper = $this->helper('Magento\Catalog\Helper\Output');
+?>
+<?php if ($subTitle = $block->getCurrentCategory()->getCategorySubTitle()) : ?>
+    <div class="sub-title">
+        <?= /* @noEscape */  $helper->categoryAttribute(
+            $block->getCurrentCategory(),
+            $subTitle,
+            'category_sub_title'
+        ) ?>
+    </div>
+<?php endif ?>

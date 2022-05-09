@@ -1,0 +1,198 @@
+//
+//  Cart Summary
+//  _____________________________________________
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //
+  //  Cart Summary
+  //  ---------------------------------------------
+
+  .cart-summary {
+    &:extend(.abs-adjustment-incl-excl-tax all);
+    .lib-css(background, @sidebar__background-color);
+    margin-bottom: @indent__m;
+
+    //
+    //  Cart Summary : Title
+    //  ---------------------------------------------
+
+    > .title {
+      display: block;
+      .lib-heading(h3);
+      margin: 0;
+      padding: @indent__base 0;
+    }
+
+    //
+    //  Cart Summary : Blocks
+    //  ---------------------------------------------
+
+    .block {
+      &:extend(.abs-discount-block all);
+      margin-bottom: 0;
+
+      //
+      //  Summary Title
+      //  ---------------------------------------------
+      > .title {
+        padding: @indent__base 0;
+
+        &:after {
+          top: 0;
+          padding: @indent__s 0;
+        }
+      }
+
+      //
+      //  Summary Blocks: Fields
+      //  ---------------------------------------------
+
+      .field {
+        margin: 0 0 @indent__s;
+
+        &.note {
+          .lib-font-size(@font-size__s);
+        }
+      }
+
+    }
+
+    //
+    //  Estimate Block : Legends
+    //  ---------------------------------------------
+
+    .fieldset.estimate {
+      > .legend,
+      > .legend + br {
+        &:extend(.abs-no-display all);
+      }
+    }
+
+  }
+
+  //
+  //  Discount Block & Gift Card Block
+  //  ---------------------------------------------
+
+  .block.discount,
+  .block.giftcard {
+
+    //
+    //  Custom Titles
+    //  ---------------------------------------------
+
+    .title {
+      padding: 0 0 @indent__s;
+      text-align: center;
+      text-decoration: underline;
+      border-top: none;
+
+      // Core Override
+      .column.main & {
+        strong {
+          .lib-font-size(@font-size__base);
+        }
+      }
+
+      &:after {
+        display: none;
+      }
+
+    }
+
+    //
+    //  Fieldset
+    //  ---------------------------------------------
+
+    .fieldset {
+      position: relative;
+      margin-bottom: @indent__s;
+    }
+
+    //
+    //  Field Labels
+    //  ---------------------------------------------
+
+    .label {
+      &:extend(.abs-visually-hidden all);
+    }
+
+    //
+    //  Actions Toolbar : Primary Action
+    //  ---------------------------------------------
+    .actions-toolbar > .primary {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+  }
+
+  //
+  //  Gift Card Block
+  //  ---------------------------------------------
+
+  .block.giftcard {
+
+    //
+    //  Gift Card Block : Check Balance
+    //  ---------------------------------------------
+    .action.check {
+      margin-top: 0;
+    }
+
+  }
+
+  //
+  //  Cart Tax Info
+  //  ---------------------------------------------
+
+  .cart-tax-info,
+  .cart .cart-tax-info {
+
+    + .cart-tax-total {
+      display: block;
+    }
+
+  }
+
+}
+
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  //  Discount Block & Gift Card Block
+  //  ---------------------------------------------
+
+  .block.discount,
+  .block.giftcard {
+
+    //
+    //  Actions Toolbar : Primary Action
+    //  ---------------------------------------------
+    .actions-toolbar {
+
+      .action {
+        margin: 0;
+      }
+
+      .secondary {
+        width: 100%;
+        float: none;
+      }
+
+    }
+
+  }
+
+}

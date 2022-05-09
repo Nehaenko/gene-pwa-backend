@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Customer Account
+* @author Oliver Mansfield oliver.mansfield@gene.co.uk
+*
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" label="Customer My Account (All Pages)" design_abstraction="custom">
+    <head>
+        <title>My Account</title>
+    </head>
+    <body>
+        <move element="page.main.title" destination="content" before="-" />
+    </body>
+</page>

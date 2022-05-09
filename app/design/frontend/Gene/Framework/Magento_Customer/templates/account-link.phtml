@@ -1,0 +1,24 @@
+<?php
+/**
+ * My Account Link (Header)
+ * @var \Magento\Customer\Block\Account\Link $block
+ */
+?>
+<?php if ($linkUrl = $block->getHref()) : ?>
+    <a href="<?= $block->escapeUrl($linkUrl) ?>"
+       title="<?= $block->escapeHtmlAttr(__('My Account')) ?>"
+       class="account-icon-link">
+        <svg viewBox="0 0 100 100" class="icon icon-account">
+            <use xlink:href="#icon-account"></use>
+        </svg>
+        <span class="visually-hidden"><?= $block->escapeHtml(__('My Account')) ?></span>
+    </a>
+<?php else : ?>
+    <button title="<?= $block->escapeHtmlAttr(__('Sign in to my account')) ?>"
+            class="account-icon-link js-trigger-login">
+        <svg viewBox="0 0 100 100" class="icon icon-account">
+            <use xlink:href="#icon-account"></use>
+        </svg>
+        <span class="visually-hidden"><?= $block->escapeHtml(__('Sign In')) ?></span>
+    </button>
+<?php endif; ?>

@@ -1,0 +1,92 @@
+//
+//  Sticky Header
+//  ---------------------------------------------
+
+//
+//  Common
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+  @panel-wrapper-height: 40px;
+
+  //
+  //  Sticky Header Enabled
+  //  ---------------------------------------------
+
+  .__sticky-header-enabled {
+
+    .page-header {
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
+      z-index: 15;
+
+      // Fix the height so the header moves up the exact right amount
+      .panel.wrapper {
+        height: @panel-wrapper-height;
+      }
+    }
+
+    .sticky-header-sentinal {
+      // DOM element for triggering the intersection observer event
+      // Height dictates the offset of the event
+      height: 2rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+  
+  //
+  //  Sticky Header Is Stuck
+  //  ---------------------------------------------
+  .__sticky-header-active {
+    .page-header {
+      .lib-css(box-shadow, @sticky-header__box-shadow);
+      .lib-css(transition, @sticky-header__box-shadow-transition);
+
+      transition: transform 0.2s ease;
+      transform: translateY(-@panel-wrapper-height);
+    }
+
+    .menu-sections,
+    .menu-sections__overlay {
+      margin-top: @panel-wrapper-height;
+    }
+  }
+
+  //
+  //  IE 10+ Browser Support
+  //  ---------------------------------------------
+
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+
+    //
+    //  Sticky position is not supported, fallback to fixed
+    //  ---------------------------------------------
+    .__sticky-header-enabled {
+
+      &.sticky-header {
+        .page-header {
+          position: fixed;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+//
+//  Desktop
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  .__sticky-header-active {
+    .menu-sections,
+    .menu-sections__overlay {
+      margin-top: 0;
+    }
+  }
+}

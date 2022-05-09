@@ -1,0 +1,49 @@
+//
+//  Shipping information
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //
+    //  Shipping Information
+    //  ---------------------------------------------
+
+    .opc-block-shipping-information {
+        padding: @checkout-sidebar-shipping-information__padding;
+
+        .shipping-information-title {
+            &:extend(.abs-checkout-title all);
+            display: flex;
+            justify-content: space-between;
+            border-bottom: @checkout-step-title__border;
+        }
+
+        .shipping-information-content {
+            line-height: @checkout-sidebar-shipping-information__line-height;
+        }
+
+        .ship-to,
+        .ship-via {
+            border-top: @checkout-header__border;
+            padding: @indent__base 0 0;
+            margin: 0 0 @indent__base;
+        }
+    }
+}
+
+
+  
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .opc-sidebar {
+        .lib-css(border-left, @checkout-sidebar__border--desktop);
+        .lib-css(padding, @checkout-sidebar_padding);
+    }
+}

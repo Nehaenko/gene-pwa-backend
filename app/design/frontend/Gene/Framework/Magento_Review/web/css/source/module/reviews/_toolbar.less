@@ -1,0 +1,34 @@
+//
+//  Magento Review - Toolbar
+//  ---------------------------------------------
+
+//
+//  Tablet
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  //  Review Toolbar
+  //  ---------------------------------------------
+  .review-toolbar {
+
+    //
+    //  Review Toolbar - All Items
+    //  ---------------------------------------------
+
+    & > * {
+      flex-grow: 0;
+      margin: @indent__s 0;
+    }
+
+    //
+    //  Pager Limiter Options
+    //  ---------------------------------------------
+
+    .limiter-options {
+      margin-left: @indent__s;
+    }
+
+  }
+}

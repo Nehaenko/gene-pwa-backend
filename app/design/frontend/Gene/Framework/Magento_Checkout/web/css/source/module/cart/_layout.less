@@ -1,0 +1,133 @@
+//
+//  Cart Layout
+//  _____________________________________________
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //
+  //  Page Title
+  //  ---------------------------------------------
+  .checkout-cart-index {
+
+    .page-title-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: @indent__l/2;
+      border-bottom: 1px solid @border-color__base;
+    }
+
+    .page-title {
+      margin: @indent__base 0 0;
+    }
+
+  }
+
+  //
+  //  Cross sell
+  //  ---------------------------------------------
+
+  .block.crosssell {
+    margin-top: 70px;
+  }
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  //  Page Title
+  //  ---------------------------------------------
+
+  .checkout-cart-index {
+
+    .page-title-wrapper {
+      margin-top: @indent__xl;
+    }
+
+  }
+
+  //
+  // Cart Container Layout
+  //  _____________________________________________
+
+  .cart-container {
+    display: flex;
+
+    //
+    // Custom Media Query - Max-Width Desktop
+    // Keep Mobile Cart Layout Between @screen__m & @screen__l
+    //
+    @media (max-width: @screen__l) {
+      display: block;
+    }
+
+    //
+    // Cart Form
+    //  _____________________________________________
+
+    .form-cart {
+      width: 70%;
+      padding-right: @indent__base;
+
+      //
+      // Custom Media Query - Max-Width Desktop
+      // Keep Mobile Cart Layout Between @screen__m & @screen__l
+      //
+      @media (max-width: @screen__l) {
+        width: 100%;
+        padding-right: 0;
+      }
+    }
+
+    //
+    // Cart Summary
+    //  _____________________________________________
+
+    .cart-summary {
+      position: relative;
+      width: 30%;
+      padding: 0 @indent__base @indent__base;
+
+      //
+      // Custom Media Query - Max-Width Desktop
+      // Keep Mobile Cart Layout Between @screen__m & @screen__l
+      //
+      @media (max-width: @screen__l) {
+        width: 100%;
+        padding: 0 0 @indent__base;
+
+        //
+        // Checkout buttons
+        //
+        .checkout-methods-items {
+          max-width: 300px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+        //
+        // Discount Block & Gift Card Block
+        //
+        .block.discount,
+        .block.giftcard {
+          max-width: 300px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+
+      }
+
+    }
+
+  }
+
+}

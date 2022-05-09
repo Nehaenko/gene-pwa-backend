@@ -1,0 +1,35 @@
+<?php
+/**
+ * USP Banner
+ * @var $block Gene\Framework\Block\Theme\SystemConfig
+ * @var $escaper \Magento\Framework\Escaper
+ */
+?>
+<?php if ($block->getConfigs()): ?>
+    <div class="usp-banner-wrapper">
+        <ul class="usp-banner">
+            <?php foreach ($block->getConfigs() as $config): ?>
+                <?php if ($configValue = $block->getConfig($config['config_path'])): ?>
+                    <li class="usp-banner__item">
+                        <div class="usp-banner__content">
+                            <?php if ($block->getConfig($config['config_link'])): ?>
+                            <a class="usp-banner__link"
+                               href="<?= $escaper->escapeUrl($block->getConfig($config['config_link'])); ?>">
+                                <?php endif; ?>
+                                <?php if ($block->getConfig($config['config_icon'])): ?>
+                                    <svg viewBox="0 0 25 25"
+                                         class="icon icon-<?= $escaper->escapeHtmlAttr($block->getConfig($config['config_icon'])) ?> usp-banner__icon">
+                                        <use xlink:href="#icon-<?= $escaper->escapeHtmlAttr($block->getConfig($config['config_icon'])) ?>"></use>
+                                    </svg>
+                                <?php endif; ?>
+                                <span><?= $escaper->escapeHtml($configValue, ['span']); ?></span>
+                                <?php if ($config['config_link']): ?>
+                            </a>
+                        <?php endif; ?>
+                        </div>
+                    </li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>

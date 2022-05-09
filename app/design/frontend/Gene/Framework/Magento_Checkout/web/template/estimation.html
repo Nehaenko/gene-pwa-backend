@@ -1,0 +1,9 @@
+<div class="opc-estimated-wrapper" data-bind="blockLoader: isLoading">
+    <div class="estimated-block">
+        <span class="estimated-label" data-bind="i18n: 'Estimated Total'"></span>
+        <span class="estimated-price" data-bind="text: getValue()"></span>
+    </div>
+    <button type="button" class="action action--link showcart" data-bind="click: showSidebar" data-toggle="opc-summary">
+        <span data-bind="i18n: 'Order Summary - '"></span> <span data-bind="text: getQuantity()"></span><span data-bind="i18n: ' Item(s)'"></span>
+    </button>
+</div>

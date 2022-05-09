@@ -1,0 +1,15 @@
+<?php
+/**
+ * Toggles
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+?>
+<div class="header__column header__toggles">
+    <button type="button" data-action="toggle-nav" class="action js-menu-toggle">
+        <svg viewBox="0 0 100 100" class="icon icon-menu">
+            <use xlink:href="#icon-menu"></use>
+        </svg>
+        <span><?= $block->escapeHtml(__('Menu')) ?></span>
+    </button>
+    <?= $block->getChildHtml(); ?>
+</div>

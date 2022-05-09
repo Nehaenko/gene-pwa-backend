@@ -1,0 +1,111 @@
+//
+//  Driver appearance styles
+//  ________________________________
+
+& when (@media-common = true) {
+  .pagebuilder-driver {
+
+    //
+    //  Content
+    //  _____________________________________________
+    &__content {
+      background-color: @pagebuilder-driver__background;
+      padding: @indent__base;
+      text-align: left;
+
+      h3 {
+        margin: @indent__s 0;
+        font-family: @font-family__base;
+      }
+    }
+
+    //
+    //  Image
+    //  _____________________________________________
+
+    &__image {
+      img {
+        width: 100%;
+      }
+    }
+
+    //
+    //  Actions
+    //  _____________________________________________
+    &__actions {
+      margin-top: @indent__base;
+
+      .secondary {
+        .lib-css(border-radius, @button__border-radius);
+        .lib-line-height(@button__line-height);
+      }
+
+    }
+
+    &__action {
+      .lib-button();
+      .lib-link-as-button();
+    }
+
+    //
+    //  Appearance Center
+    //  _____________________________________________
+    &--centered {
+      text-align: center;
+
+      //
+      //  Actions
+      //  _____________________________________________
+      .pagebuilder-driver__actions {
+        .lib-vendor-prefix-display(flex);
+        .lib-vendor-box-align(center);
+        justify-content: center;
+      }
+
+      //
+      // Image
+      //  _____________________________________________
+      img {
+        margin: 0 auto;
+      }
+
+    }
+
+    //
+    //  Appearance Right
+    //  _____________________________________________
+    &--right {
+      text-align: right;
+
+      //
+      // Image
+      //  _____________________________________________
+      img {
+        margin-left: auto;
+      }
+
+    }
+
+  }
+
+}
+//
+//  Tablet
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  .pagebuilder-driver {
+
+    //
+    //  Content
+    //  _____________________________________________
+    &__content {
+
+      h3 {
+        .lib-font-size(@h3__font-size);
+      }
+
+    }
+  }
+}

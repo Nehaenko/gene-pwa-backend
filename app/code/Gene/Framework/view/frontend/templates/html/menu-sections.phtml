@@ -1,0 +1,46 @@
+<?php
+/**
+ * Gene Sections Override
+ * Remove the loading of the tab js
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+$group = $block->getGroupName();
+$groupCss = $block->getGroupCss();
+?>
+<?php if ($detailedInfoGroup = $block->getGroupChildNames($group, 'getChildHtml')) : ?>
+    <button class="menu-sections__overlay js-menu-toggle"
+            data-role="closeBtn" type="button" tabindex="-1"><?= $block->escapeHtml(__('Close Menu')); ?></button>
+    <div class="sections menu-sections js-menu-container <?= $block->escapeHtmlAttr($groupCss) ?>">
+        <?php $layout = $block->getLayout(); ?>
+        <div class="section-items menu-sections__inner <?= $block->escapeHtmlAttr($groupCss) ?>-items">
+            <?php foreach ($detailedInfoGroup as $name) : ?>
+                <?php
+                $html = $layout->renderElement($name);
+                if (!trim($html) && ($block->getUseForce() != true)) {
+                    continue;
+                }
+                $alias = $layout->getElementAlias($name);
+                $label = $block->getChildData($alias, 'title');
+                ?>
+                <div class="menu-section">
+                    <header class="menu-section__header is-hidden-desktop">
+                        <?php if ($label) : ?>
+                            <h3 class="menu-section__header-title"><?= $block->escapeHtml($label); ?></h3>
+                        <?php endif; ?>
+                        <button class="menu-section__close-action js-menu-toggle" data-role="closeBtn" type="button">
+                            <span><?= $block->escapeHtml(__('Close')) ?></span>
+                            <svg viewBox="0 0 100 100" class="icon icon-close">
+                                <use xlink:href="#icon-close"></use>
+                            </svg>
+                        </button>
+                    </header>
+                    <div class="section-item-content <?= $block->escapeHtmlAttr($groupCss) ?>-item-content"
+                         id="<?= $block->escapeHtmlAttr($alias) ?>"
+                         data-role="content">
+                        <?= /* @noEscape */ $html ?>
+                    </div>
+                </div>
+            <?php endforeach;?>
+        </div>
+    </div>
+<?php endif; ?>

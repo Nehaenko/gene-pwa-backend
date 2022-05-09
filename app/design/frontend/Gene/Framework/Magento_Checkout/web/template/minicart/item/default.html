@@ -1,0 +1,149 @@
+<!--
+/**
+ * Minicart Item Details Template
+ */
+-->
+<li class="minicart-items__product"
+    data-role="product-item" role="group" data-bind="attr: {'aria-label': $t('product')}">
+    <article class="minicart-product">
+
+        <figure class="minicart-product__image">
+            <!-- ko if: product_has_url -->
+            <a data-bind="attr: {href: product_url, title: product_name}" tabindex="-1" class="product-item-photo">
+                <!-- ko foreach: $parent.getRegion('itemImage') -->
+                <!-- ko template: {name: getTemplate(), data: item.product_image} --><!-- /ko -->
+                <!-- /ko -->
+            </a>
+            <!-- /ko -->
+
+            <!-- ko ifnot: product_has_url -->
+                <span class="product-item-photo">
+                    <!-- ko foreach: $parent.getRegion('itemImage') -->
+                        <!-- ko template: {name: getTemplate(), data: item.product_image} --><!-- /ko -->
+                    <!-- /ko -->
+                </span>
+            <!-- /ko -->
+
+        </figure>
+
+
+        <div class="minicart-product__details">
+            <h5 class="minicart-product__name">
+                <!-- ko if: product_has_url -->
+                <a href="#" data-bind="attr: {href: product_url}, html: product_name"></a>
+                <!-- /ko -->
+                <!-- ko ifnot: product_has_url -->
+                    <!-- ko text: product_name --><!-- /ko -->
+                <!-- /ko -->
+            </h5>
+
+            <div class="minicart-product__pricing">
+                <!-- ko if: canApplyMsrp -->
+                    <div class="details-map">
+                        <span class="label" data-bind="i18n: 'Price'"></span>
+                        <span class="value" data-bind="i18n: 'See price before order confirmation.'"></span>
+                    </div>
+                <!-- /ko -->
+                <!-- ko ifnot: canApplyMsrp -->
+                        <!-- ko foreach: $parent.getRegion('priceSidebar') -->
+                        <!-- ko template: {name: getTemplate(), data: item.product_price, as: 'price'} --><!-- /ko -->
+                    <!-- /ko -->
+                <!-- /ko -->
+            </div>
+
+            <!-- ko if: options.length -->
+            <section class="minicart-product__options"
+                     data-mage-init='{"collapsible":{"openedState": "minicart-product__options--expanded"}}'>
+                <h6 data-role="title" class="minicart-product__options-expand">
+                    <!-- ko i18n: 'Product Options' --><!-- /ko -->
+                    <svg viewBox="0 0 100 100" class="icon icon-arrow">
+                        <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                </h6>
+                <dl class="minicart-product__options-list" data-role="content" style="display: none;">
+                    <!-- ko foreach: { data: options, as: 'option' } -->
+                        <div class="minicart-product__options-item">
+                            <dt class="label"><!-- ko text: option.label --><!-- /ko --></dt>
+                            <dd class="values">
+                                <!-- ko if: Array.isArray(option.value) -->
+                                <span data-bind="html: option.value.join('<br>')"></span>
+                                <!-- /ko -->
+                                <!-- ko ifnot: Array.isArray(option.value) -->
+                                <span data-bind="text: option.value"></span>
+                                <!-- /ko -->
+                            </dd>
+                        </div>
+                    <!-- /ko -->
+                </dl>
+            </section>
+            <!-- /ko -->
+
+            <div class="qty__wrapper" data-mage-init='{"GeneQtyControls": {}}'>
+                <div class="qty__container">
+
+                    <button type="button"
+                            class="qty__button js-qty-iterator"
+                            data-iterator-type="decrement"
+                            data-bind="attr: {
+                            'aria-label': $t('Reduce quantity by one')
+                            }">
+                        <svg width="20" height="20" viewBox="0 0 16 16" class="icon">
+                            <use xlink:href="#icon-remove"></use>
+                        </svg>
+                    </button>
+
+                    <label class="label qty__label sr-only"
+                           data-bind="attr: {for: 'cart-item-'+item_id+'-qty'}">
+                        <span data-bind="i18n: 'Qty'"></span>
+                    </label>
+
+                    <input data-bind="attr: {
+                            id: 'cart-item-'+item_id+'-qty',
+                            'data-cart-item': item_id,
+                            'data-item-qty': qty,
+                            'data-cart-item-id': product_sku
+                            }, value: qty"
+                           type="number"
+                           size="4"
+                           class="qty__input qty js-qty"
+                           aria-label="Quantity">
+
+                    <button type="button"
+                            class="qty__button js-qty-iterator"
+                            data-iterator-type="increment"
+                            data-bind="attr: {
+                            'aria-label': $t('Increase quantity by one')
+                            }">
+                        <svg width="20" height="20" viewBox="0 0 1151.25 1151.2499" class="icon">
+                            <use xlink:href="#icon-add"></use>
+                        </svg>
+                    </button>
+
+                </div>
+
+                <button data-bind="attr: {
+                            id: 'update-cart-item-'+item_id,
+                            'data-cart-item': item_id,
+                            title: $t('Update')
+                            }"
+                        class="qty__update update-cart-item js-update-qty">
+                    <span data-bind="i18n: 'Update'"></span>
+                </button>
+
+            </div>
+
+            <div class="product-action-wrapper minicart-product__actions">
+                <div class="product actions">
+                    <div class="secondary">
+                        <a href="#" data-bind="attr: {'data-cart-item': item_id, title: $t('Remove item')}"
+                           class="action delete">
+                            <span data-bind="i18n: 'Remove Item'"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </article>
+</li>

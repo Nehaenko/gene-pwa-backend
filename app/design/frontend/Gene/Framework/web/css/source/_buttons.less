@@ -1,0 +1,211 @@
+//
+//  Blank Override
+//  Add Primary Disabled Properties
+//  Add Secondary Button Lib
+//  _____________________________________________
+
+
+//
+//  Button secondary
+//  ---------------------------------------------
+
+.lib-button-secondary(
+  @_button-font-family: @button-secondary__font-family,
+  @_button-font-size: @button-secondary__font-size,
+  @_button-font-weight: @button-secondary__font-weight,
+  @_button-line-height: @button-secondary__line-height,
+  @_button-width: @button-secondary__width,
+  @_button-margin: @button-secondary__margin,
+  @_button-padding: @button-secondary__padding,
+  @_button-color: @button-secondary__color,
+  @_button-background: @button-secondary__background,
+  @_button-border: @button-secondary__border,
+  @_button-gradient-color-start: @button-secondary__gradient-color-start,
+  @_button-gradient-color-end: @button-secondary__gradient-color-end,
+  @_button-color-hover: @button-secondary__hover__color,
+  @_button-background-hover: @button-secondary__hover__background,
+  @_button-border-hover: @button-secondary__hover__border,
+  @_button-gradient-color-start-hover: @button-secondary__hover__gradient-color-start,
+  @_button-gradient-color-end-hover: @button-secondary__hover__gradient-color-end,
+  @_button-color-active: @button-secondary__active__color,
+  @_button-background-active: @button-secondary__active__background,
+  @_button-border-active: @button-secondary__active__border,
+  @_button-gradient-color-start-active: @button-secondary__active__gradient-color-start,
+  @_button-gradient-color-end-active: @button-secondary__active__gradient-color-end,
+  @_button-gradient: @button-secondary__gradient,
+  @_button-gradient-direction: @button-secondary__gradient-direction
+) {
+  .lib-button(
+    @_button-font-family: @_button-font-family,
+    @_button-font-size: @_button-font-size,
+    @_button-font-weight: @_button-font-weight,
+    @_button-line-height: @_button-line-height,
+    @_button-width: @_button-width,
+    @_button-margin: @_button-margin,
+    @_button-padding: @_button-padding,
+    @_button-color: @_button-color,
+    @_button-background: @_button-background,
+    @_button-border: @_button-border,
+    @_button-color-hover: @_button-color-hover,
+    @_button-background-hover: @_button-background-hover,
+    @_button-border-hover: @_button-border-hover,
+    @_button-color-active: @_button-color-active,
+    @_button-background-active: @_button-background-active,
+    @_button-border-active: @_button-border-active,
+    @_button-gradient: @_button-gradient,
+    @_button-gradient-direction: @_button-gradient-direction,
+    @_button-gradient-color-start: @_button-gradient-color-start,
+    @_button-gradient-color-end: @_button-gradient-color-end,
+    @_button-gradient-color-start-hover: @_button-gradient-color-start-hover,
+    @_button-gradient-color-end-hover: @_button-gradient-color-end-hover,
+    @_button-gradient-color-start-active: @_button-gradient-color-start-active,
+    @_button-gradient-color-end-active: @_button-gradient-color-end-active
+  );
+}
+
+//
+// SVG Icon Button
+// ---------------------------------------------
+
+.lib-button-svg-icon (
+  @_icon-color: @button-icon__color,
+  @_icon-color-hover: @button-icon__hover__font-color,
+  @_icon-color-active: @button-icon__active__font-color,
+  @_icon-color-disabled: @button__disabled__color,
+  @_icon-margin: @button-icon__margin,
+  @_icon-size: 22px
+) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .icon {
+    width: @_icon-size;
+    height: @_icon-size;
+    fill: @_icon-color;
+  }
+
+  .icon {
+    margin: 0 @_icon-margin 0 0;
+  }
+
+  span + .icon {
+    margin: 0 0 0 @_icon-margin;
+  }
+
+  &:focus,
+  &:active {
+    .icon {
+      fill: @_icon-color-active;
+    }
+  }
+
+  &:hover {
+    .icon {
+      fill: @_icon-color-hover;
+    }
+  }
+
+  &[disabled] {
+    .icon {
+      fill: @_icon-color-disabled;
+    }
+  }
+}
+
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //  Using buttons mixins
+  button,
+  a.action.primary {
+    .lib-css(border-radius, @button__border-radius);
+  }
+
+  //
+  //  Action Primary Links
+  //  _____________________________________________
+
+  a.action.primary {
+    .lib-link-as-button();
+  }
+
+  //
+  //  Action Primary
+  //  _____________________________________________
+
+  .action.primary {
+    .lib-button-primary();
+  }
+
+  //
+  //  Action Secondary
+  //  _____________________________________________
+  .action.secondary {
+    .lib-button-secondary();
+  }
+
+  //
+  // Disabled Primary
+  //  _____________________________________________
+
+  .action.primary.disabled,
+  .action.primary[disabled],
+  fieldset[disabled] .action.primary {
+    background-color: @button__disabled__background-color;
+    color: @button__disabled__color;
+  }
+
+  //
+  //  Close Button
+  //  _____________________________________________
+
+  .close-button {
+    .lib-button-reset();
+    .lib-css(color, @text__color);
+    border-radius: 50%;
+    width: @icon__width;
+    height: @icon__height;
+    position: absolute;
+    top: @indent__s;
+
+    span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    svg {
+      width: 13px;
+      height: 13px;
+      fill: @secondary__color;
+    }
+
+    &:hover {
+      transition: all 0.2s ease-in-out;
+
+      svg {
+        fill: @primary__color;
+      }
+    }
+  }
+
+  //
+  //  Text Link style Actions
+  //  _____________________________________________
+
+  .action--link {
+    .lib-button-as-link();
+    color: @secondary__color;
+
+    &:focus,
+    &:active {
+      color: @secondary__color;
+    }
+
+  }
+}

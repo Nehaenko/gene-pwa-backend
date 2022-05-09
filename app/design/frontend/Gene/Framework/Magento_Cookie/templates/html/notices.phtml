@@ -1,0 +1,52 @@
+<?php
+/**
+ * Gene Framework - Cookie Notices
+ * Changes from parent theme: changed texts, tweak html structure
+ * @var \Magento\Cookie\Block\Html\Notices $block
+ */
+
+// @codingStandardsIgnoreStart
+$helper = $this->helper(\Gene\Base\Helper\Data::class);
+$cookieHelper = $this->helper(\Magento\Cookie\Helper\Cookie::class);
+// @codingStandardsIgnoreEnd
+$cookieMessage = $helper->getConfig('gene_theme/cookie/message');
+?>
+<?php if ($cookieHelper->isCookieRestrictionModeEnabled()) : ?>
+    <div role="alertdialog"
+         tabindex="-1"
+         class="message global cookie cookie-banner"
+         id="notice-cookie-block"
+         style="display: none;">
+        <div role="document" class="wrapper cookie-banner__wrapper" tabindex="0">
+            <div class="cookie-banner__info">
+                <?php if ($cookieMessage) : ?>
+                    <p><?= /* @noEscape */$cookieMessage; ?></p>
+                <?php else : ?>
+                    <p><?= $block->escapeHtml(__('We use cookies to improve our site and your shopping experience.')); ?></p>
+                    <p><?= $block->escapeHtml(__('Find out more about the data we collect.')); ?></p>
+                <?php endif; ?>
+            </div>
+            <div class="cookie-banner__actions">
+                <button id="btn-cookie-allow" class="action allow primary">
+                    <span><?= $block->escapeHtml(__('Accept & Close')) ?></span>
+                </button>
+                <a href="<?= $block->escapeUrl($block->getPrivacyPolicyLink()); ?>" class="button-cookie-more">
+                    <span><?= $block->escapeHtml(__('Find Out More')); ?></span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <script type="text/x-magento-init">
+        {
+            "#notice-cookie-block": {
+                "cookieNotices": {
+                    "cookieAllowButtonSelector": "#btn-cookie-allow",
+                    "cookieName": "<?= /* @noEscape */ \Magento\Cookie\Helper\Cookie::IS_USER_ALLOWED_SAVE_COOKIE ?>",
+                    "cookieValue": <?= /* @noEscape */ $cookieHelper->getAcceptedSaveCookiesWebsiteIds() ?>,
+                    "cookieLifetime": <?= /* @noEscape */ $cookieHelper->getCookieRestrictionLifetime() ?>,
+                    "noCookiesUrl": "<?= $block->escapeJs($block->escapeUrl($block->getUrl('cookie/index/noCookies'))) ?>"
+                }
+            }
+        }
+    </script>
+<?php endif; ?>

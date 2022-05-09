@@ -1,0 +1,30 @@
+//
+//  Cart Totals
+//  _____________________________________________
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //
+  // Totals
+  // ---------------------------------------------
+
+  .cart-totals {
+    border-top: 1px solid @border-color__base;
+    padding-top: @indent__s;
+    &:extend(.abs-sidebar-totals all);
+
+    .table-wrapper {
+      margin-bottom: 0;
+      overflow: inherit;
+    }
+
+    .discount.coupon {
+      display: none;
+    }
+  }
+
+}

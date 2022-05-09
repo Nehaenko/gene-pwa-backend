@@ -1,0 +1,37 @@
+<!--
+/**
+ * Gene Driver Center
+ */
+-->
+
+<div class="pagebuilder-content-type pagebuilder-secondary-driver centered"
+     event="{ mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false">
+    <render args="getOptions().template" />
+    <article class="pagebuilder-secondary-driver__container"
+             attr="data.main.attributes"
+             css="data.main.css"
+             ko-style="data.main.style">
+        <scope args="getUploader().getUiComponent()">
+            <render />
+        </scope>
+        <div class="pagebuilder-secondary-driver__content"
+             css="data.inner.css"
+             attr="data.inner.attributes"
+             ko-style="data.inner.style">
+            <div class="pagebuilder-secondary-driver__image">
+                <img if="data.desktop_image.attributes().src"
+                        attr="data.desktop_image.attributes"
+                        class="preview-image"
+                        css="data.desktop_image.css"
+                        ko-style="data.desktop_image.style" />
+            </div>
+             <h3 if="data.heading.html"
+                 attr="data.heading.attributes"
+                 html="data.heading.html"></h3>
+            <button if="data.button.html"
+                    attr="data.button.attributes"
+                    type="button"
+                    html="data.button.html"></button>
+        </div>
+    </article>
+</div>

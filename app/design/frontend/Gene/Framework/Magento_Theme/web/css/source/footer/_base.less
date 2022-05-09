@@ -1,0 +1,278 @@
+//
+//  Footer Base
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //
+  //  Footer (Main)
+  //  _____________________________________________
+
+  .footer {
+    &.content {
+      border-top: 0;
+      margin: 0;
+
+      .lib-css(padding, @footer__padding);
+      .lib-css(color, @footer-content__text-color);
+    }
+  }
+
+
+  //
+  //  Footer Column
+  //  _____________________________________________
+
+  .footer-column {
+     .lib-css(padding, @footer-column__padding);
+
+     // Expanded State
+     .js-footer-accordion & {
+      &[aria-expanded="true"] {
+        .footer-column__content {
+          display: block;
+        }
+  
+        .footer-column__title .icon {
+          .lib-css(transform, rotate(-90deg));
+        }
+      }
+     }
+
+      //
+      //  Column Title
+      //  _____________________________________________
+
+      &__title {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .lib-css(padding, @footer-title__padding);
+        .lib-css(border-top, @footer-title__border-top);
+
+        h3 {
+          .lib-font-size(@footer-title__font-size);
+          margin: 0; // Remove default heading margin to fit design
+          font-family: @footer-title__font-family;
+          font-weight: @footer-title__font-weight;
+          text-transform: @footer-title__text-transform;
+          line-height: 2;
+        }
+      }
+
+      //
+      //  Content
+      //  _____________________________________________
+
+      &__content {
+        .lib-css(font-weight, @footer-content__font-weight);
+        .lib-font-size(@footer-content__font-size);
+        .lib-css(margin, @footer-content__margin);
+
+        a {
+          .lib-font-size(@footer-content__font-size);
+        }
+
+        .js-footer-accordion & {
+          display: none;
+        }
+      }
+
+
+      //
+      //  Social Networks
+      //  _____________________________________________
+
+      ul.social-networks {
+        display: flex;
+        flex-wrap: wrap;
+
+        margin: @social-network__margin;
+
+        li {
+          margin: 0 @indent__s 0 0;
+        }
+
+        a {
+          border: 2px solid @social-network-icon__color;
+          border-radius: 50%;
+          padding: @indent__xs;
+
+          &:hover {
+            border-color: @social-network-icon__color;
+            fill: @social-network-icon__hover__color;
+          }
+        }
+      }
+
+
+      //
+      //  Icon
+      //  _____________________________________________
+
+      .icon {
+        width: @social-network-icon__width;
+        height: @social-network-icon__height;
+        fill: @social-network-icon__color;
+        display: block;
+
+        &:focus,
+        &:active {
+          color: @social-network-icon__active__color;
+        }
+
+      }
+
+    //
+    //  Links
+    //  _____________________________________________
+
+    a {
+      display: inline-block;
+      color: @footer-links-color;
+      text-decoration: @footer-links__text-decoration;
+      line-height: @footer-links__line-height;
+
+      &:hover {
+        color: @footer-links__hover__color;
+      }
+
+      &:focus,
+      &:active {
+        color: @footer-links__active__color;
+      }
+    }
+
+    //
+    //  Last Column
+    //  _____________________________________________
+
+    &--additional {
+      .lib-css(border-bottom, @footer-links-separator__border);
+      margin: 0 0 @indent__base;
+      padding-bottom: @indent__base;
+
+      //
+      //  Column Title
+      //  _____________________________________________
+
+      .title {
+
+        .icon {
+          display: none;
+        }
+
+      }
+    }   
+  }
+}
+
+//
+//  Tablet
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+
+  //
+  //  Footer (Main)
+  //  _____________________________________________
+
+  .footer {
+
+    //
+    // Content
+    //
+    &.content {
+      display: flex;
+    }
+
+    //
+    //  Column Group
+    //  _____________________________________________
+
+    &-column-group {
+      flex-basis: 50%;
+      order: -1;
+    }
+
+  }
+
+  //
+  //  Footer Column
+  //  _____________________________________________
+
+  .footer-column {
+
+    //
+    //  Last Column
+    //  _____________________________________________
+
+    &--additional {
+      flex-basis: 50%;
+      border-top: 0;
+      padding-top: 0;
+      margin: 0;
+    }
+
+  }
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+
+  //
+  //  Footer Column Group
+  //  _____________________________________________
+
+  .footer-column-group {
+    display: flex;
+    flex-basis: 75%;
+  }
+
+  //
+  //  Footer Column
+  //  _____________________________________________
+
+  .footer-column {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+
+    &__content {
+      display: block!important;
+    }
+
+    //
+    //  Column Title
+    //  _____________________________________________
+
+    &__title {
+
+      .icon {
+        display: none;
+      }
+
+    }
+
+    //
+    //  Last Column
+    //  _____________________________________________
+
+    &--additional {
+      flex-basis: 25%;
+    }
+  }
+
+}

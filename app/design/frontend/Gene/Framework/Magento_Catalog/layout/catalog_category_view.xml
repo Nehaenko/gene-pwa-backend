@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Catalog Category View
+
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <!--
+       /**
+        * Category Additional
+        */
+       -->
+        <referenceContainer name="main">
+            <block class="Magento\Catalog\Block\Category\View" name="category.additional" template="Magento_Catalog::category/additional.phtml"/>
+        </referenceContainer>
+
+        <!--
+       /**
+        * Category Title
+        */
+       -->
+
+        <move element="category.image" destination="category.title.container"/>
+
+        <!--
+       /**
+        * Category Subtitle
+        */
+       -->
+        <block class="Magento\Catalog\Block\Category\View" name="category.sub_title" template="Magento_Catalog::category/sub_title.phtml"/>
+
+        <move element="category.sub_title" destination="page.main.title"/>
+    </body>
+</page>

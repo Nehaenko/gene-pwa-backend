@@ -1,0 +1,122 @@
+//
+//  Billing Step
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //
+  //  Payment Method Block
+  //  _____________________________________________
+
+  .checkout-payment-method {
+    .billing-address-same-as-shipping-block {
+      align-items: flex-start;
+    }
+  }
+
+  //
+  //  Braintree Form 
+  //  _____________________________________________
+
+  .payment-method-braintree {
+    .hosted-control {
+      width: 100%;
+
+      &.hosted-date:first-of-type {
+        margin-right: 11px;
+      }
+    }
+    
+    .hosted-control.hosted-cid {
+      width: 105px;
+    }
+
+    .hosted-error {
+      .lib-font-size(16);
+    }
+
+    .cvv .field-tooltip {
+      left: 120px;
+    }
+  }
+
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+ 
+    .checkout-payment-method {
+      .step-title,
+      .step-title--underlined {
+        margin-top: @indent__m;
+        padding-bottom: 0;
+        border: none;
+      }
+  
+      .payment-method-title {
+        .lib-css(padding-top, @checkout-payment-method-title-mobile__padding-top-bottom);
+        .lib-css(padding-bottom, @checkout-payment-method-title-mobile__padding-top-bottom);
+      }
+    }
+
+}
+  
+//
+//  Tablet
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+    .opc-payment {
+        .lib-css(border-top, @checkout-payment-methods__border-top);
+    }
+
+    // Override core where top padding is hard coded zero
+    .checkout-payment-method {
+        .payment-method-content {
+            padding-top: @indent__base;
+        }
+    }
+}
+
+  
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .checkout-container .checkout-payment-method {
+        .checkout-billing-address {
+            .lib-css(padding-left, @checkout-payment-method-content__padding-left__desktop);
+        }
+    }
+
+    .checkout-payment-method {
+      .payment-method-content {
+          padding-left: 0;
+      }
+  }
+
+
+  //
+  //  Braintree Form 
+  //  _____________________________________________
+
+  .payment-method-braintree {
+    // Fix position of card icons
+    .payment-method-content .fieldset > .field.type .control {
+      margin-left: 0;
+    }
+
+    .cvv .field-tooltip {
+      left: 120px;
+    }
+  }
+}

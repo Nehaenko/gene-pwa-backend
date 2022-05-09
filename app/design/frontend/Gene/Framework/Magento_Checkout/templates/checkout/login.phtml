@@ -1,0 +1,16 @@
+<?php
+/**
+ * If not logged in then show sign in link
+ * @var \Gene\Framework\Block\Theme\SystemConfig $block
+ */
+?>
+<?php if (!$linkUrl = $block->getHref()) : ?>
+    <div class="account-signin">
+        <?= $block->escapeHtml(__('Already have an account?')) ?>
+        <button title="<?= $block->escapeHtmlAttr(__('Sign in to my account')) ?>"
+                class="account-signin__link"
+                data-trigger="ajaxLogin">
+            <?= $block->escapeHtml(__('Sign in')) ?>
+        </button>
+    </div>
+<?php endif; ?>

@@ -1,0 +1,25 @@
+<?php
+/**
+ * Customer log in
+ * @var \Magento\Customer\Block\Form\Login\Info $block
+ */
+?>
+<?php if ($block->getRegistration()->isAllowed()) : ?>
+    <section class="block block-new-customer">
+
+        <h3 id="block-new-customer-heading" role="heading" aria-level="2">
+            <?= $block->escapeHtml(__('New Customers')) ?>
+        </h3>
+
+        <div class="block-content" aria-labelledby="block-new-customer-heading">
+            <p>
+                <?= $block->escapeHtml(__('Creating an account has many benefits: check out faster, keep more than one address, track orders and more.')) ?>
+            </p>
+
+            <a href="<?= $block->escapeUrl($block->getCreateAccountUrl()) ?>" class="action create primary button-standard">
+                <?= $block->escapeHtml(__('Create an Account')) ?>
+            </a>
+
+        </div>
+    </section>
+<?php endif; ?>

@@ -1,0 +1,279 @@
+//
+//  Header Main
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+  //
+  //  Logo
+  //  _____________________________________________
+
+  .logo {
+    float: none;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  //
+  //  Header
+  //  _____________________________________________
+
+  .header {
+
+    //
+    //  Header Content
+    //  _____________________________________________
+
+    &.content {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    //
+    //  Header Columns
+    //  _____________________________________________
+
+    &__column {
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: @header__columns;
+      display: flex;
+      align-items: center;
+      max-width: @header__columns;
+
+      //
+      //  Primary Column
+      //  _____________________________________________
+
+      &--primary {
+
+      }
+
+      //
+      //  Secondary Column
+      //  _____________________________________________
+
+      &--secondary {
+        order: 3;
+        flex-basis: 100%;
+        max-width: 100%;
+        margin-top: @indent__s;
+      }
+
+      //
+      //  Tertiary Column
+      //  _____________________________________________
+
+
+      &--tertiary {
+        .lib-vendor-prefix-justify-content(end, flex-end);
+        flex-basis: auto;
+        order: 2;
+        margin-left: auto;
+      }
+
+    }
+
+    //
+    //  Header Toggles
+    //  _____________________________________________
+
+    &__toggles {
+
+      button {
+        background-color: transparent;
+        padding: 0;
+        margin-right: @header-icons-mobile__spacing;
+
+        span {
+          display: block;
+          .lib-visually-hidden();
+        }
+
+        .icon {
+          width: @header-icons-mobile__width;
+          height: @header-icons-mobile__height;
+          fill: @header-icons__color;
+          display: block;
+        }
+      }
+    }
+  }
+
+  //
+  //  Header Main Container
+  //  _____________________________________________
+
+  .page-header {
+    margin-bottom: 0;
+
+    &__main {
+      background-color: @header__background-color;
+      position: relative;
+      z-index: 12;
+    }
+
+  }
+
+  //
+  //  Header Links
+  //  _____________________________________________
+
+  .header.links {
+    margin-bottom: 0;
+    padding-left: 0;
+  }
+
+  //
+  //  Account Link
+  //  _____________________________________________
+
+  .account-icon-link,
+  .header-cart-icon {
+    .lib-button-as-link();
+    color: @header-icons__color;
+    text-decoration: none;
+
+    //
+    //  States
+    //  _____________________________________________
+
+    &:hover,
+    &:focus {
+      text-decoration: none;
+
+      //
+      //  Account Icon
+      //  _____________________________________________
+
+      .icon-account {
+        fill: @primary__color;
+      }
+
+    }
+
+    &:hover {
+      color: @header-icons__hover__color;
+    }
+
+    &:focus {
+      color: @header-icons__focus__color;
+    }
+  }
+
+  //
+  //  Account & Phone Icons
+  //  _____________________________________________
+
+  .icon-account,
+  .icon-phone {
+    width: @header-icons-mobile__width;
+    height: @header-icons-mobile__height;
+    fill: @header-icons__color;
+    display: block;
+  }
+
+}
+
+
+//
+//  Max-Width Tablet - This is needed to override core
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+
+  //
+  //  Header Content
+  //  _____________________________________________
+  .header {
+
+    &.content {
+      padding: @header--mobile__padding;
+    }
+
+  }
+
+}
+
+
+
+//
+//  Tablet
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  //  Logo
+  //  _____________________________________________
+
+  .logo {
+    margin: 0;
+
+    img {
+      max-height: 100%;
+      max-width: 100%;
+    }
+  }
+
+  //
+  //  Header
+  //  _____________________________________________
+
+  .header {
+
+    //
+    //  Header Content
+    //  _____________________________________________
+
+    &.content {
+      padding: @header__padding;
+    }
+
+  }
+
+  //
+  //  Account & Phone Icons
+  //  _____________________________________________
+
+  .icon-account,
+  .icon-phone {
+    width: @header-icons__width;
+    height: @header-icons__height;
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+  //
+  //  Header
+  //  _____________________________________________
+
+  .header {
+
+    //
+    //  Primary Column
+    //  _____________________________________________
+
+    &__column--secondary {
+      order: 1;
+      flex-basis: @header__columns;
+      margin-top: 0;
+    }
+
+    //
+    //  Header Toggles
+    //  _____________________________________________
+
+    &__toggles {
+      display: none;
+    }
+
+  }
+
+}

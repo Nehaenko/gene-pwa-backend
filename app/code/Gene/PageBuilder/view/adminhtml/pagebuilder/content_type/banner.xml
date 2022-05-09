@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Overridden for compliant HTML & Add Image and Mobile Image
+ * Preview Template Overridden for Collage-Right Only
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
+    <type name="banner"
+          label="Banner"
+          component="Magento_PageBuilder/js/content-type"
+          preview_component="Magento_PageBuilder/js/content-type/banner/preview"
+          form="pagebuilder_banner_form"
+          menu_section="media"
+          icon="icon-pagebuilder-banner"
+          sortOrder="30"
+          translate="label">
+        <children default_policy="deny"/>
+        <appearances>
+            <appearance name="collage-left"
+                        preview_template="Magento_PageBuilder/content-type/banner/collage-left/preview"
+                        master_template="Gene_PageBuilder/content-type/banner/collage-left/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="desktop_image">
+                        <style name="border" source="border_style" converter="Magento_PageBuilder/js/converter/style/border-style"/>
+                        <style name="border_color" source="border_color"/>
+                        <style name="border_width" source="border_width" converter="Magento_PageBuilder/js/converter/style/border-width"/>
+                        <style name="border_radius" source="border_radius" converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+                        <static_style source="max-width" value="100%"/>
+                        <static_style source="height" value="auto"/>
+                        <attribute name="image" source="src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                        <attribute name="alt" source="alt"/>
+                        <attribute name="title_attribute" source="title"/>
+                    </element>
+                    <element name="lazy_image">
+                        <attribute name="image" source="data-src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                        <attribute name="alt" source="alt"/>
+                        <attribute name="title_attribute" source="title"/>
+                    </element>
+                    <element name="mobile_image">
+                        <attribute name="mobile_image" source="src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                    </element>
+                    <element name="mobile_lazy_image">
+                        <attribute name="mobile_image" source="srcset" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                    </element>
+                </elements>
+                <converters>
+                    <converter component="Magento_PageBuilder/js/mass-converter/empty-mobile-image" name="empty_mobile_image">
+                        <config>
+                            <item name="desktop_image_variable" value="image"/>
+                            <item name="mobile_image_variable" value="mobile_image"/>
+                        </config>
+                    </converter>
+                </converters>
+            </appearance>
+            <appearance name="collage-centered"
+                        preview_template="Magento_PageBuilder/content-type/banner/collage-centered/preview"
+                        master_template="Gene_PageBuilder/content-type/banner/collage-centered/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="desktop_image">
+                        <style name="border" source="border_style" converter="Magento_PageBuilder/js/converter/style/border-style"/>
+                        <style name="border_color" source="border_color"/>
+                        <style name="border_width" source="border_width" converter="Magento_PageBuilder/js/converter/style/border-width"/>
+                        <style name="border_radius" source="border_radius" converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+                        <static_style source="max-width" value="100%"/>
+                        <static_style source="height" value="auto"/>
+                        <attribute name="image" source="src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                        <attribute name="alt" source="alt"/>
+                        <attribute name="title_attribute" source="title"/>
+                    </element>
+                    <element name="lazy_image">
+                        <attribute name="image" source="data-src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                        <attribute name="alt" source="alt"/>
+                        <attribute name="title_attribute" source="title"/>
+                    </element>
+                    <element name="mobile_image">
+                        <attribute name="mobile_image" source="src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                    </element>
+                    <element name="mobile_lazy_image">
+                        <attribute name="mobile_image" source="srcset" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                    </element>
+                </elements>
+                <converters>
+                    <converter component="Magento_PageBuilder/js/mass-converter/empty-mobile-image" name="empty_mobile_image">
+                        <config>
+                            <item name="desktop_image_variable" value="image"/>
+                            <item name="mobile_image_variable" value="mobile_image"/>
+                        </config>
+                    </converter>
+                </converters>
+            </appearance>
+            <appearance name="collage-right"
+                        preview_template="Gene_PageBuilder/content-type/banner/collage-right/preview"
+                        master_template="Gene_PageBuilder/content-type/banner/collage-right/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="desktop_image">
+                        <style name="border" source="border_style" converter="Magento_PageBuilder/js/converter/style/border-style"/>
+                        <style name="border_color" source="border_color"/>
+                        <style name="border_width" source="border_width" converter="Magento_PageBuilder/js/converter/style/border-width"/>
+                        <style name="border_radius" source="border_radius" converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+                        <static_style source="max-width" value="100%"/>
+                        <static_style source="height" value="auto"/>
+                        <attribute name="image" source="src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                        <attribute name="alt" source="alt"/>
+                        <attribute name="title_attribute" source="title"/>
+                    </element>
+                    <element name="lazy_image">
+                        <attribute name="image" source="data-src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                        <attribute name="alt" source="alt"/>
+                        <attribute name="title_attribute" source="title"/>
+                    </element>
+                    <element name="mobile_image">
+                        <attribute name="mobile_image" source="src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                    </element>
+                    <element name="mobile_lazy_image">
+                        <attribute name="mobile_image" source="srcset" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                    </element>
+                </elements>
+                <converters>
+                    <converter component="Magento_PageBuilder/js/mass-converter/empty-mobile-image" name="empty_mobile_image">
+                        <config>
+                            <item name="desktop_image_variable" value="image"/>
+                            <item name="mobile_image_variable" value="mobile_image"/>
+                        </config>
+                    </converter>
+                </converters>
+            </appearance>
+            <appearance default="true"
+                        name="poster"
+                        preview_template="Magento_PageBuilder/content-type/banner/poster/preview"
+                        master_template="Gene_PageBuilder/content-type/banner/poster/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="desktop_image">
+                        <style name="border" source="border_style" converter="Magento_PageBuilder/js/converter/style/border-style"/>
+                        <style name="border_color" source="border_color"/>
+                        <style name="border_width" source="border_width" converter="Magento_PageBuilder/js/converter/style/border-width"/>
+                        <style name="border_radius" source="border_radius" converter="Magento_PageBuilder/js/converter/style/remove-px"/>
+                        <static_style source="max-width" value="100%"/>
+                        <static_style source="height" value="auto"/>
+                        <attribute name="image" source="src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                        <attribute name="alt" source="alt"/>
+                        <attribute name="title_attribute" source="title"/>
+                    </element>
+                    <element name="lazy_image">
+                        <attribute name="image" source="data-src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                        <attribute name="alt" source="alt"/>
+                        <attribute name="title_attribute" source="title"/>
+                    </element>
+                    <element name="mobile_image">
+                        <attribute name="mobile_image" source="src" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                    </element>
+                    <element name="mobile_lazy_image">
+                        <attribute name="mobile_image" source="srcset" converter="Magento_PageBuilder/js/converter/attribute/src" preview_converter="Magento_PageBuilder/js/converter/attribute/preview/src"/>
+                    </element>
+                </elements>
+                <converters>
+                    <converter component="Magento_PageBuilder/js/mass-converter/empty-mobile-image" name="empty_mobile_image">
+                        <config>
+                            <item name="desktop_image_variable" value="image"/>
+                            <item name="mobile_image_variable" value="mobile_image"/>
+                        </config>
+                    </converter>
+                </converters>
+            </appearance>
+        </appearances>
+    </type>
+</config>

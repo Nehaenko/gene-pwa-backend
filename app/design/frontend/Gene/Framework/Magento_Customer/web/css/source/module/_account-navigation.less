@@ -1,0 +1,157 @@
+//
+//  Account Navigation
+//  ---------------------------------------------
+
+
+& when (@media-common = true) {
+    //
+    //  Account navigation
+    //  ---------------------------------------------
+
+    .account-nav {
+
+        .title {
+            .lib-button-reset();
+            -moz-box-sizing: border-box; // Remove content-box to stop overflow
+            width: 100%;
+
+            .lib-css(padding, @account-nav-item-padding);
+            margin: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid @account-nav-item-border-color;
+            border-radius: 0;
+
+            .lib-css(color, @account-nav-color);
+            text-align: center;
+
+            strong {
+                margin: 0;
+            }
+
+            .icon {
+                width: 12px;
+                margin-left: @indent__s;
+                transition: transform 0.2s ease-in-out;
+            }
+
+            &:hover {
+                border: 1px solid @account-nav-item-border-color;
+            }
+
+            &.active {
+                .icon {
+                    transform: rotate(-90deg);
+                }
+            }
+        }
+
+        .content {
+            .lib-css(background, @account-nav-background);
+
+            display: none;
+
+            &.active {
+                // Use of important to override inline style which stops nav flashing on page load
+                display: block!important;
+            }
+        }
+
+        .item {
+            background-color: @account-nav-item-background;
+            border-top: 1px solid @account-nav-item-border-color;
+            border-left: 1px solid @account-nav-item-border-color;
+            border-right: 1px solid @account-nav-item-border-color;
+
+            .lib-css(font-weight, @account-nav-item-font-weight);
+
+            &:last-of-type {
+                border-bottom: 1px solid @account-nav-item-border-color;
+            }
+
+            &:first-child {
+                margin-top: 0;
+                border-top: none;
+            }
+
+            a,
+            > strong {
+                display: block;
+
+                .lib-css(color, @account-nav-color);
+                .lib-css(padding, @account-nav-item-padding);
+            }
+
+            a {
+                text-decoration: none;
+                color: @account-nav-item-color;
+
+                &:hover {
+                    .lib-css(background, @account-nav-item-hover);
+                }
+            }
+
+            &.current {
+                a,
+                strong {
+                    .lib-css(border-color, @account-nav-current-border-color);
+                    .lib-css(color, @account-nav-current-color);
+                    .lib-css(font-weight, @account-nav-current-font-weight);
+                    .lib-css(background-color, @account-nav-current-background);
+                }
+
+                a {
+                    .lib-css(border-color, @account-nav-current-border-color);
+                }
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    //
+    //  Account navigation
+    //  ---------------------------------------------
+
+    .account-nav {
+        .title {
+            .lib-visually-hidden();
+        }
+
+        .content {
+            display: block!important;
+        }
+
+        .item,
+        .item:last-of-type {
+            border: none;
+
+            & > strong,
+            & > a {
+                padding: 0;
+                .lib-css(margin-bottom, @account-nav-item__desktop__margin);
+                .lib-css(font-size, @account-nav-item__desktop__font-size);
+
+                &:hover {
+                    background-color: transparent;
+                    text-decoration: underline;
+                }
+            }
+
+            &.current {
+                a,
+                strong {
+                    background-color: transparent;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

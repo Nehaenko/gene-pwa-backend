@@ -1,0 +1,37 @@
+<?php
+/**
+ * My Account Mobile Links
+ * @var \Magento\Customer\Block\Account\Link $block
+ */
+?>
+<ul class="main-nav__mobile-links is-hidden-desktop">
+    <li class="main-nav__mobile-links-item">
+        <?php if ($linkUrl = $block->getHref()) : ?>
+            <a href="<?= $block->escapeUrl($linkUrl) ?>"
+               title="<?= $block->escapeHtml(__('My Account')) ?>"
+               class="main-nav__mobile-links-action">
+                <svg viewBox="0 0 100 100" class="icon icon-account">
+                    <use xlink:href="#icon-account"></use>
+                </svg>
+                <span><?= $block->escapeHtml(__('My Account')) ?></span>
+            </a>
+        <?php else : ?>
+            <button title="<?= $block->escapeHtml(__('Login to my account')) ?>"
+                    class="main-nav__mobile-links-action"
+                    data-trigger="ajaxLogin">
+                <svg viewBox="0 0 100 100" class="icon">
+                    <use xlink:href="#icon-account"></use>
+                </svg>
+                <span><?= $block->escapeHtml(__('Sign In / Register')) ?></span>
+            </button>
+        <?php endif; ?>
+    </li>
+    <li class="main-nav__mobile-links-item">
+        <a href="<?= $block->escapeUrl($block->getUrl('contact'));?>" class="main-nav__mobile-links-action">
+            <svg viewBox="0 0 100 100" class="icon">
+                <use xlink:href="#icon-phone"></use>
+            </svg>
+            <span><?= $block->escapeHtml(__('Contact')) ?></span>
+        </a>
+    </li>
+</ul>

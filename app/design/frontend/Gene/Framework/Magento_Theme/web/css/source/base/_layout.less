@@ -1,0 +1,77 @@
+//
+//  Layout
+//  ---------------------------------------------
+
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+  
+  //
+  //  Body
+  //  _____________________________________________
+
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+
+  //
+  //  Page Wrapper
+  //  _____________________________________________
+
+  .page-wrapper {
+    min-height: 0; // Magento fix as its causing a massive white space on some devices
+  }
+
+  //
+  //  Wrapper
+  //  _____________________________________________
+
+  .wrapper {
+    padding-left: @layout__width-xs-indent;
+    padding-right: @layout__width-xs-indent;
+  }
+}
+
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  //  Wrapper
+  //  _____________________________________________
+
+  .wrapper {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: @layout__max-width;
+    padding-left: @layout-indent__width;
+    padding-right: @layout-indent__width;
+    width: auto;
+  }
+
+  //
+  //  Skip
+  //  _____________________________________________
+
+  .action.skip {
+
+    &:focus {
+      background-color: @action-skip__background;
+      padding: @action-skip__padding;
+      color: @action-skip__color;
+      line-height: @header-panel__line-height;
+      text-decoration: none;
+    }
+
+  }
+
+}
+

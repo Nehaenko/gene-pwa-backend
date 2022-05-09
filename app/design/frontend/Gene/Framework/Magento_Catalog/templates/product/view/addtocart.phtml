@@ -1,0 +1,63 @@
+<?php
+/**
+ * Gene - Product Add To Cart
+ * @var \Magento\Catalog\Block\Product\View $block
+ */
+$_product = $block->getProduct();
+$buttonTitle = __('Add to Cart');
+?>
+<?php if ($_product->isSaleable()) : ?>
+    <div class="box-tocart">
+        <div class="fieldset">
+            <?php if ($block->shouldRenderQuantity()) : ?>
+                <div class="qty__wrapper" data-mage-init='{"GeneQtyControls": {}}'>
+                    <div class="qty__container">
+                        <button type="button"
+                                class="qty__button js-qty-iterator"
+                                aria-label="<?= $block->escapeHtmlAttr(__('Reduce quantity by one')); ?>"
+                                data-iterator-type="decrement">
+                            <svg width="20" height="20" class="icon">
+                                <use xlink:href="#icon-remove"></use>
+                            </svg>
+                        </button>
+                        <label class="label qty__label sr-only"
+                               for="qty"><span><?= $block->escapeHtml(__('Qty')) ?></span>
+                        </label>
+                        <input type="number"
+                               name="qty"
+                               id="qty"
+                               value="<?= $block->escapeHtmlAttr($block->getProductDefaultQty() * 1) ?>"
+                               title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                               class="qty__input qty"
+                               data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                        />
+                        <button type="button"
+                                class="qty__button js-qty-iterator"
+                                aria-label="<?= $block->escapeHtmlAttr(__('Increase quantity by one')); ?>"
+                                data-iterator-type="increment">
+                            <svg width="20" height="20" class="icon">
+                                <use xlink:href="#icon-add"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div class="actions">
+                <button type="submit"
+                        title="<?=$block->escapeHtmlAttr($buttonTitle) ?>"
+                        class="action primary tocart"
+                        id="product-addtocart-button">
+                    <span><?= $block->escapeHtml($buttonTitle) ?></span>
+                </button>
+                <?= $block->getChildHtml('', true) ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>

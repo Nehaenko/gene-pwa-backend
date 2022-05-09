@@ -1,0 +1,39 @@
+<!--
+/**
+ * Gene Customer Quote - master template
+ */
+-->
+
+<div class="pagebuilder-quote"
+     css="data.main.css"
+     attr="data.main.attributes">
+    <div class="pagebuilder-quote__wrapper">
+        <div if="data.desktop_image.attributes().src"
+             class="pagebuilder-quote__image">
+            <picture>
+                <source if="data.mobile_image.attributes().srcset"
+                        attr="data.mobile_image.attributes"
+                        media="(max-width: 768px)" />
+                <img class="gene-lazy"
+                     attr="data.desktop_image.attributes"
+                     css="data.desktop_image.css"
+                     ko-style="data.desktop_image.style" />
+            </picture>
+        </div>
+        <div class="pagebuilder-quote__content">
+            <blockquote if="data.quote.html"
+                        class="pagebuilder-quote__text"
+                        attr="data.quote.attributes"
+                        ko-style="data.quote.style"
+                        html="data.quote.html">
+            </blockquote>
+            <h3 if="data.author.html"
+                class="pagebuilder-quote__author"
+                css="data.author.css"
+                attr="data.author.attributes"
+                ko-style="data.author.style"
+                html="data.author.html">
+            </h3>
+        </div>
+    </div>
+</div>

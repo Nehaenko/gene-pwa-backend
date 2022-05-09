@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Add SVG icon support.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_PageBuilder:etc/content_type.xsd">
+    <type name="button-item"
+          label="Button"
+          component="Magento_PageBuilder/js/content-type-collection"
+          preview_component="Magento_PageBuilder/js/content-type/button-item/preview"
+          master_component="Magento_PageBuilder/js/content-type/master"
+          form="pagebuilder_button_item_form"
+          menu_section="elements"
+          icon="icon-pagebuilder-button"
+          translate="label">
+        <appearances>
+            <appearance default="true"
+                        name="default"
+                        preview_template="Magento_PageBuilder/content-type/button-item/default/preview"
+                        master_template="Gene_PageBuilder/content-type/button-item/default/master"
+                        reader="Magento_PageBuilder/js/master-format/read/configurable">
+                <elements>
+                    <element name="main">
+                        <attribute name="button_size" source="icon"/>
+                    </element>
+                    <element name="svg">
+                        <attribute name="icon_type" source="xlink:href"/>
+                    </element>
+                </elements>
+            </appearance>
+        </appearances>
+    </type>
+</config>

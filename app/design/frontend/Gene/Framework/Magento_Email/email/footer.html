@@ -1,0 +1,35 @@
+<!--
+/**
+ * Gene Theme - Email footer overrides
+ * added social networks, store url & store pages
+
+ */
+-->
+<!--@subject {{trans "Footer"}} @-->
+<!--@vars {
+"var store.getFrontendName()":"Store Name"
+} @-->
+
+                    <!-- End Content -->
+                    </td>
+                </tr>
+                <tr>
+                    <td class="footer">
+                        <p class="shop-now"><a href="{{store url=""}}" class="button-shop-now">{{trans "Shop Now"}}</a></p>
+
+                        {{block class='Gene\\Framework\\Block\\Social' area='frontend' template='Gene_Framework::email/social-networks.phtml'}}
+
+                        <p class="store-url"><a href="{{store url=""}}" class="store-link">{{store url=""}}</a></p>
+                        <p class="store-pages">
+                            <a href="{{store url=""}}">{{trans "Customer Care"}}</a>
+                            | <a href="{{store url=""}}">{{trans "Privacy Policy"}}</a> |
+                            <a href="{{store url=""}}">{{trans "Terms & Conditions"}}</a>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<!-- End wrapper table -->
+</body>

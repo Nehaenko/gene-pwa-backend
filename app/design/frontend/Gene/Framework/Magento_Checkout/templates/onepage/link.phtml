@@ -1,0 +1,25 @@
+<?php
+/**
+ * Checkout Button - Add SVG
+ * @var \Magento\Checkout\Block\Onepage\Link $block
+ */
+?>
+<?php if ($block->isPossibleOnepageCheckout()) :?>
+    <button type="button"
+            data-role="proceed-to-checkout"
+            title="<?= $block->escapeHtmlAttr(__('Proceed to Checkout')) ?>"
+            data-mage-init='{
+                "Magento_Checkout/js/proceed-to-checkout":{
+                    "checkoutUrl":"<?= $block->escapeJs($block->escapeUrl($block->getCheckoutUrl())) ?>"
+                }
+            }'
+            class="action primary checkout<?= ($block->isDisabled()) ? ' disabled' : '' ?>"
+        <?php if ($block->isDisabled()) :?>
+            disabled="disabled"
+        <?php endif; ?>>
+        <svg width="14" height="18" viewBox="0 0 14 18" class="icon icon-padlock">
+            <use xlink:href="#icon-padlock"></use>
+        </svg>
+        <span><?= $block->escapeHtml(__('Proceed to Checkout')) ?></span>
+    </button>
+<?php endif?>

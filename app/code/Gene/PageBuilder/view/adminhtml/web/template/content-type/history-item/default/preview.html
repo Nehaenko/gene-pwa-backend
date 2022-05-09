@@ -1,0 +1,46 @@
+<!--
+/**
+ * history
+ * 
+ */
+-->
+<div class="pagebuilder-content-type type-nested pagebuilder-history-item"
+     attr="Object.assign({}, {id: parent.id}, data.main.attributes())"
+     ko-style="data.main.style()" css="data.main.css()"
+     event="{ mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false">
+    <render args="getOptions().template" />
+
+    <h4>History Item</h4>
+
+    <h5
+         class="pagebuilder-history-item__year inline-wysiwyg">
+        <div html="data.year.html" />
+    </h5>
+
+    <h3
+         class="pagebuilder-history-item__title inline-wysiwyg">
+        <div html="data.title.html" />
+    </h3>
+
+    <div class="pagebuilder-history-item__content">
+      <div class="pagebuilder-history-item__img-container">
+
+        <img if="data.desktop_image.attributes().src"
+             attr="data.desktop_image.attributes"
+             class="pagebuilder-history-item__img preview-image"
+             css="data.desktop_image.css"
+             ko-style="data.desktop_image.style" />
+        <p html="data.caption.html" />
+      </div>
+
+      <div if="isWysiwygSupported()"
+          class="pagebuilder-history-item__text inline-wysiwyg"
+          ko-style="data.content.style"
+          css="data.content.css"
+          attr="data.content.attributes"
+          afterRender="initWysiwyg">
+          <div html="data.content.html" />
+      </div>
+    </div>
+
+</div>

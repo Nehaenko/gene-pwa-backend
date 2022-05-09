@@ -1,0 +1,23 @@
+<?php
+/**
+ * Top menu
+ * @var \Gene\Framework\Block\Html\Topmenu $block
+ * https://github.com/adobe-accessibility/Accessible-Mega-Menu
+ */
+$columnsLimit = $block->getColumnsLimit() ?: 0;
+?>
+<nav class="main-nav" data-action="navigation">
+    <div class="main-nav__wrapper">
+        <ul class="main-nav__container">
+            <?= $block->getHtml('level-top', 'submenu', $columnsLimit) ?>
+            <?= $block->getChildHtml() ?>
+        </ul>
+    </div>
+</nav>
+<script type="text/x-magento-init">
+    {
+        "*" : {
+            "GeneMenu": {}
+        }
+    }
+</script>

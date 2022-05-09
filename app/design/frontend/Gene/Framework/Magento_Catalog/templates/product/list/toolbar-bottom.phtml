@@ -1,0 +1,12 @@
+<?php
+/**
+ * Product list toolbar bottom
+ * @var $block \Magento\Catalog\Block\Product\ProductList\Toolbar
+ */
+?>
+<?php if ($block->getCollection()->getSize()) : ?>
+    <div class="toolbar toolbar-products toolbar--bottom"
+         data-mage-init='<?= /* @noEscape */ $block->getWidgetOptionsJson() ?>'>
+        <?= $block->getPagerHtml() ?>
+    </div>
+<?php endif ?>

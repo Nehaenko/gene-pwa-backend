@@ -1,0 +1,130 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //
+    //  Checkout Progress Bar
+    //  ---------------------------------------------
+
+    .opc-progress-bar {
+        &:extend(.abs-reset-list all);
+        .lib-css(margin, @checkout-progress-bar__margin);
+        counter-reset: i;
+
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .lib-css(max-width, @checkout-progress-bar__mobile__width);
+
+        .lib-font-size(@checkout-progress-bar__font-size);
+
+        &:before {
+            content: '';
+            left: 0;
+            top: 50%;
+            position: absolute;
+            width: 100%;
+            .lib-css(height, @checkout-progress-bar-line__height);
+            .lib-css(margin-top, -@checkout-progress-bar-line__height/2);
+            .lib-css(background-color, @checkout-progress-bar-line__color);
+        }
+    }
+
+    .opc-progress-bar-item {
+        .lib-css(margin, 0 0 @checkout-progress-bar-item__margin);
+        .lib-css(width, @checkout-progress-bar-item__width);
+        .lib-css(height, @checkout-progress-bar-item__height);
+
+        display: inline-block;
+        position: relative;
+        text-align: center;
+        vertical-align: top;
+
+        &::before,
+        &::after,
+        span {
+            position: absolute;
+            left: 0;
+        }
+
+        &::before,
+        &::after {
+            top: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        &::before {
+            content: counter(i);
+            counter-increment: i;
+            z-index: 2;
+            
+            .lib-css(line-height, @checkout-progress-bar-item__line-height);
+            .lib-css(color, @checkout-progress-bar-item__color);
+        }
+
+        &::after {
+            content: '';
+            display: block;
+            .lib-css(background, @checkout-progress-bar-item__background-color);
+            .lib-css(border, 1px solid @checkout-progress-bar-item__border-color);
+            .lib-css(border-radius, @checkout-progress-bar-item__border-radius);
+            .lib-css(box-shadow, @checkout-progress-bar-item__box-shadow);
+        }
+
+        span {
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            .lib-css(font-weight, @checkout-progress-bar-item__font-weight);
+            .lib-css(text-transform, @checkout-progress-bar-item__text-transform);
+            .lib-css(margin-top, @checkout-progress-bar-item__top-offset);
+        }
+
+        &._active {
+            &::before {
+                .lib-css(color, @checkout-progress-bar-item__active__color);
+            }
+
+            &::after {
+                .lib-css(border, 1px solid @checkout-progress-bar-item__active__border-color);
+                .lib-css(background, @checkout-progress-bar-item__active__background-color);
+            }
+        }
+
+
+        &._complete {
+            &::before {
+                opacity: 0;
+                cursor: pointer;
+            }
+
+            &::after {
+                .lib-css(border, 1px solid @checkout-progress-bar-item__active__border-color);
+                .lib-css(background, @checkout-progress-bar-item__active__background-color);
+
+                background-image: url('@{baseDir}images/icon-tick-white.svg');
+                background-repeat: no-repeat;
+                background-size: 16px;
+                background-position: center;
+            }
+        }
+    }
+}
+
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .opc-progress-bar {
+        .lib-css(max-width, @checkout-progress-bar__width);
+        .lib-css(margin, @checkout-progress-bar__desktop__margin);
+    }
+}

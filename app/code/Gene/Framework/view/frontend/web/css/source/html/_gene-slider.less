@@ -1,0 +1,251 @@
+//
+//  Common
+//  ---------------------------------------------
+
+@gene-slider-dot__width: 9px;
+@gene-slider-dot__height: 9px;
+@gene-slider-dot__background: inherit;
+@gene-slider-dot__border: false;
+@gene-slider-dot__border-radius: 50%;
+@gene-slider-dot__margin: 8px;
+
+@gene-slider-dot__opacity: 0.5;
+@gene-slider-dot__opacity-active: 1;
+
+& when (@media-common = true) {
+
+    .gene-slider-container {
+        position: relative;
+    }
+
+    .gene-slider {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+
+        .lib-vendor-prefix-display(flex);
+        .lib-vendor-prefix-flex-wrap(nowrap);
+
+        overflow: scroll;
+        scroll-snap-type: x mandatory;
+
+        &__item {
+          scroll-snap-align: start;
+          flex-shrink: 0;
+          .lib-vendor-prefix-flex-basis(100%);
+          min-width: 100%;
+          margin: 0;
+
+          .gallery-lightbox__slider & {
+            .lib-vendor-prefix-display(flex);
+            justify-content: center;
+          }
+
+          /*/ For debugging /*/
+        //   border: 3px solid @color-white;
+        //   &.is-active {
+        //       border-color: @primary__color;
+        //   }
+        }
+
+        &__item-zoom {
+            position: relative;
+            background-position: 50% 50%;
+            background-repeat: no-repeat;
+
+            a,
+            picture {
+              display: block;
+            }
+
+            .inner-zoom & {
+                & > a {
+                    background-color: @color-white;
+                    transition: opacity .5s;
+                    pointer-events: none;
+                    width: 100%;
+                }
+
+                &.is-zooming:hover > a {
+                    opacity: 0;
+                }
+            }
+        }
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        &--vertical {
+            .lib-vendor-prefix-flex-direction(column);
+            height: 600px;
+
+            scroll-snap-type: y mandatory;
+        }
+    }
+
+    .gene-slider__control--prev,
+    .gene-slider__control--next {
+        position: absolute;
+        z-index: 4;
+
+        padding: 0;
+
+        top: 45%;
+
+        height: 30px;
+        width: 30px;
+
+        text-align: center;
+
+        background-color: transparent;
+
+        .icon {
+            fill: @color-gray34;
+            width: 100%;
+            height: 100%;
+        }
+
+        &:disabled {
+            opacity: 0.3;
+        }
+
+        &:hover,
+        &:active {
+            background-color: transparent;
+
+            .icon {
+                fill: @primary__color;
+            }
+        }
+    }
+
+    .gene-slider__control--prev {
+        left: 0;
+    }
+
+    .gene-slider__control--next {
+        right: 0;
+    }
+
+    // Dots
+
+    .gene-slider-dots {
+        .lib-vendor-prefix-display();
+        justify-content: center;
+
+        padding: 0;
+        list-style: none;
+
+        margin: @indent__base 0 0;
+
+        &__button {
+            text-indent: -9999px;
+            display: block;
+
+            .lib-css(width, @gene-slider-dot__width);
+            .lib-css(height, @gene-slider-dot__height);
+            .lib-css(border-radius, @gene-slider-dot__border-radius);
+            .lib-css(border, @gene-slider-dot__border);
+
+            padding: 0;
+            .lib-css(margin, @gene-slider-dot__margin);
+            .lib-css(opacity, @gene-slider-dot__opacity);
+
+            &.is-active {
+                .lib-css(opacity, @gene-slider-dot__opacity-active);
+            }
+        }
+    }
+
+    // Vertical Slider adjustments
+
+    .gene-slider {
+
+        &--vertical {
+            img {
+                margin: 0 auto;
+                height: 100%;
+                padding: @indent__s 0;
+            }
+        }
+    }
+
+    .gene-slider__control--vertical.gene-slider__control--prev {
+        top: @indent__s;
+        left: ~'calc(50% - 15px)';
+
+        .icon {
+            transform: rotate(-90deg);
+        }
+    }
+
+    .gene-slider__control--vertical.gene-slider__control--next {
+        top: auto;
+        bottom: @indent__s;
+        left: ~'calc(50% - 15px)';
+
+        .icon {
+            transform: rotate(90deg);
+        }
+    }
+
+    // Outside Zoom
+
+    .gene-slider__zoom-lens {
+        position: absolute;
+
+        display: none;
+
+        width: 200px;
+        height: 200px;
+
+        border: 1px solid #d4d4d4;
+    }
+
+    .gene-slider__zoom-outside {
+        position: absolute;
+        top: 20%;
+        left: 100%;
+        z-index: 1;
+
+        display: none;
+
+        width: 400px;
+        height: 400px;
+
+        border: 1px solid #d4d4d4;
+
+    }
+
+    // Video Slides
+
+    [data-gslider-video] {
+        position: relative;
+        overflow: hidden;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+
+    .gene-slider__item--video {
+        position: relative;
+
+        .icon-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%) translateX(-50%);
+        }
+    }
+
+}

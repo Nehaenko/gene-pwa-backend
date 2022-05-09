@@ -1,0 +1,96 @@
+//
+//  Gene Framework - Customer Quote
+//  ---------------------------------------------
+
+.pagebuilder-stage {
+
+  .pagebuilder-quote {
+    position: relative;
+    max-width: 1105px;
+    margin: 0 auto;
+
+    //
+    //  Wrapper
+    //  ---------------------------------------------
+
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      min-height: 370px;
+    }
+
+    //
+    //  Content
+    //  ---------------------------------------------
+
+    &__image {
+      width: 65%;
+      margin-left: auto;
+
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+
+    &__content {
+      background: #ffdff1;
+      padding: 20px;
+      line-height: 54px;
+      max-width: 555px;
+      position: absolute;
+
+      blockquote {
+        margin: 0;
+        font-size: 24px;
+        line-height: 36px;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
+    }
+
+    //
+    //  Right aligned
+    //  ---------------------------------------------
+
+    &--right {
+      .pagebuilder-quote__image {
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .pagebuilder-quote__content {
+        right: 0;
+      }
+    }
+
+    //
+    //  Center aligned
+    //  ---------------------------------------------
+
+    &--center {
+      .pagebuilder-quote__image {
+        width: 100%;
+      }
+
+      .pagebuilder-quote__content {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+//
+//  Quote icon
+//  ---------------------------------------------
+
+.icon-pagebuilder-quote {
+  content: url('@{baseDir}Gene_PageBuilder/css/images/content-type/customer-quote/appearance/icon-pagebuilder-quote.svg');
+  width: 18px;
+  height: 18px;
+  vertical-align: text-top;
+}

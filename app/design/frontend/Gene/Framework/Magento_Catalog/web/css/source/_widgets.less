@@ -1,0 +1,38 @@
+//
+//  Common
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+  .product-items--grid.widget-product-grid { 
+    .product-item {
+      flex-basis: ~'calc(100% * @{product-widget__mobile-column-count})';
+      max-width: ~'calc(100% * @{product-widget__mobile-column-count})';
+    }
+  }
+}
+
+//
+//  Tablet
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .product-items--grid.widget-product-grid { 
+    .product-item {
+      flex-basis: ~'calc(100% * @{product-widget__tablet-column-count})';
+      max-width: ~'calc(100% * @{product-widget__tablet-column-count})';
+    }
+  }
+}
+
+//
+//  Desktop
+//  ---------------------------------------------
+  
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  .product-items--grid.widget-product-grid {
+    .product-item {
+      flex-basis: ~'calc(100% * @{product-widget__column-count})';
+      max-width: ~'calc(100% * @{product-widget__column-count})';
+    }
+  }
+}

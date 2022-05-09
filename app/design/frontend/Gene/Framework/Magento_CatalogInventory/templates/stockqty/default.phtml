@@ -1,0 +1,10 @@
+<?php
+/**
+ * Gene - Stock Qty Messaging
+ * Overridden to check stock is greater than 0
+ * @var \Magento\CatalogInventory\Block\Stockqty\DefaultStockqty $block
+ */
+?>
+<?php if ($block->isMsgVisible() && $block->getStockQtyLeft() > 0) : ?>
+    <p class="availability only"><?= $escaper->escapeHtml(__('Only %1 left', $block->getStockQtyLeft())); ?></p>
+<?php endif ?>

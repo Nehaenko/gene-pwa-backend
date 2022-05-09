@@ -1,0 +1,339 @@
+//
+//  Catalog Toolbar
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //
+  //  Container
+  //  ---------------------------------------------
+
+  .toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .lib-css(padding-bottom, @toolbar__padding-bottom);
+    .lib-css(min-height, @toolbar__min-height);
+    
+    &--bottom {
+      .lib-css(border-bottom, @toolbar__border-bottom);
+    }
+
+    //
+    //  Filter Link
+    //  ---------------------------------------------
+    
+    .filter-by {
+      display: none;
+    }
+
+    .page-with-filter & {
+      .filter-by {
+        display: inline-block;
+        margin: 0 auto 0 0;
+        text-align: left;
+        cursor: pointer;
+
+        .lib-icon-font(@icon-next,
+          @_icon-font-size: @filter-options-title__icon__font-size,
+          @_icon-font-line-height: @toolbar-icon__height,
+          @_icon-font-color: @filter-options-title__icon__color,
+          @_icon-font-color-hover: @active__color,
+          @_icon-font-position: after,
+          @_icon-font-text-hide: false
+        );
+
+      }
+    }
+
+    //
+    //  Grid Modes
+    //  ---------------------------------------------
+
+    .modes {
+      display: none;
+
+      .modes-label {
+        &:extend(.abs-visually-hidden-desktop all);
+      }
+
+      .modes-mode {
+        .lib-css(color, @toolbar-modes__color);
+
+        &:not(.active) {
+          &:hover {
+            .lib-css(color, @toolbar-modes__hover__color);
+          }
+        }
+
+        &.active {
+          .lib-css(color, @toolbar-modes__hover__color);
+        }
+
+        .lib-icon-font(
+          @icon-grid,
+          @_icon-font-size: @toolbar-icon__size,
+          @_icon-font-text-hide: true,
+          @_icon-font-color: inherit,
+          @_icon-font-color-hover: @text__color__muted
+        );
+      }
+
+      .mode-list {
+        .lib-icon-font-symbol(@icon-list);
+      }
+    }
+
+    //
+    //  Total Per Page
+    //  ---------------------------------------------
+
+    .toolbar-amount {
+      margin: 0;
+      display: none;
+      padding: 0 @indent__s;
+    }
+
+    //
+    //  Number Per Page
+    //  ---------------------------------------------
+
+    .limiter {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0;
+
+      .control {
+        margin: 0 @toolbar-select__margin;
+      }
+
+      .limiter-text {
+        display: none;
+      }
+    }
+
+    .limiter-label {
+      margin-right: @indent__xs;
+    }
+
+    //
+    //  Sort By
+    //  ---------------------------------------------
+
+    .sorter {
+      display: flex;
+      align-items: center;
+      .lib-css(max-width, @toolbar-sorter__max-width);
+
+      .sorter-label {
+        &:extend(.abs-visually-hidden all);
+      }
+      
+      .sorter-action {
+        vertical-align: top;
+
+        span {
+          &:extend(.abs-visually-hidden all);
+        }
+
+        &:before {
+          content: '';
+          background-image: url('@{baseDir}images/icon-arrow.svg');
+          width: 18px;
+          height: 18px;
+          background-size: cover;
+          display: inline-block;
+          margin: 0 @indent__xs;
+          vertical-align: middle;
+        }
+
+        &.sort-desc {
+          &:before {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+  }
+
+  .pages {
+    .action.previous,
+    .action.next {
+      width: auto;
+      height: auto;
+
+      &:before {
+        content: none;
+      }
+
+      &:after {
+        content: '';
+        background-image: url('@{baseDir}images/icon-arrow.svg');
+        width: 18px;
+        height: 18px;
+        background-size: cover;
+        display: inline-block;
+        margin: 0 @indent__xs;
+      }
+    }
+    .action.previous {
+      margin: 0;
+      transform: rotate(90deg);
+    }
+    .action.next {
+      margin: 0;
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+//
+//  Mobile (style-m.css)
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) { /* @screen__s (640px) below */
+  .toolbar {
+
+    .toolbar-amount,
+    .limiter {
+      display: none;
+    }
+
+    .sorter-action {
+      vertical-align: top;
+
+      .lib-icon-font(
+        @icon-arrow-up,
+        @_icon-font-size: @toolbar-icon__size,
+        @_icon-font-line-height: @toolbar-icon__height,
+        @_icon-font-color: @header-icons__color,
+        @_icon-font-color-hover: @header-icons__hover__color,
+        @_icon-font-text-hide: true
+      );
+
+      &.sort-desc {
+        &:before {
+          content: @icon-arrow-down;
+        }
+      }
+    }
+
+    //
+    //  Number Per Page
+    //  ---------------------------------------------
+    .limiter {
+      display: none;
+      padding: 0 @indent__s;
+
+      .control {
+        margin: 0 @toolbar-select__margin;
+      }
+
+      .limiter-text {
+        display: none;
+      }
+    }
+
+  }
+
+  .toolbar-products {
+    flex-wrap: nowrap;
+    .lib-css(padding, @toolbar__padding--mobile);
+    .lib-css(border-top, @toolbar__border--mobile);
+    .lib-css(border-bottom, @toolbar__border--mobile);
+    .lib-css(margin, @toolbar__margin--mobile);
+    min-height: auto;
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .toolbar {
+    margin-bottom: @indent__m;
+
+    //
+    //  Filter Link
+    //  ---------------------------------------------
+    .page-with-filter & {
+      .filter-by {
+        display: none;
+      }
+    }
+
+    //
+    //  Total Per Page
+    //  ---------------------------------------------
+    .toolbar-amount {
+      display: block;
+    }
+
+    & > * {
+      flex-grow: 1;
+    }
+
+    .modes {
+      display: flex;
+      order: 1;
+      justify-content: flex-end;
+      .modes-label {
+        display: none;
+      }
+    }
+
+    //
+    //  Sort By
+    //  ---------------------------------------------
+
+    .sorter {
+      display: flex;
+      flex-grow: 1;
+      flex-shrink: 1;
+      flex-basis: auto;
+      padding: 0 0 0 @indent__s;
+    }
+
+    //
+    //  Number Per Page
+    //  ---------------------------------------------
+
+    .limiter {
+      display: flex;
+      .lib-vendor-prefix-order(-1);
+    }
+
+  }
+
+  //
+  //  Products Toolbar
+  //  ---------------------------------------------
+
+  .toolbar-products {
+    .lib-css(border-bottom, @toolbar__border-bottom);
+    position: relative;
+
+    //
+    // Visually remove the border gap between toolbar and filter
+    //
+    .page-with-filter & {
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: -@indent__xl;
+        width: @indent__xl;
+        height: 0;
+        .lib-css(border-bottom, @toolbar__border-bottom);
+      }
+    }
+
+  }
+}

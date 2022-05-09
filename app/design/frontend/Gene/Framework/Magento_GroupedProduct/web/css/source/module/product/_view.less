@@ -1,0 +1,151 @@
+//
+//  Magento Grouped Product - Product View
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //
+  // Grouped Products
+  //
+  .grouped {
+    margin-top: @indent__base;
+
+    //
+    // Grouped Table: Head & Body
+    //
+    &__body,
+    &__head {
+
+      //
+      // Columns
+      //
+      .col {
+
+        &.item {
+          width: @product-grouped-table-col-item__width;
+        }
+
+        &.qty {
+          width: @product-grouped-table-col-qty__width;
+        }
+      }
+
+      //
+      // Table Head/Row - Override Core
+      //
+      > tr > th,
+      > tr > td {
+        padding: @indent__s 0;
+      }
+
+    }
+
+    //
+    // Grouped Table: Body
+    //
+    &__body {
+      text-align: @product-grouped-table-col__text-align;
+    }
+
+    //
+    // Grouped Item
+    //
+    &-item {
+      border-bottom: @product-grouped-border;
+
+      //
+      // Qty
+      //
+      &__qty{
+        margin: 0 auto;
+        height: @product-grouped-qty-input__size;
+        width: @product-grouped-qty-input__size;
+        border-radius: @product-grouped-qty-input__border-radius;
+
+        //
+        // Qty Input
+        //
+        input {
+          padding: 0;
+          text-align: center;
+          line-height: @product-grouped-qty-input__line-height;
+
+          //
+          // IE Fix
+          //
+          .ie11 & {
+            height: @product-grouped-qty-input__size;
+          }
+        }
+      }
+
+      //
+      // Price Styles
+      // Nested to override core
+      //
+      .product-info-main & {
+
+        // Price Box
+        .price-box {
+          margin: @indent__xs 0;
+
+          // Price Wrapper
+          .price-wrapper {
+            margin-bottom: 0;
+
+            //
+            // Price
+            //
+            .price {
+              .lib-font-size(@font-size__base);
+            }
+          }
+
+          //
+          // Old Price
+          //
+          .old-price {
+            margin-bottom: 0;
+          }
+
+        }
+      }
+
+      //
+      // Price Box
+      //
+      .price-box {
+
+        //
+        // Special Price
+        //
+        .special-price {
+
+          //
+          // Price
+          //
+          .price-wrapper .price {
+            .lib-font-size(@font-size__l);
+          }
+
+        }
+
+      }
+
+      //
+      // Tier Prices
+      //
+      .prices-tier {
+        padding: @indent__s 0;
+        margin: 0;
+      }
+
+    }
+
+  }
+
+}

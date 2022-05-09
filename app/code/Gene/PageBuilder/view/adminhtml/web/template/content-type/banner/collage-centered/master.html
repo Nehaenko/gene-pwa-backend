@@ -1,0 +1,58 @@
+<!--
+/**
+ * Overridden for compliant HTML
+ *
+ */
+-->
+<div attr="data.main.attributes" ko-style="data.main.style" css="data.main.css">
+    <a if="data.link.attributes().href" attr="data.link.attributes" ko-style="data.link.style" css="data.link.css">
+        <div css="data.wrapper.css"
+             attr="data.wrapper.attributes"
+             ko-style="data.wrapper.style"
+             class="pagebuilder-banner-wrapper">
+            <picture if="data.desktop_image.attributes().src">
+                <source if="data.mobile_image.attributes().src"
+                        attr="data.mobile_lazy_image.attributes"
+                        media="(max-width: 768px)" />
+                <img attr="data.lazy_image.attributes"
+                     css="data.desktop_image.css"
+                     ko-style="data.lazy_image.style"
+                     class="gene-lazy" />
+            </picture>
+            <div class="pagebuilder-overlay" attr="data.overlay.attributes" ko-style="data.overlay.style" css="data.overlay.css">
+                <div class="pagebuilder-collage-content">
+                    <div attr="data.content.attributes" ko-style="data.content.style" css="data.content.css" html="data.content.html"></div>
+                    <div if="data.main.attributes()['data-show-button'] !== 'never'"
+                            type="button"
+                            class="pagebuilder-banner-button"
+                            attr="data.button.attributes"
+                            ko-style="data.button.style"
+                            css="data.button.css"
+                            html="data.button.html">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+    <div ifnot="data.link.attributes().href" attr="data.empty_link.attributes" ko-style="data.empty_link.style" css="data.empty_link.css">
+        <div css="data.wrapper.css"
+             attr="data.wrapper.attributes"
+             ko-style="data.wrapper.style"
+             class="pagebuilder-banner-wrapper">
+            <picture if="data.desktop_image.attributes().src">
+                <source if="data.mobile_image.attributes().src"
+                        attr="data.mobile_lazy_image.attributes"
+                        media="(max-width: 768px)" />
+                <img attr="data.lazy_image.attributes"
+                     css="data.desktop_image.css"
+                     ko-style="data.lazy_image.style"
+                     class="gene-lazy" />
+            </picture>
+            <div class="pagebuilder-overlay" attr="data.overlay.attributes" ko-style="data.overlay.style" css="data.overlay.css">
+                <div class="pagebuilder-collage-content">
+                    <div attr="data.content.attributes" ko-style="data.content.style" css="data.content.css" html="data.content.html"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

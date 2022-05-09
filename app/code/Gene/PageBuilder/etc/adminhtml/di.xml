@@ -1,0 +1,222 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="AppearanceSourceGeneDriver" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">left</item>
+                    <item name="title" xsi:type="string" translate="true">Left</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder/css/images/content-type/banner/appearance/collage-left.svg</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="value" xsi:type="string">centered</item>
+                    <item name="title" xsi:type="string" translate="true">Centered</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder/css/images/content-type/banner/appearance/collage-center.svg</item>
+                </item>
+                <item name="3" xsi:type="array">
+                    <item name="value" xsi:type="string">right</item>
+                    <item name="title" xsi:type="string" translate="true">Right</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder/css/images/content-type/banner/appearance/collage-right.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceRow" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="3" xsi:type="array">
+                    <item name="value" xsi:type="string">article</item>
+                    <item name="title" xsi:type="string" translate="true">Article</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder/css/images/content-type/row/appearance/full-bleed.svg</item>
+                    <item name="noticeMessage" xsi:type="string" translate="true">An HTML5 article - the same as full width but an article tag for better SEO. Must have a heading.</item>
+                </item>
+                <item name="4" xsi:type="array">
+                    <item name="value" xsi:type="string">section</item>
+                    <item name="title" xsi:type="string" translate="true">Section</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder/css/images/content-type/row/appearance/full-bleed.svg</item>
+                    <item name="noticeMessage" xsi:type="string" translate="true">HTML5 section - used for "grouping" related content. Should usually have a heading.</item>
+                </item>
+                <item name="5" xsi:type="array">
+                    <item name="value" xsi:type="string">aside</item>
+                    <item name="title" xsi:type="string" translate="true">Aside</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder/css/images/content-type/row/appearance/full-bleed.svg</item>
+                    <item name="noticeMessage" xsi:type="string" translate="true">An HTML5 aside - for content that is indirectly related to the page. Must have a heading.</item>
+                </item>
+                <item name="7" xsi:type="array">
+                    <item name="value" xsi:type="string">sticky</item>
+                    <item name="title" xsi:type="string" translate="true">Sticky Navigation Row</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder/css/images/content-type/row/appearance/full-bleed.svg</item>
+                    <item name="noticeMessage" xsi:type="string" translate="true">Only used for the sticky navigation.</item>
+                </item>
+                <item name="8" xsi:type="array">
+                    <item name="value" xsi:type="string">accordion</item>
+                    <item name="title" xsi:type="string" translate="true">Accordion</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder/css/images/content-type/row/appearance/full-bleed.svg</item>
+                    <item name="noticeMessage" xsi:type="string" translate="true">An HTML5 accordion - content can be collapsed on mobile</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Cms\Model\Wysiwyg\Images\Storage">
+        <arguments>
+            <argument name="extensions" xsi:type="array">
+                <item name="allowed" xsi:type="array">
+                    <item name="jpg" xsi:type="string">image/jpg</item>
+                    <item name="jpeg" xsi:type="string">image/jpeg</item>
+                    <item name="png" xsi:type="string">image/png</item>
+                    <item name="gif" xsi:type="string">image/gif</item>
+                    <item name="svg" xsi:type="string">image/svg+xml</item>
+                </item>
+                <item name="image_allowed" xsi:type="array">
+                    <item name="jpg" xsi:type="string">image/jpg</item>
+                    <item name="jpeg" xsi:type="string">image/jpeg</item>
+                    <item name="png" xsi:type="string">image/png</item>
+                    <item name="gif" xsi:type="string">image/gif</item>
+                    <item name="svg" xsi:type="string">image/svg+xml</item>
+                </item>
+                <item name="media_allowed" xsi:type="array">
+                    <item name="flv" xsi:type="string">video/x-flv</item>
+                    <item name="swf" xsi:type="string">application/x-shockwave-flash</item>
+                    <item name="avi" xsi:type="string">video/x-msvideo</item>
+                    <item name="mov" xsi:type="string">video/x-sgi-movie</item>
+                    <item name="rm" xsi:type="string">application/vnd.rn-realmedia</item>
+                    <item name="wmv" xsi:type="string">video/x-ms-wmv</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- History -->
+    <virtualType name="AppearanceSourceHistory" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- History Item -->
+    <virtualType name="AppearanceSourceHistoryItem" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AppearanceSourceButtons" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="2" xsi:type="array">
+                    <item name="value" xsi:type="string">sticky</item>
+                    <item name="title" xsi:type="string" translate="true">Sticky</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder::css/images/content-type/buttons/appearance/inline.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Gene Driver Slider-->
+    <virtualType name="AppearanceSourceGeneDriverSlider" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Gene Secondary Driver Slider-->
+    <virtualType name="AppearanceSourceGeneSecondaryDriverSlider" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Gene Image Slider -->
+    <virtualType name="AppearanceSourceGeneImageSlider" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Gene Image Slider Item -->
+    <virtualType name="AppearanceSourceGeneImageSliderItem" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="10" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                    <item name="icon" xsi:type="string">Magento_PageBuilder::css/images/content-type/image/appearance/full.svg</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="AppearanceSourceFaq" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AppearanceSourceFaqItem" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="value" xsi:type="string">large</item>
+                    <item name="title" xsi:type="string" translate="true">Large</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Gene Customer Quote -->
+    <virtualType name="AppearanceSourceCustomerQuote" type="Magento\PageBuilder\Model\Source\VisualSelect">
+        <arguments>
+            <argument name="optionsSize" xsi:type="string">large</argument>
+            <argument name="optionsData" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="value" xsi:type="string">default</item>
+                    <item name="title" xsi:type="string" translate="true">Default</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

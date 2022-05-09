@@ -1,0 +1,36 @@
+<!--
+/**
+ * Checkout Cart Items
+ * Removed collapsible & Added semantic markup
+
+ */
+-->
+<section class="block items-in-cart">
+    <h3>
+        <translate args="maxCartItemsToDisplay" if="maxCartItemsToDisplay < getCartLineItemsCount()"/>
+        <translate args="'of'" if="maxCartItemsToDisplay < getCartLineItemsCount()"/>
+        <span data-bind="text: getCartLineItemsCount()"></span>
+        <translate args="'Item in Cart'" if="getCartLineItemsCount() === 1"/>
+        <translate args="'Items in Cart'" if="getCartLineItemsCount() > 1"/>
+    </h3>
+    <div class="content minicart-items" data-role="content">
+        <div class="minicart-items-wrapper overflowed">
+            <ol class="minicart-items">
+                <each args="items()">
+                    <li class="minicart-items__product">
+                        <article class="minicart-product">
+                            <each args="$parent.elems()" render=""/>
+                        </article>
+                    </li>
+                </each>
+            </ol>
+        </div>
+    </div>
+    <div class="actions-toolbar" if="maxCartItemsToDisplay < getCartLineItemsCount()">
+        <div class="secondary">
+            <a class="action viewcart" data-bind="attr: {href: cartUrl}">
+                <span data-bind="i18n: 'View and Edit Cart'"></span>
+            </a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,136 @@
+//
+//  Log in
+//  ---------------------------------------------
+
+//
+//  Common
+//  ---------------------------------------------
+
+
+& when (@media-common = true) {
+
+    .login-container {
+        .block {
+            &-new-customer {
+                .actions-toolbar {
+                    margin-top: 25px;
+                }
+            }
+
+            .block-title {
+                &:extend(.abs-login-block-title all);
+                .lib-font-size(18);
+            }
+        }
+
+        .fieldset {
+            .lib-form-hasrequired(bottom);
+            &:after {
+                margin-top: 35px;
+            }
+        }
+    }
+
+
+    .button-login {
+        width: 100%;
+    }
+
+    .account-secondary-link {
+        margin: 15px 0;
+        display: block;
+        color: @secondary__color;
+        text-decoration: none;
+    }
+
+    //Log in form on customer/account/login
+    .block-customer-login {
+        border-bottom: 1px solid @color-gray64;
+    }
+
+    //Register as a new customer section on customer/account/login
+    .block-new-customer {
+        .create {
+            margin: 20px 0 0 0;
+        }
+    }
+
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .login-container {
+        .fieldset {
+            &:after {
+                text-align: center;
+            }
+        }
+    }
+}
+
+//
+//  Tablet
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .login-container {
+        &:extend(.abs-add-clearfix-desktop all);
+
+        .block {
+            &:extend(.abs-blocks-2columns all);
+            &.login {
+                .actions-toolbar {
+                    > .primary {
+                        margin-bottom: 0;
+                        margin-right: @indent__l;
+                    }
+
+                    > .secondary {
+                        float: left;
+                    }
+                }
+            }
+        }
+
+        .fieldset {
+            &:after {
+                &:extend(.abs-margin-for-forms-desktop all);
+            }
+
+            > .field {
+                > .control {
+                    width: 55%;
+                }
+            }
+        }
+    }
+    
+    .login-container .block {
+        width: 50%;
+    }
+
+    .block-customer-login {
+        border-right: 1px solid @color-gray64;
+        border-bottom: none;
+        padding: 0 50px 0 0;
+    }
+
+    .block-new-customer {
+        padding: 0 0 0 50px;
+    }
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+    .button-login {
+        width: auto;
+    }
+}

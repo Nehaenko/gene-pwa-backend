@@ -1,0 +1,32 @@
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+    .product-items,
+    .products.list.items,
+    .table-comparison {
+        .action {
+            &.towishlist {
+                width: @wishlist-add-size;
+                height: @wishlist-add-size;
+                margin-right: @indent__s;
+
+                .icon {
+                    width: 100%;
+                    height: 100%;
+                }
+
+                &:hover {
+                    .icon {
+                        stroke: @wishlist-icon__fill;
+                    }
+                }
+
+                &::before {
+                    display: none;
+                    content: ''!important;
+                }
+            }
+        }
+    }
+}

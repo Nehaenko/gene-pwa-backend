@@ -1,0 +1,41 @@
+//
+//  Magento Catalog - Product Media
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+
+  .fotorama__nav--thumbs {
+    text-align: @product-media-thumbnails__text-align;
+  }
+
+}
+
+
+//
+//  Tablet Portrait Up
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  .product.media {
+    float: none;
+    .lib-vendor-prefix-order(-1);
+  }
+
+}
+
+//
+//  Tablet Landscape Up
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+  .catalog-product-view {
+    .product.media {
+      order: 0;
+    }
+  }
+}

@@ -1,0 +1,185 @@
+//
+//  Magento Catalog Variables
+//  ---------------------------------------------
+
+//
+//  Breadcrumbs
+//  ---------------------------------------------
+
+//
+//  Product Category Columns
+//  ---------------------------------------------
+
+// Note - to support IE 11, these must be (1 / @columnValue)
+
+@product-list__mobile-column-count: (1 / 1); // Mobile
+@product-list__tablet-column-count: (1 / 2); // Tablet
+@product-list__column-count: (1 / 3); // Desktop
+
+@product-widget__mobile-column-count: (1 / 1); // Mobile
+@product-widget__tablet-column-count: (1 / 3); // Tablet
+@product-widget__column-count: (1 / 4); // Desktop
+
+@product-list__column-padding: 0px;
+
+//
+//  Category Toolbar
+//  ---------------------------------------------
+
+// Note - the following three variables are also applied to filter title - see filter.less
+@toolbar__padding-bottom: 16px;
+@toolbar__border-bottom: 1px solid @color-theme__medium-grey;
+@toolbar__min-height: @form-element-input__height + @toolbar__padding-bottom*2;
+
+@toolbar__border--mobile: 1px solid @border-color__base;
+@toolbar__padding--mobile: @indent__s 0;
+@toolbar__margin--mobile: @indent__s 0;
+
+@toolbar-select__margin: @indent__xs;
+@toolbar-sorter__width: 70px;
+@toolbar-sorter__max-width: 250px;
+
+@toolbar-modes__color: @color-theme__grey;
+@toolbar-modes__hover__color: @text__color__muted;
+
+@toolbar-icon__size: 30px;
+@toolbar-icon__width: 30px;
+@toolbar-icon__height: 30px;
+
+@toolbar-element-background: @color-theme__light-grey;
+
+//
+//  Product List
+//  ---------------------------------------------
+@product-list__price__font-size: @font-size__xl;
+@product-list__price__font-weight: @font-weight__regular;
+@product-list__price__old-price__font-size: @font-size__s;
+@product-list__price__old-price__font-weight: @font-weight__regular;
+
+@product-list__price-label__font-size: @font-size__xl;
+@product-list__old-price-label__font-size: @font-size__s;
+
+@product-list__oos__min-height: @button__line-height;
+
+@product-list__item__text-align: center; // (left|center|right)
+@product-list__details__text-align: center; // (left|center|right)
+@product-list__details__align-items: center; // (flex-start|center|flex-end)
+
+//
+//  Product
+//  ---------------------------------------------
+
+@product-item__margin-bottom: @indent__m;
+
+@product-name-link__color: @text__color;
+@product-name-link__color__active: @primary__color;
+@product-name-link__color__hover: darken(@primary__color, 10%);
+@product-name-link__color__visited: @text__color;
+
+@product-name-link__text-decoration: none;
+@product-name-link__text-decoration__active: @link__hover__text-decoration;
+@product-name-link__text-decoration__hover: @link__hover__text-decoration;
+@product-name-link__text-decoration__visited: @link__hover__text-decoration;
+
+@product-name-link__font-size: @font-size__m;
+@product-name-link__font-family: @font-family__base;
+@product-name-link__font-weight: @font-weight__semibold;
+
+// Product Info
+@product-short-description-link__color: @secondary__color;
+@product-short-description-link__color__hover: @primary__color;
+@product-short-description-link__color__focus: @primary__color;
+
+// Product Media
+@product-media__border-color: @color-theme__medium-grey;
+@product-media-thumbnails__text-align: center;
+
+// Product Price
+@product-price__font-size: 28px;
+@product-price__font-weight: @font-weight__semibold;
+@product-price-old__font-size: @font-size__s;
+
+// Product Stock
+@product-stock-oos__color: @error__color;
+
+// Product Qty
+@product-qty-wrapper__max-width: 125px;
+@product-qty-input__size: 40px;
+@product-qty-input__color: @secondary__color;
+@product-qty-input__border-color: @color-theme__grey;
+@product-qty-input__border: 1px solid @product-qty-input__border-color;
+@product-qty-input__border-radius: 5px;
+@product-qty-input__focus-background-color: @color-theme__light-grey;
+@product-qty-input__focus-color: @secondary__color;
+
+// Product Add To Cart
+@product-action__min-width: 100%;
+@product-action__max-width: 350px; // Max-width is needed for mobile
+@product-action__max-width--desktop: none;
+
+// Social Share
+@product-social-share__font-color: @primary__color;
+@product-social-share__icon-color: @primary__color;
+@product-social-share__icon-color__hover: @primary__color;
+@product-social-share__icon-color__focus: @primary__color;
+@product-social-share__background: @primary-light__color;
+@product-social-share__border-color: @color-theme__grey;
+@product-social-share__border-radius: 4px;
+@product-social-share__border: 1px solid @product-social-share__border-color;
+@product-social-share__max-width: 150px;
+
+
+// Product Tabs
+@product-tab-container__background: @secondary-light__color;
+@product-tab-wrapper__background: @product-tab-container__background;
+@product-tab-link__color: @text__color;
+@product-tab-link__font-size: @font-size__l;
+@product-tab-link__text-decoration: none;
+@product-tab-link__icon-color: #6d7278;
+@product-tab-link__border-radius: 3px;
+@product-tab-link__padding: @indent__s;
+@product-tab-link__background-color: #d8d8d8;
+@product-tab-link__background-color__active: @primary__color;
+@product-tab-link__border__width: 3px;
+@product-tab-link__border: @product-tab-link__border__width solid transparent;
+@product-tab-link__focus__border-color: @primary__color;
+@product-tab-link__focus__border-width: @product-tab-link__border__width;
+@product-tab-link__focus__border: @product-tab-link__focus__border-width solid @primary__color;
+@product-tab-link__color__active: @primary-light__color;
+@product-tab-link__icon-color__active: @primary-light__color;
+@product-tab-icon-animation: true; // true | false
+
+// Product Gallery
+@product-gallery-thumbs__max-width: 130px;
+
+
+//
+//  Product Relation
+//  ---------------------------------------------
+
+// Columns
+@product-relation__mobile-column-count: 1; // Mobile
+@product-relation__tablet-column-count: 2; // Tablet
+@product-relation__column-count: 4; // Desktop
+
+// Titles
+@product-relation-title__font-size: 32px;
+@product-relation-title__mobile__font-size: 26px;
+@product-relation-product-title__font-size: @font-size__base;
+@product-relation-product-title__line-height: @line-height__xl;
+@product-relation-product-title__font-weight: @font-weight__semibold;
+@product-relation-product-title__min-height: 55px;
+
+// Price & Stock
+@product-relation-price__font-size: @font-size__xl;
+@product-relation-price__font-weight: @font-weight__bold;
+@product-relation-old-price__font-size: @font-size__base;
+@product-relation-old-price__font-weight: @font-weight__semibold;
+@product-relation-oos__min-height: @button__line-height; // Keep OOS container aligned with Add To Bag
+
+// Reviews
+@product-relation-reviews__min-height: 56px; // Set to keep the product content in line even if there are no reviews
+
+
+
+

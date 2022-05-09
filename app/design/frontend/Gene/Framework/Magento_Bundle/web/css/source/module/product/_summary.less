@@ -1,0 +1,75 @@
+//
+//  Magento Bundle - Options
+//  ---------------------------------------------
+
+//
+//  Common
+//  ---------------------------------------------
+& when (@media-common = true) {
+
+  //
+  //  Summary
+  //  ---------------------------------------------
+  .block-bundle-summary {
+    padding-top: @indent__base;
+    text-align: center;
+
+    //
+    // Items
+    //
+    .bundle.items {
+      &:extend(.abs-reset-list all);
+
+      > li {
+        margin-bottom: @indent__s;
+      }
+    }
+
+    //
+    // Stock
+    //
+    .available {
+      margin: 0;
+    }
+
+    //
+    // Add To Cart
+    //
+    .box-tocart {
+
+      .fieldset {
+        margin-bottom: 0;
+      }
+
+      //
+      // Actions
+      //
+      .actions {
+        display: inline-block;
+        margin-bottom: @indent__s;
+      }
+
+      //
+      // Add To Cart
+      //
+      .action.primary {
+        &:extend(.abs-button-l all);
+      }
+    }
+
+  }
+
+}
+
+//
+//  Tablet
+//  ---------------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  //  Summary
+  //  ---------------------------------------------
+  .block-bundle-summary {
+    text-align: left;
+  }
+}

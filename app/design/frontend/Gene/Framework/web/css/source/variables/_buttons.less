@@ -1,0 +1,131 @@
+//
+//  Buttons
+//  ---------------------------------------------
+
+//
+//  Buttons variables
+//  _____________________________________________
+
+//  Font style
+@button__font-family: @font-family__base;
+@button__font-size: @font-size__base;
+@button__font-weight: @font-weight__regular;
+@button__line-height: 45px;
+@button__margin: 0;
+@button__padding: 0 20px; // is set up to false when buttons don't depend on side paddings or have fixed width
+@button__width: false; // is set up to false when buttons depend on side paddings or to fixed value when needed
+
+//  Display settings
+@button__display: inline-block;
+@button__cursor: pointer;
+@button__border-radius: 3px;
+
+@button__disabled__opacity: .8;
+@button__disabled__background-color: #d0d1d2;
+@button__disabled__color: @text__color;
+
+//  Default = secondary button
+@button__color: @color-white;
+@button__background: @primary__color;
+@button__border: none;
+@button__gradient-color-start: false;
+@button__gradient-color-end: false;
+
+@button__hover__color: @color-white;
+@button__hover__background: lighten(@button__background, 5%);
+@button__hover__border: @button__border;
+@button__hover__gradient-color-start: false;
+@button__hover__gradient-color-end: false;
+
+@button__active__color: @button__color;
+@button__active__background: darken(@button__background, 5%);
+@button__active__border: @button__border;
+@button__active__gradient-color-start: false;
+@button__active__gradient-color-end: false;
+
+//  Primary button
+@button-primary__font-family: @button__font-family;
+@button-primary__font-size: @button__font-size;
+@button-primary__font-weight: @button__font-weight;
+@button-primary__line-height: false;
+@button-primary__width: false;
+@button-primary__margin: false;
+@button-primary__padding: @button__padding;
+@button-primary__gradient: false;
+@button-primary__gradient-direction: false;
+
+@button-primary__background: @button__background;
+@button-primary__border: @button__border;
+@button-primary__color: @button__color;
+@button-primary__gradient-color-start: false;
+@button-primary__gradient-color-end: false;
+
+@button-primary__hover__background: @button__hover__background;
+@button-primary__hover__border: @button__hover__border;
+@button-primary__hover__color: @button__hover__color;
+@button-primary__hover__gradient-color-start: false;
+@button-primary__hover__gradient-color-end: false;
+
+@button-primary__active__background: @button__active__background;
+@button-primary__active__border: @button-primary__hover__border;
+@button-primary__active__color: @button-primary__color;
+@button-primary__active__gradient-color-start: false;
+@button-primary__active__gradient-color-end: false;
+
+//  Secondary button
+@button-secondary__font-family: @button__font-family;
+@button-secondary__font-size: @button__font-size;
+@button-secondary__font-weight: @button__font-weight;
+@button-secondary__line-height: false;
+@button-secondary__width: false;
+@button-secondary__margin: false;
+@button-secondary__padding: @button__padding;
+@button-secondary__gradient: false;
+@button-secondary__gradient-direction: false;
+
+@button-secondary__background: @secondary__color;
+@button-secondary__border: @button__border;
+@button-secondary__color: @button__color;
+@button-secondary__gradient-color-start: false;
+@button-secondary__gradient-color-end: false;
+
+@button-secondary__hover__background: lighten(@secondary__color, 5%);
+@button-secondary__hover__border: @button__hover__border;
+@button-secondary__hover__color: @button__hover__color;
+@button-secondary__hover__gradient-color-start: false;
+@button-secondary__hover__gradient-color-end: false;
+
+@button-secondary__active__background: darken(@secondary__color, 5%);
+@button-secondary__active__border: @button-secondary__hover__border;
+@button-secondary__active__color: @button-secondary__color;
+@button-secondary__active__gradient-color-start: false;
+@button-secondary__active__gradient-color-end: false;
+
+//  Gradient button
+@button__gradient: false; // [true|false] - button has a gradient background
+@button__gradient-direction: false; // button gradient direction if button has a gradient background
+
+//  Button with icon
+@button-icon__use: false;
+@button-icon__content: @icon-settings;
+@button-icon__font: @icon-font;
+@button-icon__font-size: 22px;
+@button-icon__line-height: @button-icon__font-size;
+@button-icon__color: inherit;
+@button-icon__margin: 0;
+@button-icon__vertical-align: top;
+@button-icon__position: @icon__position;
+@button-icon__text-hide: false;
+
+@button-icon__hover__font-color: inherit;
+@button-icon__active__font-color: inherit;
+
+//  Large button
+@button__font-size__l: @font-size__base;
+@button__line-height__l: @button__line-height;
+@button__padding__l: @button__padding;
+
+//  Small button
+@button__font-size__s: @font-size__base;
+@button__line-height__s: @button__line-height;
+@button__padding__s: @button__padding;

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Add Ghost Button Style. Also add SVG icon support.
+ *
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd" extends="pagebuilder_base_form">
+    <fieldset name="content" sortOrder="20">
+        <field name="icon_button" sortOrder="19" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="string">no</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Icon Button</label>
+                <notice>Set if you want the button to display an icon</notice>
+                <dataScope>icon_button</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="string">no</map>
+                            <map name="true" xsi:type="string">yes</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="icon_type" sortOrder="20" formElement="select">
+            <formElements>
+                <select>
+                    <settings>
+                        <options>
+                            <option name="0" xsi:type="array">
+                                <item name="value" xsi:type="string">#icon-arrow</item>
+                                <item name="label" xsi:type="string" translate="true">Arrow</item>
+                            </option>
+                            <option name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">#icon-cross</item>
+                                <item name="label" xsi:type="string" translate="true">Cross</item>
+                            </option>
+                            <option name="2" xsi:type="array">
+                                <item name="value" xsi:type="string">#icon-plus</item>
+                                <item name="label" xsi:type="string" translate="true">Plus</item>
+                            </option>
+                        </options>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+        <field name="button_type" sortOrder="20" formElement="select">
+            <formElements>
+                <select>
+                    <settings>
+                        <options>
+                            <option name="0" xsi:type="array">
+                                <item name="value" xsi:type="string">pagebuilder-button-primary</item>
+                                <item name="label" xsi:type="string" translate="true">Primary</item>
+                            </option>
+                            <option name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">pagebuilder-button-secondary</item>
+                                <item name="label" xsi:type="string" translate="true">Secondary</item>
+                            </option>
+                            <option name="2" xsi:type="array">
+                                <item name="value" xsi:type="string">pagebuilder-button-link</item>
+                                <item name="label" xsi:type="string" translate="true">Link</item>
+                            </option>
+                            <option name="3" xsi:type="array">
+                                <item name="value" xsi:type="string">pagebuilder-button-secondary-noborder</item>
+                                <item name="label" xsi:type="string" translate="true">Secondary (No Border)</item>
+                            </option>
+                            <option name="4" xsi:type="array">
+                                <item name="value" xsi:type="string">pagebuilder-button-link</item>
+                                <item name="label" xsi:type="string" translate="true">Link</item>
+                            </option>
+                        </options>
+                    </settings>
+                </select>
+            </formElements>
+        </field>
+    </fieldset>
+</form>

@@ -1,0 +1,54 @@
+//
+//  Category Title
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+
+  //
+  // Category Title Container
+  //  ---------------------------------------------
+  .category-title-container {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    
+    //
+    // Category Image
+    //  ---------------------------------------------
+
+    .category-image {
+      position: absolute;
+      top: 0;
+      height: 100%;
+
+      .image {
+        width: 100%;
+      }
+    }
+
+    @supports (object-fit: cover) {
+      .category-image {
+        .image {
+          object-fit: cover;
+          height: 100%;
+        }
+      }
+    }
+
+    //
+    // Page Title Wrapper
+    //  ---------------------------------------------
+
+    .page-title-wrapper {
+      position: relative;
+      .lib-css(z-index, 1);
+
+      h1 {
+        margin: 0;
+      }
+    }
+  }
+}

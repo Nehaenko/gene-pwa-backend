@@ -1,0 +1,63 @@
+<?php
+/**
+ * Search
+ * Add icon and ability to show / hide search on mobile
+ * @var \Magento\Framework\View\Element\Template $block
+ */
+
+// @codingStandardsIgnoreStart
+$helper = $this->helper(\Magento\Search\Helper\Data::class);
+// @codingStandardsIgnoreEnd
+?>
+<section id="block-search"
+         class="block block-search">
+    <h3 class="block block-title">
+        <?= $block->escapeHtml(__('Search')) ?>
+    </h3>
+    <div class="block block-content">
+        <form class="form minisearch"
+              id="search_mini_form"
+              action="<?= $block->escapeUrl($helper->getResultUrl()) ?>"
+              method="get">
+            <div class="field search">
+                <label class="label"
+                       for="search"
+                       data-role="minisearch-label">
+                    <span><?= $block->escapeHtml(__('Search')) ?></span>
+                </label>
+                <div class="control">
+                    <input id="search"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mini_form",
+                                "url":"<?= $block->escapeUrl($helper->getSuggestUrl())?>",
+                                "destinationSelector":"#search_autocomplete"}
+                           }'
+                           type="text"
+                           name="<?= $block->escapeHtmlAttr($helper->getQueryParamName()) ?>"
+                           value="<?= $block->escapeHtmlAttr($helper->getEscapedQueryText()) ?>"
+                           placeholder="<?= $block->escapeHtmlAttr(__('Search entire store here...')) ?>"
+                           class="input-text"
+                           maxlength="<?= $block->escapeHtmlAttr($helper->getMaxQueryLength()) ?>"
+                           role="combobox"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           aria-label="Search"
+                           autocomplete="off"/>
+                    <div id="search_autocomplete"
+                         class="search-autocomplete"></div>
+                    <?= $block->getChildHtml() ?>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit"
+                        title="<?= $block->escapeHtml(__('Search')) ?>"
+                        class="action search">
+                    <svg viewBox="0 0 100 100" class="icon icon-search">
+                        <use xlink:href="#icon-search"></use>
+                    </svg>
+                    <span><?= $block->escapeHtml(__('Search')) ?></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

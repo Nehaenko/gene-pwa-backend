@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <remove src="mage/gallery/gallery.css"/>
+    </head>
+    <body>
+        <referenceBlock name="product.info.media.image" template="Gene_Framework::product/view/gallery.phtml">
+            <arguments>
+                <argument name="view_model" xsi:type="object">Gene\Framework\ViewModel\GalleryPlaceholderImages</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

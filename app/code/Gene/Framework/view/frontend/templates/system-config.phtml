@@ -1,0 +1,17 @@
+<?php
+/**
+ * System Config Template - use with block to automatically pull out store config
+ * @var \Gene\Framework\Block\Theme\SystemConfig $block
+ */
+?>
+<?php if ($config = $block->getConfig()) : ?>
+    <?php if ($block->getHtmlTag()) : ?>
+        <<?= $block->getHtmlTag(); ?> class="<?= $block->escapeHtmlAttr($block->getClass()) ?>">
+            <?= /* @noEscape */ $block->getConfig(); ?>
+        </<?=  $block->getHtmlTag(); ?>>
+    <?php else : ?>
+        <p class="<?= $block->escapeHtmlAttr($block->getClass()) ?>">
+            <?= /* @noEscape */ $block->getConfig(); ?>
+        </p>
+    <?php endif; ?>
+<?php endif; ?>

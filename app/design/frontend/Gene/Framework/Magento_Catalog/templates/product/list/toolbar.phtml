@@ -1,0 +1,23 @@
+<?php
+/**
+ * Product list toolbar
+ * @var \Magento\Catalog\Block\Product\ProductList\Toolbar $block
+ */
+?>
+<?php if ($block->getCollection()->getSize()) : ?>
+    <div class="toolbar toolbar-products" data-mage-init='<?= /* @noEscape */ $block->getWidgetOptionsJson() ?>'>
+        <div class="filter-by"><?= $block->escapeHtml(__('Filter By')) ?></div>
+
+        <?php // @codingStandardsIgnoreStart ?>
+
+        <?php include($block->getTemplateFile('Magento_Catalog::product/list/toolbar/amount.phtml')) ?>
+
+        <?php include($block->getTemplateFile('Magento_Catalog::product/list/toolbar/limiter.phtml')) ?>
+
+        <?php if ($block->isExpanded()) : ?>
+            <?php include($block->getTemplateFile('Magento_Catalog::product/list/toolbar/sorter.phtml')) ?>
+        <?php endif; ?>
+
+        <?php // @codingStandardsIgnoreEnd ?>
+    </div>
+<?php endif ?>

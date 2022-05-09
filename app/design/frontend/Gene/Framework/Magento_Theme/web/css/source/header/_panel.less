@@ -1,0 +1,101 @@
+//
+//  Header Top Panel
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+
+  //
+  //  Panel
+  //  _____________________________________________
+
+  .panel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: @layout__max-width;
+    padding-left: @layout-indent__width;
+    padding-right: @layout-indent__width;
+    margin: 0 auto;
+
+
+    //
+    //  Panel Wrapper
+    //  _____________________________________________
+
+    &.wrapper {
+      width: 100%;
+      max-width: 100%;
+      background-color: @header-panel__background-color;
+      border-bottom: @header-panel__border-bottom;
+      text-transform: @header-panel__text-transform;
+      font-family: @header-panel__font-family;
+      padding: 0;
+    }
+
+    //
+    //  Panel Promotion
+    //  _____________________________________________
+
+    &__promotion {
+      .lib-font-size(@font-size__s);
+      font-weight: @font-weight__heavier;
+      text-align: @header-panel__text-align;
+      margin-bottom: 0;
+    }
+
+  }
+
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+
+  //
+  //  Panel
+  //  _____________________________________________
+
+  .panel {
+    //
+    //  Panel Wrapper
+    //  _____________________________________________
+
+    &.wrapper {
+      // override hard coded core :(
+      border-bottom: @header-panel__border-bottom!important;
+    }
+
+  }
+
+  .page-header .header.panel {
+    position: relative;
+    justify-content: center;
+
+    padding-top: 0;
+    padding-bottom: 0;
+    
+    &::after,
+    &::before {
+      display: none;
+      content: '';
+    }
+  }
+
+  .panel__switcher {
+    position: absolute;
+    top: 0;
+    left: 20px;
+  }
+  
+}
+

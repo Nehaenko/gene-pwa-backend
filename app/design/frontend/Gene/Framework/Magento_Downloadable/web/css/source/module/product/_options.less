@@ -1,0 +1,257 @@
+//
+//  Magento Downloadable - Options
+//  ---------------------------------------------
+
+//
+//  Common
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+  //
+  //  Downloadable Product
+  //  ---------------------------------------------
+  .page-product-downloadable {
+
+    //
+    // Downloads - Main Label - Override Core
+    //
+    .product-add-form .fieldset > .field.downloads > .label {
+      text-align: @product-downloadable-section__text-align--mobile;
+    }
+
+    //
+    //  Product Options Bottom
+    //  ---------------------------------------------
+    .product-options-bottom {
+      text-align: @product-downloadable-section__text-align--mobile;
+      margin: 0 auto;
+
+      .actions {
+        text-align: @product-downloadable-section__text-align--mobile;
+      }
+    }
+
+    .product-options-wrapper {
+      margin: 0 auto;
+    }
+
+    //
+    //  Add To Cart
+    //  ---------------------------------------------
+    .product-add-form {
+      width: 100%;
+    }
+
+
+    //
+    //  Downloads Price - Override Core
+    //  ---------------------------------------------
+    .price-box {
+
+      .price-wrapper .price {
+        .lib-font-size(@product-downloadable-price__font-size);
+      }
+
+      //
+      // Old Price
+      //
+      .old-price {
+
+        .price-wrapper .price {
+          .lib-font-size(@product-downloadable-old-price__font-size);
+        }
+
+      }
+
+    }
+
+  }
+
+  //
+  // Downloads
+  //
+  .downloads {
+    margin-bottom: @indent__s;
+
+    //
+    // Downloads Main Label
+    //
+    .label {
+      display: block;
+      margin-bottom: @indent__s;
+      .lib-font-size(@product-downloadable-section-title__font-size);
+      font-weight: @product-downloadable-section-title__font-weight;
+    }
+
+    //
+    // Downloads Options
+    //
+    .choice {
+      padding: @indent__s 0 @indent__xs;
+      border-bottom: @product-downloadable-option__border-bottom;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      //
+      // Downloads Options Label
+      //
+      .label {
+        display: inline-block;
+        text-align: left;
+        .lib-font-size(@font-size__base);
+        font-weight: @font-weight__regular;
+        width: 90%;
+      }
+
+      //
+      // Downloads Checkbox - Focus State
+      //
+      input {
+        &:focus {
+          outline: @product-downloadable-option-checkbox__focus__outline;
+        }
+      }
+
+    }
+
+  }
+
+  //
+  // Downloads No Options
+  //
+  .downloads-no-separately {
+    text-align: @product-downloadable-section__text-align--mobile;
+
+    //
+    // Label
+    //
+    .choice .label {
+      text-align: @product-downloadable-section__text-align--mobile;
+    }
+  }
+
+}
+
+//
+//  Tablet
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  //
+  //  Downloadable Product
+  //  ---------------------------------------------
+  .page-product-downloadable {
+
+    //
+    // Downloads - Main Label - Override Core
+    //
+    .product-add-form .fieldset > .field.downloads > .label {
+      display: block;
+    }
+
+    //
+    //  Product Options Containers
+    //
+    .product-options-wrapper,
+    .product-options-bottom {
+      float: none;
+    }
+
+    //
+    // Remove Table Layout
+    //
+    .product-options-bottom {
+
+      .box-tocart {
+        display: block;
+      }
+
+    }
+  }
+
+}
+
+//
+//  Desktop
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+  //
+  //  Downloadable Product
+  //  ---------------------------------------------
+  .page-product-downloadable {
+
+
+    //
+    // Downloads - Main Label - Override Core
+    //
+    .product-add-form .fieldset > .field.downloads > .label {
+      text-align: @product-downloadable-section__text-align--desktop;
+    }
+
+    //
+    //  Add To Cart
+    //  ---------------------------------------------
+    .product-add-form {
+      padding-top: @indent__base;
+
+      //
+      //  Form
+      //
+      form {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    //
+    //  Product Options Containers
+    //
+    .product-options-wrapper,
+    .product-options-bottom {
+      margin: 0;
+    }
+
+    //
+    // Product Options Bottom
+    //
+    .product-options-bottom {
+      text-align: @product-downloadable-section__text-align--desktop;
+
+      .box-tocart {
+
+        //
+        // Add To Cart Actions
+        //
+        .actions {
+          text-align: @product-downloadable-section__text-align--desktop;
+        }
+
+      }
+
+    }
+
+  }
+
+  //
+  // Downloads No Options
+  //
+  .downloads-no-separately {
+    text-align: @product-downloadable-section__text-align--desktop;
+
+    //
+    // Label
+    //
+    .choice .label {
+      text-align: @product-downloadable-section__text-align--desktop;
+    }
+  }
+
+
+
+}

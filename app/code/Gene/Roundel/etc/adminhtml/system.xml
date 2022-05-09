@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Gene Roundel
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="gene" translate="label" sortOrder="150">
+            <label>Gene</label>
+        </tab>
+
+        <section id="roundels" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Roundel Settings</label>
+            <tab>gene</tab>
+            <resource>Gene_Roundel::roundel_config</resource>
+
+
+            <!-- Roundel Global on/off or Product Only -->
+            <group id="general_settings" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="display_roundels" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display Roundels?</label>
+                    <source_model>Gene\Roundel\Model\Views</source_model>
+                </field>
+
+
+                <field id="roundel_position" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Set roundel position?</label>
+                    <source_model>Gene\Roundel\Model\Position</source_model>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>

@@ -1,0 +1,50 @@
+<!--
+/**
+ * Gene Image Slider Item
+ */
+-->
+<li attr="data.main.attributes"
+    class="pagebuilder-image-slider-item gene-slider__item">
+    <a if="data.link.attributes().href" attr="data.link.attributes"
+       ko-style="data.link.style"
+       css="data.link.css">
+        <picture if="data.desktop_image.attributes().src" class="pagebuilder-image-slider-item__image">
+            <source if="data.mobile_image.attributes().src"
+                    attr="data.mobile_lazy_image.attributes"
+                    media="(max-width: 768px)">
+            <img attr="data.lazy_image.attributes"
+                 css="data.desktop_image.css"
+                 ko-style="data.desktop_image.style"
+                 class="gene-lazy"
+            >
+        </picture>
+
+        <section if="data.title.html"
+                 class="pagebuilder-image-slider-item__content">
+            <h4 attr="data.title.attributes"
+                html="data.title.html"></h4>
+        </section>
+    </a>
+
+    <div ifnot="data.link.attributes().href" attr="data.empty_link.attributes"
+         ko-style="data.empty_link.style"
+         css="data.empty_link.css">
+
+        <picture if="data.desktop_image.attributes().src" class="pagebuilder-image-slider-item__image">
+            <source if="data.mobile_image.attributes().src"
+                    attr="data.mobile_lazy_image.attributes"
+                    media="(max-width: 768px)">
+            <img attr="data.lazy_image.attributes"
+                 css="data.desktop_image.css"
+                 ko-style="data.desktop_image.style"
+                 class="gene-lazy"
+            >
+        </picture>
+
+        <section if="data.title.html"
+                 class="pagebuilder-image-slider-item__content">
+            <h4 attr="data.title.attributes"
+                html="data.title.html"></h4>
+        </section>
+    </div>
+</li>

@@ -1,0 +1,117 @@
+//
+//  Magento Catalog - Add To Cart
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+
+  //
+  //  Add To
+  //_____________________________________________
+
+  .box-tocart {
+    display: flex;
+
+    // Nesting to override core
+    .product-info-main & {
+      margin-bottom: 0;
+    }
+
+    //
+    //  Container
+    //
+    .fieldset {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    // Actions Container
+    //
+    .actions {
+      width: 100%;
+    }
+
+    //
+    // Add to Cart Button
+    //
+    .action {
+      .lib-css(min-width, @product-action__min-width);
+      .lib-css(max-width, @product-action__max-width);
+    }
+
+  }
+
+}
+
+
+//
+//  Tablet Up
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  //  Add To
+  //_____________________________________________
+
+  .box-tocart {
+
+    // Nesting needed to override core
+    .product-info-main & {
+
+      //
+      // Actions Container
+      //
+      .actions {
+        padding-top: 0;
+      }
+    }
+
+    //
+    // Add to Cart Button
+    //
+    .action {
+      .lib-css(max-width, @product-action__max-width--desktop);
+    }
+
+
+  }
+
+}
+
+
+//
+//  Tablet Landscape Up
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+  //
+  //  Add To
+  //_____________________________________________
+
+  .box-tocart {
+
+    // Nesting needed to override core
+    .product-info-main & {
+
+      //
+      // Actions Container
+      //
+      .actions {
+        display: block;
+        text-align: left;
+      }
+    }
+
+    //
+    // Left Align
+    //
+    .fieldset {
+      justify-content: flex-start;
+    }
+  }
+}

@@ -1,0 +1,38 @@
+<?php
+/**
+ * Update CSS classes
+ * @var \Snowdog\Menu\Block\Menu $block
+ */
+if ($block->getMenu()): ?>
+    <?php $menuClass = $block->getMenu()->getCssClass() ?>
+
+    <div class="main-nav__wrapper is-hidden-tablet is-hidden-mobile">
+        <nav class="<?= $menuClass ?>">
+            <ul class="<?= $menuClass ?>__list main-nav__container">
+                <?php foreach ($block->getNodes() as $node): ?>
+                    <?php                        $childrenLevel = $node->getLevel() + 1;
+                        $children = $block->getNodes($childrenLevel, $node);
+                        $node->setIsParent((bool) $children);
+                        $parentClass = $children ? ' ' . $menuClass . '__item--parent' : '';
+                        $additionalClasses = $node->getClasses() ? ' ' . $node->getClasses() : '';
+                        $itemClasses = $parentClass . $additionalClasses;
+                    ?>
+                    <li class="<?= $menuClass ?>__item <?= $itemClasses ?>">
+                        <?= $block->renderMenuNode($node) ?>
+                        <?= $block->renderSubmenu($children, $node, $childrenLevel) ?>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+            <div class="<?= $menuClass ?>__mobile-bg"></div>
+        </nav>
+    </div>
+
+    <script type="text/x-magento-init">
+        {
+            "*" : {
+                "GeneMenu": {}
+            }
+        }
+    </script>
+
+<?php endif; ?>

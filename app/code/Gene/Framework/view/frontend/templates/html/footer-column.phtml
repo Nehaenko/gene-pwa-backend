@@ -1,0 +1,45 @@
+<?php
+/**
+ * Footer Column
+ * @var \Gene\Framework\Block\Html\FooterMenuLinks $block
+ */
+$titlePath = $block->getConfigPathTitle();
+$title = $block->getConfig($titlePath);
+$configPath = $block->getConfigPath();
+$config = $block->getConfig($configPath);
+$childBlock = $block->getChildHtml('', true);
+$menuLinks = $block->getConfigLinks($block->getFooterMenu());
+?>
+<?php if ($config && $title || $childBlock || !empty($menuLinks)) : ?>
+
+    <div class="footer-column <?= $block->escapeHtmlAttr($block->getClassName()); ?>">
+        <div class="footer-column__title title" data-role="trigger">
+            <h3><?= $block->escapeHtml($title) ?></h3>
+            <svg width="14" height="16" viewBox="0 0 14 16" class="icon icon-arrow icon-arrow--down">
+                <use xlink:href="#icon-arrow"></use>
+            </svg>
+        </div>
+        <div class="footer-column__content content" data-role="content">
+            <?= /* @noEscape */ $childBlock; ?>
+
+            <?php if (!empty($menuLinks)) : ?>
+                <ul class="footer-menu">
+                    <?php foreach ($menuLinks as $link) : ?>
+                        <?php
+                            $title = $block->escapeHtml($link['label']);
+                            $url = $block->escapeUrl($block->getUrl($link['link']));
+                            $classes = $block->escapeHtmlAttr($link['css_classes']);
+                        ?>
+                        <li class="footer-menu__item <?= /* @noEscape */ $classes; ?>">
+                            <a href=" <?= /* @noEscape */ $url; ?>" class="footer-menu__link">
+                                <?= /* @noEscape */ $title; ?>
+                            </a>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
+
+            <?= $block->escapeHtml($config); ?>
+        </div>
+    </div>
+<?php endif; ?>

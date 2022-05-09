@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+    <g fill="none" fill-rule="evenodd">
+        <circle cx="15" cy="15" r="14.5" stroke="#03738C"/>
+        <text fill="#03738C" font-family="Lato" font-size="16" font-weight="400">
+            <tspan x="11.396" y="21">?</tspan>
+        </text>
+    </g>
+</svg>

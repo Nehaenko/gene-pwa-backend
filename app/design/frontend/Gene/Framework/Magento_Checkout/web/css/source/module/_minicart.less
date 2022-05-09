@@ -1,0 +1,210 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //
+  //  Type Of Minicart
+  //  Update which mixin to use dependent on XML argument
+  //  See Magento_Checkout/layout/default.xml & README for more information.
+  //  ---------------------------------------------
+  .lib-minicart-sidebar();
+  //.lib-minicart-dropdown();
+
+  //
+  //  Mini Cart - Shared Styles
+  //  ---------------------------------------------
+  .gt-minicart {
+
+    //
+    // Header
+    //
+    &__header {
+      display: flex;
+      justify-content: center;
+
+      position: sticky;
+      top: 0;
+
+      padding: 25px 55px 25px 25px;
+
+      border-bottom: 1px solid @border-color__base;
+
+      h4 {
+        margin: 0;
+        .lib-font-size(@font-size__xl);
+      }
+
+      //
+      // Close Action
+      //
+      .action-close {
+        right: 25px;
+        top: 23px;
+      }
+    }
+
+    //
+    // Subtotal
+    //
+    &__subtotal {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 0 @indent__s;
+
+      .amount {
+        margin-left: auto;
+      }
+
+      .label,
+      .amount {
+        .lib-font-size(@font-size__xl);
+        font-weight: @font-weight__bold;
+      }
+    }
+
+    //
+    // Action Wrapper
+    //
+    &__actions {
+      margin-bottom: 0;
+      margin-top: auto;
+
+      width: 100%;
+      .lib-css(z-index, 9);
+      text-align: center;
+      .lib-css(padding, 25px @minicart__padding-horizontal);
+      .lib-css(border-top, 1px solid @minicart__border-color);
+
+      //
+      // Action
+      //
+      .action {
+        display: block;
+        width: 100%;
+        margin-bottom: @indent__s;
+        text-align: center;
+      }
+
+      //
+      // View and Edit Action
+      //
+      .viewcart {
+        margin: @indent__s 0 0;
+      }
+
+    }
+  }
+
+  //
+  //  Minicart Wrapper
+  //  ---------------------------------------------
+
+  .minicart-wrapper {
+    &:hover,
+    &:focus {
+      .minicart-empty-wrapper {
+        display: block;
+      }
+    }
+  }
+
+  //
+  //  Minicart Action
+  //  ---------------------------------------------
+  .minicart__action {
+    display: block;
+    text-align: center;
+    &--header {
+      margin-left: @header-icons-mobile__spacing;
+    }
+  }
+
+
+  //
+  //  Minicart Icon Container
+  //  ---------------------------------------------
+  .minicart__icon {
+    position: relative;
+
+    .icon {
+      display: block;
+      .lib-css(width, @header-icons-mobile__width);
+      .lib-css(height, @header-icons-mobile__height);
+      margin: 0 auto;
+    }
+
+  }
+
+  //
+  //  Basket Count
+  //  ---------------------------------------------
+
+  .basket-count {
+    color: @secondary__color;
+    position: absolute;
+    .lib-css(top, @minicart-icon-position__top);
+    .lib-css(bottom, @minicart-icon-position__bottom);
+    .lib-css(left, @minicart-icon-position__left);
+    .lib-css(right, @minicart-icon-position__right);
+    width: 100%;
+
+    &.empty {
+      display: none;
+    }
+
+  }
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  //  Type Of Minicart
+  //  Update which mixin to use dependent on XML argument
+  //  See Magento_Checkout/layout/default.xml & README for more information.
+  //  ---------------------------------------------
+  .lib-minicart-sidebar-desktop();
+  //.lib-minicart-dropdown-desktop();
+
+  //
+  //  Mini Cart - Shared Styles
+  //  ---------------------------------------------
+  .gt-minicart {
+
+    &__header {
+      .lib-css(padding, 25px @minicart__padding-horizontal);
+    }
+
+  }
+
+  //
+  //  Minicart Icon Container w Count
+  //  ---------------------------------------------
+
+  .minicart__icon {
+
+    .icon {
+      width: @header-icons__height;
+      height:  @header-icons__width;
+    }
+
+  }
+
+  //
+  //  Basket Count
+  //  ---------------------------------------------
+
+  .basket-count {
+    .lib-css(top, @minicart-icon-position__top--desktop);
+    .lib-css(bottom, @minicart-icon-position__bottom--desktop);
+    .lib-css(left, @minicart-icon-position__left--desktop);
+    .lib-css(right, @minicart-icon-position__right--desktop);
+  }
+
+}

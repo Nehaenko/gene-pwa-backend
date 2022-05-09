@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Default
+
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <!--
+        /**
+        * GENE FRAMEWORK MINICART - Set show_sidebar true/false
+        * If set to false, it will be a dropdown.
+        * The layout underneath needs to be updated accordingly as well.
+        */
+        -->
+        <referenceBlock name="minicart">
+            <arguments>
+                <argument name="show_sidebar" xsi:type="boolean">true</argument>
+            </arguments>
+        </referenceBlock>
+
+        <!--
+        IF DROPDOWN : Default Minicart.
+        IF SIDEBAR : Comment this XML out.
+        -->
+        <!--
+        <move element="minicart" destination="header.tertiary"/>
+        -->
+
+        <!--
+        IF DROPDOWN : Comment this XML out.
+        IF SIDEBAR : Places Minicart Sidebar Outside Header.
+        -->
+        <move element="minicart" destination="page.wrapper" after="header.container"/>
+
+        <!--
+        IF DROPDOWN : Comment this XML out.
+        IF SIDEBAR : Adds Minicart Sidebar Trigger Inside Header
+        -->
+        <referenceContainer name="header.tertiary">
+            <block class="Gene\Framework\Block\Cart\MiniCart"
+                   name="minicart.action"
+                   template="Magento_Checkout::cart/minicart-action.phtml"
+            />
+        </referenceContainer>
+
+    </body>
+</page>

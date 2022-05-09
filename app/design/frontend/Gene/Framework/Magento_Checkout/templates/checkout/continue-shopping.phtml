@@ -1,0 +1,12 @@
+<?php
+/**
+ * Continue Shopping link
+ * @var \Gene\Framework\Block\Theme\SystemConfig $block
+ */
+?>
+<p>
+    <a href="<?= $block->escapeUrl($block->getBaseUrl()) ?>"
+       title="<?= $block->escapeHtmlAttr(__('Continue Shopping')) ?>">
+        <?= $block->escapeHtml(__('Continue Shopping')) ?>
+    </a>
+</p>

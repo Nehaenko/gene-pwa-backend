@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Gene Framework
+
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <gene_theme>
+            <header>
+                <header_promotion>Free Delivery Over £50</header_promotion>
+                <enable_sticky_header>1</enable_sticky_header>
+            </header>
+
+            <payment_gateway>
+                <maestro>1</maestro>
+                <maestro_icon>icon-maestro</maestro_icon>
+
+                <visa>1</visa>
+                <visa_icon>icon-visa</visa_icon>
+
+                <mastercard>1</mastercard>
+                <mastercard_icon>icon-mastercard</mastercard_icon>
+
+                <paypal>1</paypal>
+                <paypal_icon>icon-paypal</paypal_icon>
+            </payment_gateway>
+
+            <newsletter>
+                <newsletter_title>Sign up to receive emails</newsletter_title>
+                <newsletter_content>Sign up to be the first to hear about our limited-edition collections, exclusive products and more.</newsletter_content>
+            </newsletter>
+        </gene_theme>
+    </default>
+</config>

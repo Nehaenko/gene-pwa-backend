@@ -1,0 +1,17 @@
+<div attr="data.main.attributes"
+     ko-style="Object.assign(data.container.style(), data.main.style())"
+     css="data.main.css">
+    <div class="row-full-width-inner"
+         attr="data.inner.attributes"
+         ko-style="data.inner.style"
+         css="data.inner.css">
+        <div data-role="collapsible">
+            <div data-role="trigger">
+                <span class="accordion-block-title"></span>
+            </div>
+        </div>
+        <div data-role="content" class="accordion-content">
+            <render args="masterTemplate"/>
+        </div>
+    </div>
+</div>

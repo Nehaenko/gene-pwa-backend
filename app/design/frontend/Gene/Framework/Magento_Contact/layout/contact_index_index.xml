@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Contact Index Layout
+ <chloe@gene.co.uk
+
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-right" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <move element="page.main.title" destination="content" before="-" />
+
+        <referenceContainer name="sidebar.main">
+            <block class="Magento\Cms\Block\Block" name="contact.form.content">
+                <arguments>
+                    <argument name="block_id" xsi:type="string">contact-us-info</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

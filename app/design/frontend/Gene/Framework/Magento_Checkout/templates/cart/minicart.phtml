@@ -1,0 +1,111 @@
+<?php
+/**
+ * Minicart Sidebar Template
+ * @var \Gene\Framework\Block\Cart\MiniCart $block
+ */
+?>
+
+<div data-block="minicart" class="minicart-wrapper">
+
+    <?php if ($block->getIsNeedToDisplaySideBar()) : ?>
+
+        <?php if ($block->getIsMiniCartSidebar()) :?>
+            <button class="minicart-overlay js-close-minicart" data-role="closeBtn" type="button" tabindex="-1">
+                <?= $block->escapeHtml(__('Close Shopping Bag')); ?>
+            </button>
+
+            <div data-block="minicart" class="gt-minicart" role="dialog" aria-modal="true" aria-label="<?= $block->escapeHtml(__('Cart')); ?>">
+                <div role="document" id="minicart-content-wrapper" class="gt-minicart__content-wrapper" data-bind="scope: 'minicart_content'">
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                </div>
+                <?= $block->getChildHtml('minicart.addons') ?>
+            </div>
+        <?php else : /* Show Dropdown */?>
+            <a class="minicart__action js-minicart-dropdown"
+               href="<?= $block->escapeUrl($block->getShoppingCartUrl()) ?>"
+               aria-label="<?= $block->escapeHtmlAttr(__('Basket'));?>"
+               data-bind="scope: 'minicart_content'">
+
+                <div class="minicart__icon">
+                    <svg viewBox="0 0 100 100" class="icon icon-basket">
+                        <use xlink:href="#icon-basket"></use>
+                    </svg>
+                    <!-- ko if: getCartParam('summary_count') -->
+                        <span class="basket-count empty" data-bind="css: { empty: !!getCartParam('summary_count') == false }">
+                            <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+                        </span>
+                    <!-- /ko -->
+                </div>
+
+                <span class="basket-text is-hidden-mobile">
+                    <?= $block->escapeHtml(__('Basket')); ?>
+                </span>
+
+            </a>
+
+            <div class="block block-minicart gt-minicart"
+                 data-role="dropdownDialog"
+                 data-mage-init='{"dropdownDialog":{
+                    "appendTo":"[data-block=minicart]",
+                    "triggerTarget":".js-minicart-dropdown",
+                    "timeout": "2000",
+                    "closeOnMouseLeave": false,
+                    "closeOnEscape": true,
+                    "triggerClass":"active",
+                    "parentClass":"active",
+                    "buttons":[]}
+                }'>
+                <div id="minicart-content-wrapper gt-minicart__content-wrapper" data-bind="scope: 'minicart_content'">
+                    <!-- ko template: getTemplate() --><!-- /ko -->
+                </div>
+                <?= $block->getChildHtml('minicart.addons') ?>
+            </div>
+        <?php endif ;?>
+
+        <?php else : /* Show Regular Link to Cart */?>
+            <a class="minicart__action"
+               href="<?= $block->escapeUrl($block->getShoppingCartUrl()) ?>"
+               data-bind="scope: 'minicart_content'">
+
+                <div class="minicart__icon">
+                    <svg viewBox="0 0 100 100" class="icon icon-basket">
+                        <use xlink:href="#icon-basket"></use>
+                    </svg>
+                    <!-- ko if: getCartParam('summary_count') -->
+                        <span class="basket-count empty" data-bind="css: { empty: !!getCartParam('summary_count') == false }">
+                            <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+                        </span>
+                    <!-- /ko -->
+                </div>
+
+                <span class="basket-text is-hidden-mobile">
+                    <?= $block->escapeHtml(__('Basket')); ?>
+                </span>
+
+                <!-- ko ifnot: getCartParam('summary_count') -->
+                    <div class="minicart-empty">
+                        <div class="minicart-empty__container">
+                            <span>
+                                <?= $block->escapeHtml(__('Your shopping basket is empty')); ?>
+                            </span>
+                        </div>
+                    </div>
+                <!-- /ko -->
+            </a>
+    <?php endif ?>
+
+    <script>
+        window.checkout = <?= /* @noEscape */ $block->getSerializedConfig() ?>;
+    </script>
+    <script type="text/x-magento-init">
+    {
+        "[data-block='minicart']": {
+            "Magento_Ui/js/core/app": <?= /* @escapeNotVerified */ $block->getJsLayout() ?>
+        },
+        "*": {
+            "Magento_Ui/js/block-loader": "<?= $block->escapeUrl($block->getViewFileUrl('images/loader-1.gif')) ?>"
+        }
+    }
+    </script>
+</div>
+

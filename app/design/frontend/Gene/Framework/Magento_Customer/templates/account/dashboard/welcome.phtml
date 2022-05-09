@@ -1,0 +1,10 @@
+<?php
+/**
+ * Welcome message on user account dashboard
+ * @var \Magento\Customer\Block\Account\Dashboard\Info $block
+ */
+?>
+<div class="dashboard-header">
+    <p class="welcome-text"><?= $block->escapeHtml(__('Welcome')) ?></p>
+    <p><?= $block->escapeHtml(__('%1', $block->getCustomer()->getFirstname())) ?></p>
+</div>

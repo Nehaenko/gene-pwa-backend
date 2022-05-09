@@ -1,0 +1,52 @@
+//
+//  Gene Framework - Responsive Global Classes
+//  ---------------------------------------------
+
+//
+//  Desktop
+//  _____________________________________________
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .is-hidden-desktop {
+        display: none !important;
+    }
+    .is-visible-desktop {
+        display: block !important;
+    }
+    .is-visible-desktop-inline {
+        display: inline-block !important;
+    }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .is-hidden-mobile {
+        display: none !important;
+    }
+    .is-visible-mobile {
+        display: block !important;
+    }
+    .is-visible-mobile-inline {
+        display: inline-block !important;
+    }
+}
+
+//
+//  Tablet P & L Common
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    @media (max-width: (@screen__l)) {
+        .is-hidden-tablet {
+            display: none !important;
+        }
+        .is-visible-tablet {
+            display: block !important;
+        }
+        .is-visible-tablet-inline {
+            display: inline-block !important;
+        }
+    }
+}

@@ -1,0 +1,49 @@
+<!--
+/**
+ * history
+ *
+ */
+-->
+<div attr="data.main.attributes"
+     css="data.main.css"
+     class="pagebuilder-history-item"
+     tabindex="0">
+
+    <div data-role="collapsible">
+
+      <p class="pagebuilder-history-item__year"
+      attr="data.year.attributes"
+      html="data.year.html"></p>
+
+      <h3 class="pagebuilder-history-item__title"
+        attr="data.title.attributes"
+        html="data.title.html"></h3>
+
+        <div class="pagebuilder-history-item__readmore" data-role="trigger">
+          <button class="read-more" type="button" data-bind="i18n: 'Read more'"></button>
+          <button class="read-less" type="button" data-bind="i18n: 'Read less'"></button>
+        </div>
+
+    </div>
+
+    <div class="pagebuilder-history-item__content" data-role="content">
+      <figure if="data.desktop_image.attributes().src"
+        class="pagebuilder-history-item__image-container">
+        <img attr="data.lazy_image.attributes"
+              class="pagebuilder-history-item__image"
+              css="data.desktop_image.css"
+              ko-style="data.desktop_image.style"
+              loading="lazy"
+        />
+        <figcaption>
+          <div
+          attr="data.caption.attributes"
+          html="data.caption.html"></div>
+        </figcaption>
+      </figure>
+
+      <div class="pagebuilder-history-item__text"
+        attr="data.content.attributes"
+        html="data.content.html"></div>
+    </div>
+</div>

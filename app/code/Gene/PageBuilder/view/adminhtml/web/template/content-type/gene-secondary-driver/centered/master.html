@@ -1,0 +1,70 @@
+<!--
+/**
+ * Gene Driver Center
+ * This block is also used a child in Masonry Driver Row & Driver Slider
+ */
+-->
+
+<article ifnot="data.theme.html"
+         class="pagebuilder-secondary-driver pagebuilder-secondary-driver--centered"
+         attr="data.main.attributes"
+         css="data.main.css"
+         ko-style="Object.assign({}, data.main.style(), !data.desktop_image.attributes().src ? {} : {borderStyle: 'none'})">
+
+    <div class="pagebuilder-secondary-driver__inner"
+         attr="data.inner.attributes"
+         css="data.inner.css"
+         ko-style="data.inner.style">
+        <div class="pagebuilder-secondary-driver__content">
+
+            <a attr="data.link.attributes">
+                <picture if="data.desktop_image.attributes().src">
+                    <source if="data.mobile_image.attributes().src"
+                            attr="data.lazy_mobile_image.attributes"
+                            media="(max-width: 768px)" />
+                    <img attr="data.lazy_image.attributes"
+                         css="data.desktop_image.css"
+                         ko-style="data.lazy_image.style"
+                         class="gene-lazy" />
+                </picture>
+                <h3 if="data.heading.html"
+                    attr="data.heading.attributes"
+                    html="data.heading.html"></h3>
+            </a>
+            <div class="pagebuilder-secondary-driver__actions">
+                <a if="data.button.html"
+                   attr="data.link.attributes" class="pagebuilder-secondary-driver__action pagebuilder-button-primary">
+                    <span attr="data.button.attributes" html="data.button.html"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</article>
+
+<article if="data.theme.html"
+         class="pagebuilder-secondary-driver pagebuilder-secondary-driver--centered"
+         attr="data.main.attributes"
+         css="data.main.css"
+         ko-style="Object.assign({}, data.main.style(), !data.desktop_image.attributes().src ? {} : {borderStyle: 'none'})">
+
+    <div class="pagebuilder-secondary-driver__inner"
+         attr="data.inner.attributes"
+         css="data.inner.css"
+         ko-style="data.inner.style">
+        <a attr="data.link.attributes"
+           class="pagebuilder-secondary-driver__content">
+            <picture if="data.desktop_image.attributes().src">
+                <source if="data.mobile_image.attributes().src"
+                        attr="data.lazy_mobile_image.attributes"
+                        media="(max-width: 768px)" />
+                <img attr="data.lazy_image.attributes"
+                     css="data.desktop_image.css"
+                     ko-style="data.lazy_image.style"
+                     class="gene-lazy" />
+            </picture>
+            <h3 if="data.heading.html"
+                attr="data.heading.attributes"
+                html="data.heading.html"></h3>
+        </a>
+    </div>
+</article>

@@ -1,0 +1,72 @@
+//
+//  Gene Framework - Contact
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+  //
+  //  Contact Page - 2 Columns Layout
+  //  ---------------------------------------------
+
+  .contact-index-index.page-layout-2columns-right {
+
+    //
+    //  Main Column
+    //  ---------------------------------------------
+    .column.main {
+      margin-top: @indent__base;
+    }
+
+  }
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  //  Contact Page - 2 Columns Layout
+  //  ---------------------------------------------
+
+  .contact-index-index.page-layout-2columns-right {
+
+    //
+    //  Columns
+    //  ---------------------------------------------
+    .columns {
+      display: flex;
+      margin-bottom: @indent__xl;
+    }
+
+    //
+    //  Main Column
+    //  ---------------------------------------------
+
+    .column.main {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: @contact-main__width;
+      padding-right: @contact__padding;
+      margin-top: 0;
+    }
+
+    //
+    //  Main Sidebar
+    //  ---------------------------------------------
+    .sidebar.sidebar-main {
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: @contact-sidebar__width;
+      padding-left: @contact__padding;
+      border-left: @contact-divider__border;
+
+      //-- Start IE fix
+      -ms-flex: 1;
+      //-- End IE fix
+    }
+  }
+
+}

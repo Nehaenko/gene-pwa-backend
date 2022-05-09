@@ -1,0 +1,144 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Checkout Index
+
+ *
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <!-- Header Begin -->
+        <referenceContainer name="page.wrapper">
+            <container name="checkout.header.container" htmlTag="header" htmlClass="page-header" before="main.content">
+                <container name="checkout.header.panel" htmlTag="div" htmlClass="panel wrapper"/>
+                <container name="checkout.header.wrapper" htmlTag="div" htmlClass="page-header__wrapper">
+                    <!-- Add Padlock Notice -->
+                    <block class="Magento\Framework\View\Element\Template"  name="header.panel.padlocknotice" template="Magento_Checkout::checkout/padlock-notice.phtml"/>
+                </container>
+            </container>
+        </referenceContainer>
+
+        <move element="logo" destination="checkout.header.wrapper" before="header.panel.padlocknotice"/>
+
+        <!-- Remove Gene Gallery Lightbox -->
+        <referenceBlock name="gene.framework.lightbox" remove="true"/>
+
+        <!-- Header End -->
+
+        <!-- Header Panel Begin -->
+        <referenceContainer name="header.panel">
+
+            <!-- Add Continue Shopping Link -->
+            <block class="Magento\Framework\View\Element\Template"  name="header.panel.continue" template="Magento_Checkout::checkout/continue-shopping.phtml"/>
+
+            <!-- Add Login Link -->
+            <block class="Magento\Customer\Block\Account\Link"  name="header.panel.login" template="Magento_Checkout::checkout/login.phtml" />
+
+            <!-- Add Phone Number -->
+            <block class="Gene\Framework\Block\Theme\SystemConfig"  name="header.panel.phonenumber" template="Gene_Framework::html/telephone.phtml">
+                <arguments>
+                    <argument name="config_path" xsi:type="string">general/store_information/phone</argument>
+                    <argument name="class" xsi:type="string">panel__phone-number</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <referenceBlock name="header.panel.promotion" remove="true" />
+        <referenceBlock name="currency" remove="true" />
+        <move element="header.panel" destination="checkout.header.panel"/>
+
+        <!-- Header Panel End -->
+
+
+        <!-- Footer Begin -->
+        <referenceContainer name="page.wrapper">
+            <container name="checkout.footer.container" htmlTag="footer" htmlClass="page-footer" after="main.content">
+                <container name="checkout.footer.wrapper" htmlTag="div" htmlClass="wrapper">
+
+                    <!-- Add Copyright -->
+                    <block class="Magento\Theme\Block\Html\Footer" name="checkout.footer.copyright" template="Magento_Theme::html/copyright.phtml" />
+
+                    <!-- Add Payments -->
+                    <block class="Gene\Framework\Block\Payment" name="footer.payment_gateway" template="Magento_Theme::html/payment.phtml" before="checkout.footer.copyright" />
+
+                </container>
+            </container>
+        </referenceContainer>
+
+        <!-- Footer End -->
+
+        <referenceBlock name="checkout.root">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="sidebar" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="summary" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="discount" xsi:type="array">
+                                                    <item name="component" xsi:type="string">Magento_SalesRule/js/view/payment/discount</item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="config" xsi:type="array">
+                                                            <item name="sortOrder" xsi:type="string">0</item>
+                                                        </item>
+                                                        <item name="errors" xsi:type="array">
+                                                            <item name="sortOrder" xsi:type="string">0</item>
+                                                            <item name="component" xsi:type="string">Magento_SalesRule/js/view/payment/discount-messages</item>
+                                                            <item name="displayArea" xsi:type="string">messages</item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                                <item name="giftcards" xsi:type="array">
+                                                    <item name="component"  xsi:type="string">Magento_GiftCardAccount/js/view/payment/gift-card-account</item>
+                                                    <item name="config" xsi:type="array">
+                                                        <item name="sortOrder" xsi:type="string">3</item>
+                                                    </item>
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="errors" xsi:type="array">
+                                                            <item name="sortOrder" xsi:type="string">0</item>
+                                                            <item name="component" xsi:type="string">Magento_GiftCardAccount/js/view/payment/gift-card-messages</item>
+                                                            <item name="displayArea" xsi:type="string">messages</item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                                <item name="steps" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="billing-step" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="payment" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="afterMethods" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="discount" xsi:type="array">
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="componentDisabled" xsi:type="boolean">true</item>
+                                                                    </item>
+                                                                </item>
+                                                                <item name="giftCardAccount" xsi:type="array">
+                                                                    <item name="config" xsi:type="array">
+                                                                        <item name="componentDisabled" xsi:type="boolean">true</item>
+                                                                    </item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

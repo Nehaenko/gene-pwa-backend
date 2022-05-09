@@ -1,0 +1,361 @@
+//
+//  Magento Catalog - Product Tabs
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+
+  //
+  //  Tabs
+  //  _____________________________________________
+
+  .gt-tabs {
+
+
+    // Override Core
+    &.info.detailed {
+      margin-bottom: 0;
+    }
+
+    //
+    // Tabs Container
+    //
+    &__container {
+      clear: both;
+      .lib-css(background, @product-tab-container__background);
+
+    }
+
+    //
+    // Tabs Wrapper
+    //
+    &__wrapper {
+      .lib-css(background, @product-tab-wrapper__background);
+
+      // Override Core
+      &.data.items {
+        padding: @indent__xl @layout__width-xs-indent @indent__l;
+      }
+    }
+    //
+    // Tabs Links
+    //
+    &__links {
+
+      // Hide Desktop Titles
+      &--desktop {
+        display: none;
+      }
+
+    }
+
+    //
+    // Tabs Titles
+    //
+    &__title {
+      padding: 0 0 @indent__base;
+
+      //
+      // Switch Link
+      //
+      .switch {
+        display: flex;
+        justify-content: space-between;
+        .lib-css(color, @product-tab-link__color);
+        .lib-css(background,@product-tab-link__background-color);
+        .lib-css(text-decoration, @product-tab-link__text-decoration);
+        .lib-css(padding, @product-tab-link__padding);
+        .lib-font-size(@product-tab-link__font-size);
+        .lib-css(border-radius, @product-tab-link__border-radius);
+        .lib-css(border, @product-tab-link__border);
+      }
+
+      //
+      // Focus
+      //
+      ._keyfocus & {
+        &:focus {
+          box-shadow: none;
+
+          .switch {
+            .lib-css(border, @product-tab-link__focus__border);
+          }
+        }
+      }
+
+      //
+      // Switch Icon
+      //
+      .icon {
+        .lib-css(fill, @product-tab-link__icon-color);
+      }
+    }
+
+    //
+    // Mobile Accordion: Open State
+    //
+    &__accordion--open {
+      .switch {
+        .lib-css(color, @product-tab-link__color__active);
+        .lib-css(background, @product-tab-link__background-color__active);
+      }
+
+      .icon {
+        .lib-css(fill, @product-tab-link__icon-color__active);
+        transform: rotate(-90deg);
+      }
+    }
+
+
+    //
+    // Tab Content
+    //
+    &__content {
+
+      //
+      // Add Review
+      //
+      .review-add {
+        padding-bottom: @indent__xl;
+      }
+
+    }
+
+  }
+  //
+  //  Tabs in PageBuilder
+  //  _____________________________________________
+  .gt-tabs--pagebuilder {
+
+    //
+    // Tabs Links
+    //
+    .gt-tabs__links {
+      .lib-list-reset-styles();
+      display: flex;
+    }
+
+    //
+    // With Vertical Layout
+    //
+    &.gt-tabs--vertical {
+
+      //
+      // Tabs Links
+      //
+      .gt-tabs__links {
+        flex-direction: column;
+      }
+
+    }
+
+    //
+    // PageBuilder Alignment Settings
+    //  _____________________________________________
+
+    //
+    // Tab Aligned Center
+    //  _____________________________________________
+    &.tab-align-center {
+
+      //
+      // Tabs Links
+      //
+      .gt-tabs__links {
+        justify-content: center;
+      }
+
+    }
+
+    //
+    // Tab Aligned Right
+    //  _____________________________________________
+    &.tab-align-right {
+
+      //
+      // Tabs Links
+      //
+      .gt-tabs__links {
+        justify-content: flex-end;
+      }
+
+    }
+
+    //
+    // Tabs Titles
+    //
+    .gt-tabs__title {
+
+      //
+      // Icon
+      //
+      .icon {
+        margin-left: @indent__s;
+      }
+
+      //
+      // Active State
+      //
+      &.ui-tabs-active {
+        .switch {
+          .lib-css(color, @product-tab-link__color__active);
+          .lib-css(background, @product-tab-link__background-color__active);
+        }
+
+        .icon {
+          .lib-css(fill, @product-tab-link__icon-color__active);
+        }
+      }
+
+    }
+
+  }
+
+}
+
+
+//
+//  Tablet Up
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  //  Tabs Desktop
+  //  Default Horizontal
+  //  See product-tabs--vertical for optional layout
+  //  _____________________________________________
+
+  .gt-tabs {
+
+    //
+    // Tabs Wrapper
+    //
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+
+
+      // Override Core
+      &.data.items {
+        padding: @indent__xl+@indent__base @layout-indent__width @indent__l;
+        margin: 0 auto;
+      }
+    }
+
+    //
+    // Tabs Links
+    //
+    &__links {
+
+      //
+      // Switch between Mobile to Desktop Tab Links
+      //
+      &--mobile {
+        display: none;
+      }
+
+      &--desktop {
+        display: flex;
+        padding: 0;
+        list-style: none;
+      }
+    }
+
+    //
+    // Tabs Titles
+    //
+    &__title {
+      padding: 0 @indent__base @indent__l/2 0;
+      margin: 0;
+
+      .icon {
+        margin-left: @indent__s;
+      }
+
+      //
+      // Desktop Collapsible: Open State
+      //
+      &.active {
+        .switch {
+          .lib-css(color, @product-tab-link__color__active);
+          .lib-css(background, @product-tab-link__background-color__active);
+        }
+
+        .icon {
+          .lib-css(fill, @product-tab-link__icon-color__active);
+        }
+      }
+    }
+
+  }
+
+  //
+  //  Tabs Vertical on Desktop
+  //  Add on element .gt-tabs
+  //  _____________________________________________
+
+  .gt-tabs--vertical {
+
+    //
+    // Tabs Wrapper
+    //
+    .gt-tabs__wrapper {
+      flex-direction: row;
+    }
+
+    //
+    // Tabs Links
+    //
+    .gt-tabs__links {
+      width: 20%;
+      margin:0 @indent__xl+@indent__base 0 @indent__base;
+
+      &--desktop {
+        display: block;
+      }
+
+      // Arrow Right
+      .icon-arrow {
+        transform: rotate(0);
+      }
+
+    }
+
+    //
+    // Tabs Titles
+    //
+    .gt-tabs__title {
+      padding: 0 0 @indent__l/2;
+      margin: 0;
+
+      //
+      // Switch Animation
+      //
+      .switch when (@product-tab-icon-animation = true) {
+
+        .icon {
+          transition: .8s;
+        }
+
+        &:hover {
+          .icon {
+            transform: translateX(5px);
+          }
+        }
+      }
+
+    }
+
+    //
+    // Tabs Info
+    //
+    .gt-tabs__info {
+      width: 70%;
+    }
+  }
+
+}
+

@@ -1,0 +1,117 @@
+//
+//  Gene Framework - Cookie Dialog
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+  //
+  //  Container - Core Override
+  //  ---------------------------------------------
+
+  .message.global.cookie {
+    background-color: @cookie-banner__background;
+    box-shadow: @cookie-banner__box-shadow;
+    padding: @cookie-banner__padding;
+    z-index: @cookie-banner__z-index;
+
+    //
+    //  Learn More
+    //  ---------------------------------------------
+
+    .button-cookie-more {
+      .lib-link-as-button();
+      .lib-button();
+      background-color: @cookie-banner-secondary__background;
+      border-radius: @button__border-radius;
+      color: @color-white;
+    }
+
+  }
+
+  //
+  //  Cookie Banner
+  //  ---------------------------------------------
+
+  .cookie-banner {
+
+    //
+    //  Cookie Banner - Wrapper
+    //  ---------------------------------------------
+
+    &__wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    //
+    //  Cookie Banner - Info
+    //  ---------------------------------------------
+
+    &__info {
+      .lib-font-size(@cookie-banner__font-size);
+      line-height: @cookie-banner__lineheight;
+      text-align: center;
+    }
+
+    //
+    //  Cookie Banner - Actions
+    //  ---------------------------------------------
+
+    &__actions {
+      margin-top: @indent__s;
+
+      //
+      //  Cookie Banner - Allow
+      //  ---------------------------------------------
+
+      .action.allow {
+        margin-right: @indent__s;
+      }
+
+    }
+
+  }
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  // Cookie Banner
+  //  ---------------------------------------------
+  .cookie-banner {
+
+    //
+    //  Cookie Banner - Wrapper
+    //  ---------------------------------------------
+
+    &__wrapper {
+      flex-direction: row;
+    }
+
+    //
+    //  Cookie Banner - Info
+    //  ---------------------------------------------
+
+    &__info {
+      text-align: left;
+    }
+
+    //
+    //  Cookie Banner - Actions
+    //  ---------------------------------------------
+
+    &__actions {
+      margin-top: 0;
+    }
+
+  }
+
+}

@@ -1,0 +1,21 @@
+<?php
+/**
+ * Cart item remove button
+ * overridden from parent to apply svg icon & convert <a/> to <button/>
+ * added span for button label
+ *
+ * @var \Magento\Checkout\Block\Cart\Item\Renderer\Actions\Remove $block
+ */
+?>
+<button
+    aria-label="<?= $block->escapeHtml(__('Remove item')) ?>"
+    title="<?= $block->escapeHtml(__('Remove item')) ?>"
+    class="action action-delete"
+    data-post='<?= /* @noEscape */ $block->getDeletePostJson() ?>'>
+    <span class="is-hidden-desktop is-hidden-tablet is-visible-mobile-inline action-delete__label">
+        <?= $block->escapeHtml(__('Remove Item')); ?>
+    </span>
+    <svg viewBox="0 0 100 100" class="icon icon-bin is-hidden-mobile">
+      <use xlink:href="#icon-bin"></use>
+    </svg>
+</button>

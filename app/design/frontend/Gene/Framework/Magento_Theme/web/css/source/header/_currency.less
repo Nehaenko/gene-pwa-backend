@@ -1,0 +1,47 @@
+//
+//  Currency
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+
+    .page-header .switcher {
+      vertical-align: middle;
+    }
+
+    .page-header .switcher .options .action.toggle:after,
+    .page-header .switcher .options .action.toggle.active:after {
+        content: '';
+        display: none;
+    }
+
+    .action-flag {
+      display: flex;
+      align-items: center;
+
+        .icon-arrow {
+            width: 9px;
+            height: 15px;
+            margin-left: @indent__s;
+        }
+
+        .icon-flag {
+            width: 32px;
+            height: 19px;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+    // Core override
+    .page-header .switcher .options,
+    .page-header .switcher .options .action.toggle {
+        display: block;
+    }
+
+}

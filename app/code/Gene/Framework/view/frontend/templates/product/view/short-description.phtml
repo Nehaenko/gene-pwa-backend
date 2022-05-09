@@ -1,0 +1,49 @@
+<?php
+/**
+ * Product Short Description template
+ * @var \Magento\Catalog\Block\Product\View\Description $block
+ */
+$product = $block->getProduct();
+$content = $product->getShortDescription(); // can contain HTML
+?>
+<?php if ($content) : ?>
+    <div class="product attribute overview short-description">
+        <div class="short-description__content">
+            <?= /* @noEscape */ $content; ?>
+        </div>
+        <a href="#description" class="short-description__link js-view-description">
+            <span class="short-description__label"><?= $block->escapeHtml(__('Read More')); ?></span>
+        </a>
+    </div>
+
+    <script type="text/javascript">
+        require([
+            'jquery'
+        ], function($){
+
+            //
+            // Scroll to and Open Description Tab
+            //
+            $('.js-view-description').click(function (event) {
+                event.preventDefault();
+                var anchor = $(this).attr('href').replace(/^.*?(#|$)/, '');
+                $('.product.data.items [data-role="content"]').each(function (index) {
+                    if (this.id == 'description') {
+                        $('.product.data.items').tabs('activate', index);
+
+                        // Check if Sticky Header is enabled
+                        if($('body').hasClass('__sticky-header-enabled')) {
+                            $('html, body').animate({
+                                scrollTop: $('#' + anchor).offset().top - 100
+                            }, 300);
+                        } else {
+                            $('html, body').animate({
+                                scrollTop: $('#' + anchor).offset().top
+                            }, 300);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+<?php endif; ?>

@@ -1,0 +1,15 @@
+<?php
+/**
+ * Roundel Block
+ *
+ * @var Gene\Roundel\Block\Roundel $block
+ */
+
+$roundel = $block->getRoundel();
+$roundelEnabled = $block->isEnabledProductView();
+?>
+<?php if (!empty($roundel[0]) && $roundelEnabled) : ?>
+    <div class="gene-roundel <?= $block->escapeHtmlAttr($roundel[1]); ?>">
+        <?= $block->escapeHtml($roundel[0]); ?>
+    </div>
+<?php endif; ?>

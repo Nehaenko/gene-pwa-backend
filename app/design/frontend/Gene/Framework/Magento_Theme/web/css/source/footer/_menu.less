@@ -1,0 +1,28 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    .footer-menu {
+
+        &__item {
+            .lib-css(padding, @footer-menu-item-padding);
+            .lib-css(font-family, @footer-menu-item-font-family);
+            .lib-font-size(@footer-menu-item-font-size);
+
+            a {
+                display: block;
+                line-height: 1;
+            }
+        }
+    }
+    
+    // force override Magento CSS :( 
+    .footer.content {
+        ul.footer-menu {
+            margin: @indent__s 0;
+        }
+    }
+
+}

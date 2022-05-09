@@ -1,0 +1,9 @@
+<?php
+/**
+ * Hero Image Preload
+ * @var \Gene\Framework\Block\Theme\SystemConfig $block
+ */
+?>
+<?php if ($config = $block->getConfig()): ?>
+  <link rel="preload" as="image" href="<?= $block->escapeUrl($block->getMediaUrl('wysiwyg/' .  $block->getConfig())); ?>">
+<?php endif; ?>

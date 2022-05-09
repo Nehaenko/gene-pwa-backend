@@ -1,0 +1,139 @@
+//
+//  Magento Search Bar
+//  ---------------------------------------------
+
+//
+//  Common
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+  .minisearch {
+    display: flex;
+  }
+
+  //
+  //  Search Bar
+  //  ---------------------------------------------
+
+  .block-search {
+    width: 100%;
+    margin: 0;
+
+    //
+    //  Configurable Show/Hide Search
+    //  ---------------------------------------------
+
+    &--mobile-hidden {
+      display: none;
+    }
+
+    //
+    //  Block
+    //  ---------------------------------------------
+
+    .block {
+      &-title {
+        display: none;
+      }
+
+      &-content {
+        margin-bottom: 0;
+      }
+    }
+
+    //
+    //  Search
+    //  _____________________________________________
+
+    .search {
+
+      //
+      //  Search Field
+      //  ---------------------------------------------
+
+      &.field {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+        margin: 0;
+      }
+
+      //
+      //  Search Label
+      //  _____________________________________________
+
+      label {
+        .lib-visually-hidden();
+      }
+
+      //
+      //  Search Input
+      //  _____________________________________________
+
+      input {
+        border: @search-bar__border;
+      }
+
+      //
+      //  Search Action
+      //  ---------------------------------------------
+
+      &.action {
+        display: inline-block;
+        width: @search-action__width;
+        height: @search-action__height;
+        position: relative;
+        padding: @search-action__padding;
+        right: 0;
+        border: @search-action__border;
+        margin: @search-action__margin;
+        background-color: @search-action__background-color;
+        border-radius: @search-action__border-radius;
+
+        .icon-search {
+          fill: @color-white;
+          width: @search-icon__width;
+          height: @search-icon__height;
+        }
+
+        //
+        // Label
+        //
+        span {
+          .lib-visually-hidden();
+        }
+
+        &:hover {
+          background-color: @search-action__hover__background-color;
+        }
+
+        &:focus {
+          background: @search-action__focus__background-color;
+        }
+      }
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+//
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+  .block-search {
+    width: @search-bar__max-width;
+
+    //
+    //  Configurable Show/Hide Search
+    //  Always visible on Desktop
+    //  ---------------------------------------------
+
+    &--mobile-hidden {
+      display: block;
+    }
+
+  }
+
+}

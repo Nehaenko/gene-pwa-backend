@@ -1,0 +1,44 @@
+//
+//  Gene Framework - Row Styles
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //
+  //  PageBuilder - 2Column - 768 & down
+  //  _____________________________________________
+  @media screen and (max-width: (@screen__m)) {
+
+    .pagebuilder-row--mobile-two {
+
+      .pagebuilder-column {
+        .lib-vendor-prefix-flex-direction(row)!important;
+        .lib-vendor-prefix-flex-basis(50%)!important;
+        box-sizing: border-box;
+      }
+
+    }
+
+  }
+
+  //
+  //  PageBuilder - 3Column - 768px & down
+  //  _____________________________________________
+  @media screen and (max-width: (@screen__m)) {
+
+    .pagebuilder-row--mobile-three {
+
+      .pagebuilder-column {
+        .lib-vendor-prefix-flex-basis(33.3%)!important;
+        box-sizing: border-box;
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,815 @@
+//
+//  Navigation
+//  ---------------------------------------------
+
+//
+//  Variables
+//  _____________________________________________
+
+@mobile-menu-width: 90%;
+
+
+//
+//  Mixins
+//  _____________________________________________
+
+.lib-focus-menu(
+    @_color: @primary__color,
+    @_style: dotted,
+    @_size: 2px
+) {
+    outline: @_size @_style @_color;
+    box-shadow: none;
+};
+
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //
+    //  Extra menu classes
+    //  _____________________________________________
+
+    .top-menu-margin {
+        &_50 {
+            margin-top: 50px !important; //override all menu styles
+        }
+
+        &_20 {
+            margin-top: @indent__base !important; //override all menu styles
+        }
+
+        &_10 {
+            margin-top: @indent__s !important; //override all menu styles
+        }
+    }
+
+    //
+    //  Menu Open
+    //  _____________________________________________
+
+    .__menu-open {
+        overflow: hidden;
+    }
+
+    //
+    //  Menu Sections
+    //  _____________________________________________
+
+    .menu-sections {
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 150;
+
+        transition: .3s;
+
+        width: 100%;
+
+        min-height: 100vh;
+        max-height: 100vh;
+
+        .lib-css(max-width, @navigation__max-width);
+
+        overflow-y: scroll;
+
+        .lib-css(background, @navigation__background);
+
+        transform: translateX(-100%);
+
+
+        //
+        //  With Menu Open
+        //  _____________________________________________
+
+        .__menu-open & {
+            transform: translateX(0%);
+        }
+
+
+        //
+        // Header is sticky
+        //
+
+        // .__sticky-header & {
+        //
+        // }
+
+        //
+        //  Menu Overlay
+        //  _____________________________________________
+
+        &__overlay {
+
+            .lib-button-reset();
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+            min-height: 100vh;
+
+            z-index: 149;
+
+            .lib-css(background, @modal-overlay__background-color);
+
+            display: none;
+
+            border-radius: 0;
+
+            text-indent: -9999px;
+
+            &:hover {
+                .lib-css(background, @modal-overlay__background-color);
+            }
+
+            //
+            //  With Menu Open
+            //  _____________________________________________
+
+            .__menu-open & {
+                display: block;
+            }
+        }
+
+    }
+
+    //
+    //  Menu Section
+    //  _____________________________________________
+
+    .menu-section {
+
+        //
+        //  Menu Section - Header
+        //  _____________________________________________
+
+        &__header {
+            .lib-css(border-bottom, @navigation-section-header__border);
+            display: flex;
+            align-items: center;
+
+            .lib-css(padding, @navigation-section-header__padding);
+
+            &-title {
+                margin: 0;
+            }
+        }
+
+        //
+        //  Menu Section - Close Action
+        //  _____________________________________________
+
+        &__close-action {
+            .lib-button-reset();
+            .lib-css(color, @text__color);
+            padding: @indent__s 0;
+            text-align: right;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            border-radius: 0;
+
+            &:hover,
+            &:focus {
+                .lib-css(color, @primary__color);
+                svg {
+                    fill: @primary__color;
+                }
+            }
+
+            ._keyfocus &:focus {
+                .lib-focus-menu();
+            }
+
+            svg {
+                width: 15px;
+                height: 15px;
+                margin-left: @indent__xs;
+            }
+        }
+
+    }
+
+
+    //
+    //  Main Navigation
+    //  _____________________________________________
+
+    .main-nav {
+
+        .lib-css(background, @navigation__background);
+
+        .focus {
+            .lib-focus-menu();
+        }
+
+        //
+        //  Main Navigation - Container
+        //  _____________________________________________
+
+        &__container {
+            margin: 0;
+            padding: 0;
+
+            position: relative;
+        }
+
+        //
+        //  Main Navigation - List
+        //  _____________________________________________
+
+        &__list {
+            padding: 0;
+        }
+
+        &__inner-list {
+            padding-left: 0;
+        }
+
+        //
+        //  Main Navigation - Mobile Sections
+        //  _____________________________________________
+
+        &__mobile-section {
+
+            display: none;
+
+            position: absolute;
+            left: 100%;
+            top: 0;
+
+            z-index: 200;
+
+            width: 100%;
+
+            .lib-css(background, @navigation__background);
+
+            //
+            //  With Menu Section Open
+            //  _____________________________________________
+
+            &.__menu-section-open {
+                transform: translateX(-100%);
+                display: block;
+            }
+
+        }
+
+        //
+        //  Main Navigation - List Item
+        //  _____________________________________________
+
+        &__item {
+            margin: 0;
+            .lib-css(border-bottom, @navigation-level0-item__border);
+        }
+
+        //
+        //  Main Navigation - Link
+        //  _____________________________________________
+
+        &__link {
+
+            display: block;
+            .lib-css(padding, @navigation-item__padding);
+            .lib-css(line-height, @submenu-item__line-height);
+
+            text-decoration: none;
+
+            display: flex;
+            align-items: center;
+
+            ._keyfocus &:focus {
+                .lib-focus-menu();
+            }
+
+            //
+            //  Main Navigation - Link Level 0
+            //  _____________________________________________
+
+            &--level0 {
+                .lib-css(padding, @navigation-level0-item__padding);
+
+                .lib-css(color, @navigation-level0-item__color);
+
+                .lib-css(font-family, @navigation-level0-item__font-family);
+                .lib-font-size(@navigation-level0-item__font-size);
+                .lib-css(font-weight, @navigation-level0-item__font-weight);
+
+                .lib-css(text-transform, @navigation-level0-item__text-transform);
+                .lib-css(text-decoration, @navigation-level0-item__text-decoration);
+
+                .lib-css(line-height, @navigation-level0-item__line-height);
+
+                // Prevent global reset
+                &:visited {
+                    .lib-css(color, @navigation-level0-item__color);
+                }
+            }
+        }
+
+        //
+        //  Main Navigation - Parent Arrow
+        //  _____________________________________________
+
+        &__parent-arrow {
+            margin-left: auto;
+        }
+
+        //
+        //  Main Navigation - Back Button
+        //  _____________________________________________
+
+        &__back-button {
+
+            .lib-button-reset();
+            .lib-css(padding, @navigation-back-button__padding);
+
+            width: 100%;
+            .lib-css(line-height, @submenu-item__line-height);
+
+            border-radius: 0;
+            border: none;
+
+            .lib-css(background, @navigation__back);
+
+            display: flex;
+            align-items: center;
+
+            &:hover,
+            &:focus {
+                .lib-css(background, @button__hover__background);
+            }
+
+            ._keyfocus &:focus {
+                .lib-focus-menu();
+
+                span {
+                    text-decoration: underline;
+                }
+
+            }
+        }
+
+        //
+        //  Main Navigation - Back Arrow
+        //  _____________________________________________
+
+        &__back-arrow {
+            margin-right: @indent__s;
+            fill: @button__color;
+        }
+
+        //
+        //  Main Navigation -  Mobile Links
+        //  _____________________________________________
+
+        &__mobile-links {
+            .lib-css(padding, @mobile-links__padding);
+            margin: 0;
+            list-style: none;
+
+            .lib-css(background-color, @mobile-links__background-color);
+
+            //
+            //  Main Navigation - Mobile Links Item
+            //  _____________________________________________
+
+            &-item {
+                margin: @indent__s 0 0;
+            }
+
+            //
+            //  Main Navigation - Mobile Links Action
+            //  _____________________________________________
+
+            &-action {
+                .lib-button-as-link();
+                border-radius: 0;
+
+                .lib-css(color, @mobile-links-link__color);
+                .lib-css(padding, @mobile-links-link__padding);
+
+                display: block;
+                line-height: 1.6;
+                width: 100%;
+                .lib-css(font-family, @mobile-links-link__font-family);
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    .lib-css(fill, @mobile-links-link__icon-color);
+                    margin-right: @indent__s;
+                    width: 20px;
+                }
+
+                &:visited {
+                    .lib-css(color, @mobile-links-link__color-visited);
+                }
+
+                &:hover {
+                    .lib-css(color, @mobile-links-link__color-hover);
+
+                    .icon {
+                        .lib-css(fill, @mobile-links-link__icon-color-hover);
+                    }
+                }
+
+                ._keyfocus &:focus {
+                    color: @text__color;
+                    .lib-focus-menu();
+                }
+            }
+        }
+
+        &__wrapper {
+            &.expanded {
+                .main-nav__mobile-section {
+                    position: relative;
+                    transform: translateX(-100%);
+                    display: block;
+                }
+
+                .icon-arrow--right,
+                [data-content-type="row"] + .icon  {
+                    display: none;
+                }
+
+                .main-nav__item,
+                .main-nav__inner-item {
+                    [data-role="title"] {
+                        position: relative;
+
+                        .icon-arrow--down {
+                            position: absolute;
+                            right: 20px;
+                            top: 15px;
+                            transform: rotate(90deg);
+                        }
+                    }
+
+                    &.active {
+                        > div > .icon-arrow--down {
+                            transform: rotate(270deg);
+                        }
+                    }
+
+                    &.cats-empty {
+                        .icon-arrow--down {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+    //
+    //  Extra menu classes
+    //  _____________________________________________
+
+    .is-hidden-wrapper {
+        .main-nav__link--level1 {
+            &.js-menu-parent-link {
+                display: none !important; //override all menu styles
+            }
+        }
+    }
+
+    //
+    //  Menu Open
+    //  _____________________________________________
+
+    .__menu-open {
+        overflow: initial;
+    }
+
+    //
+    //  Menu Sections
+    //  _____________________________________________
+
+    .menu-sections {
+        position: static;
+
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+
+        z-index: 10;
+
+        overflow: inherit;
+        .lib-css(border-top, @menu-sections__border-top);
+        .lib-css(border-bottom, @menu-sections__border-bottom);
+
+        transform: translateY(0%);
+        min-height: 0;
+
+        //
+        //  Menu Open
+        //  _____________________________________________
+
+        .__menu-open & {
+            transform: translateX(0);
+        }
+
+        //
+        //  Menu Overlay
+        //  _____________________________________________
+
+        &__overlay {
+            display: none;
+        }
+
+        //
+        //  Hide all but the menu on desktop
+        //  _____________________________________________
+
+        .menu-section:not(:first-of-type) {
+            display: none;
+        }
+    }
+
+    //
+    //  Menu Section
+    //  _____________________________________________
+
+    .menu-section {
+        max-width: 100%;
+    }
+
+    //
+    //  Main Navigation - Mobile Sections
+    //  _____________________________________________
+
+    .main-nav__mobile-section {
+        display: block;
+        position: static;
+        min-height: 0;
+
+        background: inherit;
+
+        //
+        //  With Menu Section Open
+        //  _____________________________________________
+
+        &.__menu-section-open {
+            transform: translateX(0);
+        }
+    }
+
+    //
+    //  Main Navigation
+    //  _____________________________________________
+
+    .main-nav {
+        position: relative;
+        left: auto;
+        .lib-css(box-shadow, @navigation__box-shadow);
+
+        //
+        //  Main Navigation - Container
+        //  _____________________________________________
+
+        &__container {
+            display: flex;
+            justify-content: center;
+            position: static;
+        }
+
+
+        &__inner-list {
+            &--level1 {
+                display: flex;
+                width: 100%;
+            }
+        }
+
+        //
+        //  Main Navigation - Wrapper
+        //  _____________________________________________
+
+        &__wrapper {
+            margin-left: auto;
+            margin-right: auto;
+            width: @layout__max-width;
+            padding-left: @layout-indent__width;
+            padding-right: @layout-indent__width;
+            max-width: 100%;
+        }
+
+        //
+        //  Main Navigation - List
+        //  _____________________________________________
+
+        &__list {
+            width: 100%;
+
+            //
+            //  Main Navigation -  List With Featured Content
+            //  _____________________________________________
+
+            &--with-featured {
+                width: @navigation-desktop-links__width;
+            }
+
+            //
+            //  Main Navigation - List Level 0
+            //  _____________________________________________
+
+            &--level0 {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+        }
+
+        &__inner-item {
+            &--level1 {
+                max-width: 340px;
+                flex-basis: 340px;
+            }
+        }
+
+        //
+        //  Main Navigation - Item
+        //  _____________________________________________
+
+        &__item {
+            display: inline-block;
+            border: none;
+
+            //
+            //  Main Navigation - Item Level 1
+            //  _____________________________________________
+
+            &--level1 {
+                width: @navigation-desktop-level1__width;
+                margin: 0 0 @indent__s;
+
+                //
+                //  List has Featured Content
+                //  _____________________________________________
+
+                .main-nav_list--with-featured & {
+                    width: @navigation-desktop-level1__width_with-content;
+                }
+            }
+
+            //
+            //  Main Navigation - Item Level 2
+            //  _____________________________________________
+
+            &--level2 {
+                display: block;
+                margin: @indent__s 0 0;
+            }
+
+        }
+
+        //
+        //  Main Navigation - Featured Content
+        //  _____________________________________________
+
+        &__featured-content {
+            width: @navigation-desktop-content__width;
+        }
+
+        //
+        //  Main Navigation - Parent Arrow
+        //  _____________________________________________
+
+        &__parent-arrow {
+            display: none;
+            position: absolute;
+            left: ~'calc(50% - 10px)';
+            bottom: 0;
+            margin: 0;
+            width: 20px;
+            .lib-css(fill, @navigation-desktop-level0-item__color);
+            transform: rotate(90deg);
+        }
+
+        //
+        //  Main Navigation - Link
+        //  _____________________________________________
+
+        &__link {
+            padding: 0;
+            line-height: 1.6;
+
+            //
+            //  Main Navigation - Link Level 0
+            //  _____________________________________________
+
+            &--level0 {
+                color: @navigation-desktop-level0-item__color;
+
+                .lib-font-size(@navigation-desktop__font-size);
+                font-weight: @navigation-desktop__font-weight;
+                font-family: @navigation-desktop__font-family;
+
+                text-transform: uppercase;
+
+                .lib-css(padding, @navigation-desktop-level0-item__padding);
+                .lib-css(line-height, @navigation-desktop-level0-item__line-height);
+                .lib-css(min-height, @navigation-desktop__min-height);
+
+                position: relative;
+
+                &:hover {
+                    text-decoration: none;
+                    .lib-css(background, @navigation-desktop-level0-item__hover__background);
+                }
+
+                // Prevent global reset
+                &:visited {
+                    .lib-css(color, @navigation-desktop-level0-item__color);
+                }
+
+                ._keyfocus &:focus  {
+
+                    .main-nav__parent-arrow {
+                        display: block;
+                    }
+
+                }
+            }
+
+            //
+            //  Main Navigation - Link Level 1
+            //  _____________________________________________
+
+            &--level1 {
+                .lib-css(font-family, @navigation-desktop-level1-item__font-family);
+                .lib-font-size(@navigation-desktop-level1-item__font-size);
+            }
+
+            //
+            //  Main Navigation - Link Level 2
+            //  _____________________________________________
+
+            &--level2 {
+                .lib-css(color, @navigation-desktop-level2-item__color);
+                .lib-css(font-family, @navigation-desktop-level2-item__font-family);
+                .lib-font-size(@navigation-desktop-level2-item__font-size);
+
+                // Prevent global reset
+                &:visited {
+                    .lib-css(color, @navigation-desktop-level2-item__color);
+                }
+            }
+        }
+
+        //
+        //  Main Navigation - Dropdown
+        //  _____________________________________________
+
+        &__dropdown {
+            position: absolute;
+
+            top: 100%;
+            left: 0;
+            right: 0;
+
+            z-index: 20;
+
+            .lib-css(background, @submenu-desktop__background);
+            .lib-css(box-shadow, @navigation__box-shadow);
+
+            .lib-css(padding, @submenu-desktop__padding);
+
+            display: none;
+
+            //
+            //  With Menu Section Open
+            //  _____________________________________________
+
+            &.__menu-section-open {
+                display: block;
+            }
+
+            //
+            //  Main Navigation - Dropdown Wrapper
+            //  _____________________________________________
+
+            &-wrapper {
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}

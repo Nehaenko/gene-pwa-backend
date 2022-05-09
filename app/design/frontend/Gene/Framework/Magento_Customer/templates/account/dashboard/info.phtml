@@ -1,0 +1,43 @@
+<?php
+/**
+ * Dashboard Info
+ *
+ * The changes are:
+ * Reducing the HTML to be more concise and semantic
+ * Introducing BEM CSS classes
+ *
+ * @var \Magento\Customer\Block\Account\Dashboard\Info $block
+ */
+?>
+<div class="dashboard-info">
+    <section class="dashboard-info__content">
+        <h3><?= $block->escapeHtml(__('Contact Information')) ?></h3>
+        <p class="dashboard-info__name"><?= $block->escapeHtml($block->getName()) ?></p>
+        <p class="dashboard-info__email"><?= $block->escapeHtml($block->getCustomer()->getEmail()) ?></p>
+        <?= $block->getChildHtml('customer.account.dashboard.info.extra'); ?>
+
+        <a href="<?= $block->escapeUrl($block->getUrl('customer/account/edit')) ?>">
+            <?= $block->escapeHtml(__('Edit')) ?>
+        </a>
+
+        <a href="<?= $block->escapeUrl($block->getChangePasswordUrl()) ?>">
+            <?= $block->escapeHtml(__('Change Password')) ?>
+        </a>
+    </section>
+    <?php if ($block->isNewsletterEnabled()) : ?>
+        <section class="dashboard-info__content">
+            <h3><?= $block->escapeHtml(__('Newsletters')) ?></h3>
+            <p>
+                <?php if ($block->getIsSubscribed()) : ?>
+                    <?= $block->escapeHtml(__('You are subscribed to "General Subscription".')) ?>
+                <?php else : ?>
+                    <?= $block->escapeHtml(__('You aren\'t subscribed to our newsletter.')) ?>
+                <?php endif; ?>
+            </p>
+            <a href="<?= $block->escapeUrl($block->getUrl('newsletter/manage')) ?>">
+                <?= $block->escapeHtml(__('Edit')) ?>
+            </a>
+
+        </section>
+    <?php endif; ?>
+</div>

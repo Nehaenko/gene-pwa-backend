@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Gene Framework - Full Width Page
+
+ */
+-->
+<layout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_layout.xsd">
+    <update handle="1column" />
+
+    <!-- Create new wrappers inside main -->
+    <referenceContainer name="content">
+        <!-- Create new wrapper for page top-->
+        <container name="full.width.top.wrapper" htmlTag="div" htmlClass="full-width top wrapper" before="-"/>
+        <container name="full.width.bottom.wrapper" htmlTag="div" htmlClass="full-width bottom wrapper" after="full.width.bottom.wrapper"/>
+    </referenceContainer>
+
+</layout>

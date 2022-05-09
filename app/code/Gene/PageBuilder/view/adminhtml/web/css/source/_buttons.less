@@ -1,0 +1,26 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  _buttons contains less for generic buttons
+//  _____________________________________________
+
+@pagebuilder-button__margin: 0 10px 10px 0;
+@pagebuilder-button__font-size: 18px;
+@pagebuilder-button__line-height: @pagebuilder-button__font-size + 4;
+
+.pagebuilder-button-tertiary {
+    .lib-link-as-button();
+    .lib-button(
+        @_button-margin: @pagebuilder-button__margin,
+        @_button-background: #ffffff
+    );
+    .lib-button-l(
+        @_button-l-font-size: @pagebuilder-button__font-size,
+        @_button-l-height: @pagebuilder-button__line-height
+    );
+    .lib-css(border-radius, @button__border-radius);
+    .lib-css(font-weight, @font-weight__semibold);
+}

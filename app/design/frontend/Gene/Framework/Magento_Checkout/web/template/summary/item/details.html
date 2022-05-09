@@ -1,0 +1,57 @@
+<!--
+/**
+ * Summary Item Details
+ * Add Classes to pick minicart style, add collapsible, more price.
+ */
+-->
+
+<!-- ko foreach: getRegion('before_details') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->
+<div class="minicart-product__details">
+
+    <h4 class="minicart-product__name" data-bind="html: $parent.name"></h4>
+
+    <!-- ko foreach: getRegion('after_details') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+    <!-- /ko -->
+
+
+    <!-- ko if: (JSON.parse($parent.options).length > 0)-->
+    <div class="product options minicart-product__options"
+         data-bind="mageInit: {'collapsible':{'openedState': 'minicart-product__options--expanded'}}">
+        <h4 data-role="title" class="minicart-product__options-expand">
+            <!-- ko i18n: 'Options Details' --><!-- /ko -->
+            <svg viewBox="0 0 100 100" class="icon icon-arrow">
+                <use xlink:href="#icon-arrow"></use>
+            </svg>
+        </h4>
+        <ul class="minicart-product__options-list" data-role="content" style="display: none;">
+            <!--ko foreach: JSON.parse($parent.options)-->
+
+                <li class="minicart-product__options-item">
+                    <span class="label" data-bind="text: label"></span>
+
+                    <!-- ko if: ($data.full_view)-->
+                    <span class="values" data-bind="html: full_view"></span>
+                    <!-- /ko -->
+                    <!-- ko ifnot: ($data.full_view)-->
+                    <span class="values" data-bind="html: value"></span>
+                    <!-- /ko -->
+                </li>
+
+            <!-- /ko -->
+        </ul>
+    </div>
+    <!-- /ko -->
+
+
+    <div class="details-qty">
+        <span class="label"><!-- ko i18n: 'Qty' --><!-- /ko --></span>
+        <span class="value" data-bind="text: $parent.qty"></span>
+    </div>
+</div>
+
+<!-- ko foreach: getRegion('item_message') -->
+    <!-- ko template: getTemplate() --><!-- /ko -->
+<!-- /ko -->

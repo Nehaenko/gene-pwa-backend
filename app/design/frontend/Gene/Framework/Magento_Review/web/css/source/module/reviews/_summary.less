@@ -1,0 +1,120 @@
+//
+//  Magento Review - Summary
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+
+  //
+  // Review Summary
+  //
+  .product-reviews-summary {
+    margin: 0 0 @indent__s 0;
+
+    //
+    // If No Reviews - Center link
+    //
+    &.empty {
+      display: block;
+    }
+  }
+
+  //
+  // Rating Summary
+  //
+  .rating-summary {
+
+    //
+    // Stars
+    //
+    .rating-result {
+      margin-left: 0;
+      width: 100%;
+
+      &:before {
+        content: '';
+        background-image: url('@{baseDir}images/icon-star.svg');
+        position: relative;
+        width: 100px;
+        height: 20px; // Set Height and width of icons in theme - Gene/Framework/web/images/icon-star.svg
+        display: block;
+      }
+
+      span {
+        position: absolute;
+        display: block;
+        top: 0;
+        height: 20px;
+      }
+
+      span:before {
+        content: '';
+        background-image: url('@{baseDir}images/icon-star-filled.svg'); // Set Height and width of icons in theme - Gene/Framework/web/images/icon-star-filled.svg
+        height: 100%;
+      }
+
+    }
+  }
+
+
+  //
+  // Links
+  //
+  .reviews-actions {
+
+    //
+    // All Links
+    //
+    .action {
+      color: @product-reviews-link__color;
+      text-decoration: none;
+
+      //
+      // Hover State
+      //
+      &:hover {
+        text-decoration: underline;
+      }
+
+      //
+      // Focus State
+      //
+      ._keyfocus & {
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+
+//
+//  Desktop
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+  //
+  // Reviews Summary
+  //
+  .product-reviews-summary {
+    margin: @indent__s 0;
+
+    //
+    // If No Reviews
+    //
+    &.empty {
+
+      //
+      // Links
+      //
+      .reviews-actions {
+        display: block;
+      }
+    }
+  }
+
+}

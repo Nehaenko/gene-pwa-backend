@@ -1,0 +1,13 @@
+<?php
+/**
+ * Create Wishlist Button
+ */
+?>
+<?php if ($block->canCreateWishlists($block->getWishlists())) : ?>
+<button class="action new action--link"
+        data-action-keypress="true"
+        data-wishlist-move-selected='{"new":true}'
+        title="<?= $block->escapeHtmlAttr(__('Create New Wish List')) ?>">
+    <span><?= $block->escapeHtml(__('Create New Wish List')) ?></span>
+</button>
+<?php endif;?>

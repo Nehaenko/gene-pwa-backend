@@ -1,0 +1,26 @@
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+
+<div attr="data.main.attributes"
+     ko-style="data.main.style"
+     css="data.main.css">
+    <picture if="data.desktop_image.attributes().src" class="pagebuilder-row__image">
+        <source if="data.mobile_row_image.attributes().src"
+                attr="data.mobile_lazy_image.attributes"
+                media="(max-width: 768px)">
+        <img attr="data.lazy_image.attributes"
+             css="data.desktop_image.css"
+             ko-style="data.desktop_image.style"
+             loading="lazy"
+        >
+    </picture>
+    <div attr="data.inner.attributes"
+         ko-style="Object.assign(data.container.style(), data.inner.style())"
+         css="data.inner.css">
+        <render args="masterTemplate"/>
+    </div>
+</div>

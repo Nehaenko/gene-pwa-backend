@@ -1,0 +1,113 @@
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+
+  //
+  //  Qty
+  //_____________________________________________
+
+  .qty {
+
+    //
+    // Wrapper
+    //
+    &__wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: @product-qty-wrapper__max-width;
+      margin-bottom: @indent__s;
+
+      &--center {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    //
+    // Qty Container
+    //
+    &__container {
+      display: flex;
+      border: @product-qty-input__border;
+      border-radius: @product-qty-input__border-radius;
+      background: @primary-light__color;
+    }
+
+    //
+    // Qty Input
+    //
+    &__input {
+      text-align: center;
+
+      //
+      // Qty Input - Additional class for Core Override
+      //
+      &.qty  {
+        height: @product-qty-input__size;
+        width: @product-qty-input__size;
+        border-top: 0;
+        border-bottom: 0;
+        border-left-color: @product-qty-input__border-color;
+        border-right-color: @product-qty-input__border-color;
+        border-radius: 0;
+      }
+    }
+
+    //
+    // Increment Buttons
+    //
+    &__button {
+      .lib-button-reset();
+
+      display: flex;
+      align-items: center;
+
+      width: @product-qty-input__size;
+      vertical-align: baseline;
+      color: @product-qty-input__color;
+
+      //
+      // Qty Buttons - Icon
+      //
+      .icon {
+        margin: 0 auto;
+      }
+
+    }
+
+    //
+    // Qty Update
+    //
+    &__update {
+      .lib-button-reset();
+
+      display: none;
+      position: absolute;
+      top: 100%;
+
+      color: @text__color;
+
+      //
+      // Fix Button Resets
+      //
+      &:hover,
+      &:focus,
+      &:active {
+        color: @text__color;
+        text-decoration: underline;
+      }
+
+      //
+      // Is Dirty
+      //
+      .is-dirty & {
+        display: block;
+      }
+    }
+
+  }
+
+}

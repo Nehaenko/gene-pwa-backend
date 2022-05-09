@@ -1,0 +1,25 @@
+{
+    "name": "gene/module-framework",
+    "description": "Magento 2 module that contains installers + system config for the Framework",
+    "type": "magento2-module",
+    "version": "1.0",
+    "require": {
+        "gene/module-base": "1.0.0",
+        "gene/module-roundel": "1.0.0."
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Gene\\Framework\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Chloe Langford",
+            "homepage": "http://gene.co.uk/",
+            "role": "Developer"
+        }
+    ]
+}

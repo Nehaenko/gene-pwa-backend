@@ -1,0 +1,34 @@
+<!--
+/**
+ * Gene Customer Quote - preview template
+ */
+-->
+<div class="pagebuilder-quote"
+     css="data.main.css"
+     event="{ mouseover: onMouseOver, mouseout: onMouseOut }, mouseoverBubble: false">
+
+    <render args="getOptions().template" />
+
+    <div class="pagebuilder-quote__wrapper">
+        <scope args="getUploader().getUiComponent()">
+            <render />
+        </scope>
+
+        <div class="pagebuilder-quote__image">
+            <img class="preview-image"
+                 if="data.desktop_image.attributes().src"
+                 attr="data.desktop_image.attributes"
+                 css="data.desktop_image.css"
+                 ko-style="data.desktop_image.style" />
+        </div>
+
+        <div class="pagebuilder-quote__content">
+            <blockquote if="data.quote.html"
+                        attr="data.quote.attributes"
+                        html="data.quote.html"></blockquote>
+
+            <h3 if="data.author.html"
+                html="data.author.html"></h3>
+        </div>
+    </div>
+</div>

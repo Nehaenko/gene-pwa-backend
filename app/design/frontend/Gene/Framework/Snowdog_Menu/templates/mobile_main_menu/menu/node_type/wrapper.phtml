@@ -1,0 +1,35 @@
+<?php
+/**
+ * Added Icon and CSS class js-menu-parent-link-top
+ * @var \Snowdog\Menu\Block\NodeType\Wrapper $block
+ */
+$attributes = [];
+$isParent = $block->getIsParent();
+$class = $block->getMenuClass();
+$level = $block->getLevel();
+if ($block->getIsViewAllLink()) {
+    $classLink = $class . '__inner-link ' . $class . '__inner-link--wrapper';
+} else {
+    $classLink = $class . '__link ' . $class . '__link--level' . $level;
+    if ($block->getId() && $isParent) {
+        $attributes[] = 'data-menu="menu-' . $block->getId() . '" aria-expanded="false" aria-haspopup="true"';
+        $classLink .= ' js-menu-parent-link';
+    }
+}
+$attributes[] = 'class="' . $classLink . '"';
+if ($level === '0') {
+    $classLink .= ' js-menu-parent-link-top';
+}
+?>
+<a  <?php if ($block->getNodeFontColor() || $block->getNodeFontWeight()) : ?>
+    style="color: <?= $block->getNodeFontColor() ?>; font-weight: <?= $block->getNodeFontWeight() ?>"
+    <?php endif; ?>
+    href="#" <?= implode(' ', $attributes) ?>>
+    <span><?= $block->getTitle(); ?></span>
+    <?php if ($isParent) : ?>
+        <svg width="19" height="22" viewBox="0 0 25 25"
+            class="main-nav__parent-arrow icon icon-arrow icon-arrow--right">
+            <use xlink:href="#icon-arrow"></use>
+        </svg>
+    <?php endif; ?>
+</a>

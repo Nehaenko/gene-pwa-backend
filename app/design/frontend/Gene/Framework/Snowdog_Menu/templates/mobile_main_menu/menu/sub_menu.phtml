@@ -1,0 +1,81 @@
+<?php
+/**
+ * Added Icon and update CSS classes
+ * @var \Snowdog\Menu\Block\Menu $block
+ */
+?>
+<?php if ($block->getMenu()): ?>
+    <?php
+    $menuClass = $block->getMenu()->getCssClass();
+    $parentNode = $block->getParentNode();
+    $level = $block->getLevel();
+
+    $wrapperAttributes = [
+        'class' => [
+            $menuClass . '__inner-list',
+            $menuClass . '__inner-list--level' . $level,
+            ($level > 1) ? $menuClass . ' main-nav__mobile-section js-menu-mobile-section' : ''
+        ],
+        'data-menu' => 'menu-' . $parentNode->getNodeId()
+    ];
+    ?>
+
+    <button type="button" class="js-menu-back-link main-nav__back-button"
+            data-parent="<?= $parentNode->getNodeId(); ?>"
+            data-parent-level=<?= $level; ?>
+            aria-label="<?= __('Back to %1', $parentNode->getTitle()); ?>" style="display: none;">
+        <svg width="25" height="25" viewBox="0 0 25 25"
+             class="main-nav__back-arrow icon icon-arrow icon-arrow--left">
+            <use xlink:href="#icon-arrow"></use>
+        </svg>
+        <span><?= $parentNode->getTitle(); ?></span>
+    </button>
+
+    <?php if ($level === 1) : ?>
+        <div class="main-nav__dropdown main-nav__mobile-section js-menu-mobile-section">
+        <div class="main-nav__wrapper main-nav__dropdown-wrapper">
+    <?php endif; ?>
+
+    <ul style="list-style: none" <?= $block->buildAttrFromArray($wrapperAttributes) ?>>
+
+
+
+        <?php foreach ($block->getSubmenuNodes() as $node): ?>
+            <?php
+            $childrenLevel = $node->getLevel() + 1;
+            $children = $block->getNodes($childrenLevel, $node);
+            $node->setIsParent((bool) $children);
+
+            $nodeAttributes = [
+                'class' => [
+                    $menuClass . '__inner-item',
+                    $menuClass . '__inner-item--level' . $level
+                ]
+            ];
+
+            if ($children) {
+                $nodeAttributes['class'][] = $menuClass . '__inner-item--parent';
+            }
+
+            if ($node->getClasses()) {
+                $nodeAttributes['class'][] = $node->getClasses();
+            }
+            ?>
+
+            <li <?= $block->buildAttrFromArray($nodeAttributes) ?>
+                data-mage-init='{"collapsible":{"openedState": "active"}}'>
+                <div data-role="title"><?= $block->renderMenuNode($node) ?>
+                    <svg width="20" height="20" viewBox="0 0 20 20" class="icon icon-arrow icon-arrow--down">
+                        <use xlink:href="#icon-arrow"></use>
+                    </svg>
+                </div>
+                <div data-role="content"><?= $block->renderSubmenu($children, $node, $childrenLevel) ?></div>
+            </li>
+        <?php endforeach ?>
+    </ul>
+
+    <?php if ($level === 1) : ?>
+        </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>

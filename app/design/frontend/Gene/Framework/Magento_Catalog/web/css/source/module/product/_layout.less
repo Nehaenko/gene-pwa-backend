@@ -1,0 +1,74 @@
+//
+//  Magento Catalog - Product Page Layout
+//  ---------------------------------------------
+
+
+//
+//  Tablet Portrait Up
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  //  Column Main
+  //  _____________________________________________
+  .catalog-product-view {
+
+    .column.main {
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
+
+}
+
+
+//
+//  Tablet Up
+//  ---------------------------------------------
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+  //
+  //  Column Main
+  //  _____________________________________________
+  .catalog-product-view {
+
+    .column.main {
+      display: block;
+    }
+
+  }
+
+  //
+  //  Product Page Layout - Full Width
+  //  _____________________________________________
+  .page-layout-full-width {
+
+    //
+    // Top Wrapper
+    //
+    .wrapper.top {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    //
+    // Product Info
+    // Copied from Blank Theme
+    //
+    .product-info-main {
+      width: 30%;
+      padding-left: @indent__base;
+    }
+
+    //
+    // Product Media
+    // Copied from Blank Theme
+    //
+    .product.media {
+      width: 70%;
+    }
+
+  }
+}

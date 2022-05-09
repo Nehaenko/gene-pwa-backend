@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Catalog Product View
+
+ */
+-->
+<page layout="full-width" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <!--
+        /**
+         * Product Page Top
+         */
+        -->
+
+        <referenceContainer name="full.width.top.wrapper">
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.before.media.title" template="product/view/attribute.phtml" before="-">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getName</argument>
+                    <argument name="at_code" xsi:type="string">name</argument>
+                    <argument name="at_label" xsi:type="string">none</argument>
+                    <argument name="css_class" xsi:type="string">page-title product-title-mobile is-hidden-desktop is-visible-tablet</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <!-- Place in Top Wrapper -->
+        <move element="product.info.media" destination="full.width.top.wrapper" after="product.before.media.title"/>
+        <move element="product.info.main" destination="full.width.top.wrapper" after="product.info.media"/>
+        <move element="product.info.details" destination="content" after="full.width.top.wrapper"/>
+
+        <!-- Product Info Main -->
+        <move element="page.main.title" destination="product.info.main" before="-"/>
+        <move element="product.info.review" destination="product.info.main" after="page.main.title" />
+        <move element="product.info.overview" destination="product.info.main" after="product.info.review"/>
+
+        <referenceBlock name="product.info.sku" remove="true" /> <!-- Remove to show sku -->
+
+        <!-- Title -->
+        <referenceBlock name="page.main.title">
+            <arguments>
+                <argument name="css_class" xsi:type="string">product is-hidden-mobile is-hidden-tablet</argument>
+            </arguments>
+        </referenceBlock>
+
+        <!-- Short Description -->
+        <referenceBlock name="product.info.overview">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Gene_Framework::product/view/short-description.phtml</argument>
+            </action>
+        </referenceBlock>
+
+        <!-- Uncomment to add stock information -->
+<!--        <referenceContainer name="product.info.stock.sku" htmlClass="product-info-stock" />-->
+<!--        <move element="product.info.stock.sku" destination="product.info.price" after="product.price.final" />-->
+        <referenceContainer name="product.info.stock.sku" remove="true" />
+
+        <referenceContainer name="product.info.main">
+
+            <!-- Delivery Message -->
+            <block class="Gene\Framework\Block\Theme\SystemConfig"  name="product.info.delivery.message" template="Gene_Framework::system-config.phtml" after="-">
+                <arguments>
+                    <argument name="config_path" xsi:type="string">gene_theme/product/delivery_message</argument>
+                    <argument name="class" xsi:type="string">product-info__delivery-message</argument>
+                </arguments>
+            </block>
+
+        </referenceContainer>
+
+        <referenceContainer name="product.info.extrahint">
+
+            <!-- Create container for Social and Wishlist Links -->
+            <container name="product.info.links.additional" htmlTag="div" htmlClass="product-info__links" before="-"/>
+
+        </referenceContainer>
+
+        <!-- Move Wishlist -->
+        <move element="product.info.addto" destination="product.info.links.additional" />
+
+        <!-- Remove MailTo -->
+        <referenceBlock name="product.info.mailto" remove="true" />
+
+        <!-- Remove Compare -->
+        <referenceBlock name="view.addto.compare" remove="true" />
+
+        <!--
+        /**
+         * Product Tabs
+         */
+        -->
+        <referenceContainer name="content">
+            <container name="product.tabs.container" htmlTag="div" htmlClass="gt-tabs__container" after="full.width.top.wrapper"/>
+        </referenceContainer>
+
+        <move element="product.info.details" destination="product.tabs.container"/>
+
+        <!-- Remove Attributes Tab -->
+        <referenceBlock name="product.attributes" remove="true" />
+
+        <!-- Delivery Tab -->
+        <referenceBlock name="product.info.details">
+
+            <!-- Delivery Message -->
+            <block class="Gene\Framework\Block\Theme\SystemConfig"
+                   name="delivery.info.tab"
+                   template="Gene_Framework::system-config.phtml"
+                   group="detailed_info"
+                   ifconfig="gene_theme/product/delivery_tab_content">
+                <arguments>
+                    <argument name="config_path" xsi:type="string">gene_theme/product/delivery_tab_content</argument>
+                    <argument name="class" xsi:type="string">product-tabs-delivery</argument>
+                    <argument name="html_tag" xsi:type="string">div</argument>
+                    <argument translate="true" name="title" xsi:type="string">Delivery</argument>
+                    <argument name="sort_order" xsi:type="string">40</argument>
+                </arguments>
+            </block>
+
+        </referenceBlock>
+
+        <!--
+       /**
+        * Additional Content
+        */
+       -->
+        <referenceContainer name="content">
+            <block class="Magento\Catalog\Block\Product\View\Description" name="product.additional.content" template="product/view/attribute.phtml" after="product.tabs.container">
+                <arguments>
+                    <argument name="at_call" xsi:type="string">getAdditionalContent</argument>
+                    <argument name="at_code" xsi:type="string">additional_content</argument>
+                    <argument name="css_class" xsi:type="string">additional-content</argument>
+                    <argument name="at_label" xsi:type="string">none</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+    </body>
+</page>

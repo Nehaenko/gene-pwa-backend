@@ -1,0 +1,59 @@
+type StoreConfig {
+    header_promotion: String @doc(description: "Header Promotion Message")
+    header_promotion_mobile: String @doc(description: "Header Promotion Message Mobile")
+
+    header_usp_1: String @doc(description: "Header Ups Title")
+    header_usp_1_icon: String @doc(description: "Header Usp Icon")
+    header_usp_1_link: String @doc(description: "Header Usp Link")
+
+    header_usp_2: String @doc(description: "Header Ups Title")
+    header_usp_2_icon: String @doc(description: "Header Usp Icon")
+    header_usp_2_link: String @doc(description: "Header Usp Link")
+
+    header_usp_3: String @doc(description: "Header Ups Title")
+    header_usp_3_icon: String @doc(description: "Header Usp Icon")
+    header_usp_3_link: String @doc(description: "Header Usp Link")
+
+    header_usp_4: String @doc(description: "Header Ups Title")
+    header_usp_4_icon: String @doc(description: "Header Usp Icon")
+    header_usp_4_link: String @doc(description: "Header Usp Link")
+
+    column_1_title: String @doc(description: "Footer Column Title")
+    column_1_links: String @doc(description: "Footer Column Links")
+    column_1: String @doc(description: "Footer Column Content")
+
+    column_2_title: String @doc(description: "Footer Column Title")
+    column_2_links: String @doc(description: "Footer Column Links")
+    column_2: String @doc(description: "Footer Column Content")
+
+    column_3_title: String @doc(description: "Footer Column Title")
+    column_3_links: String @doc(description: "Footer Column Links")
+    column_3: String @doc(description: "Footer Column Content")
+
+    column_4_title: String @doc(description: "Footer Column Title")
+    column_4: String @doc(description: "Footer Column Content")
+
+    delivery_message: String @doc(description: "PDP delivery message")
+    delivery_tab_content: String @doc(description: "PDP delivery content")
+
+    message: String @doc(description: "Cookie message")
+
+    facebook: String @doc(description: "facebook")
+    twitter: String @doc(description: "twitter")
+    instagram: String @doc(description: "instagram")
+    pinterest: String @doc(description: "pinterest")
+    youtube: String @doc(description: "youtube")
+    vimeo: String @doc(description: "vimeo")
+
+    maestro: String @doc(description: "maestro")
+    maestro_icon: String @doc(description: "maestro icon")
+    visa: String @doc(description: "visa")
+    visa_icon: String @doc(description: "visa icon")
+    mastercard: String @doc(description: "mastercard")
+    mastercard_icon: String @doc(description: "mastercard icon")
+    paypal: String @doc(description: "paypal")
+    paypal_icon: String @doc(description: "paypal icon")
+
+    newsletter_title: String @doc(description: "Newsletter block title")
+    newsletter_content: String @doc(description: "Newsletter block content")
+}

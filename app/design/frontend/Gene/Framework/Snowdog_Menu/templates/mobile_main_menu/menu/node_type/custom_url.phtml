@@ -1,0 +1,38 @@
+<?php
+/**
+ * Added CSS class js-menu-parent-link-top
+ * @var \Snowdog\Menu\Block\NodeType\CustomUrl $block
+ *
+ */
+$attributes = [];
+$class = $block->getMenuClass();
+$level = $block->getLevel();
+
+if ($block->getIsViewAllLink()) {
+    $title = __('View All');
+    $classLink = $class . '__inner-link';
+} else {
+    $classLink = $block->getIsRoot() ? $class . '__link' : $class . '__link' . ' ' . $class . '__inner-link';
+    $title = $block->getTitle();
+    if ($block->getId()) {
+        $attributes[] = 'data-menu="menu-' . $block->getId() . '"';
+    }
+}
+$attributes[] = 'class="' . $classLink . '"';
+
+if ($block->getTarget()) {
+    $attributes[] = 'target="__blank" rel="noopener"';
+}
+
+if ($level === '0') {
+    $classLink .= ' js-menu-parent-link-top';
+}
+?>
+<a  <?php if ($block->getNodeFontColor() || $block->getNodeFontWeight()) : ?>
+    style="color: <?= $block->getNodeFontColor() ?>; font-weight: <?= $block->getNodeFontWeight() ?>"
+    <?php endif; ?>
+    href="<?= $block->getContent() ?>"
+    <?= implode(' ', $attributes) ?>
+>
+    <?= $title ?>
+</a>

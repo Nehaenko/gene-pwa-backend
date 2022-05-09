@@ -1,0 +1,50 @@
+<?php
+/**
+ * Added Icon and CSS class js-menu-parent-link-top
+ * @var \Snowdog\Menu\Block\NodeType\Product $block
+ */
+$nodeId = $block->getId();
+$class = $block->getMenuClass();
+$productUrl = $block->getProductUrl($nodeId);
+$productPrice = $block->getProductPrice($nodeId);
+$formattedProductPrice = $block->getFormattedProductPrice($nodeId);
+$productImage = $block->getProductImage($nodeId);
+$productTitle = $block->getProductTitle($nodeId);
+$productUrl = $productUrl ?: '#';
+$dataAttribute = '';
+$level = $block->getLevel();
+$classLink =
+ $block->getIsRoot()
+ ? $class . '__link'
+ : $class . '__link' . ' ' . $class . '__inner-link ' . $class . '__inner-link--' . $level;
+$title = $block->getTitle();
+$isParent = $block->getIsParent();
+
+if ($nodeId && $isParent) {
+    $dataAttribute = ' data-menu="menu-' . $nodeId . '"';
+}
+
+if ($block->isCurrentProduct($nodeId)) {
+    $classLink .= ' current';
+}
+
+if ($level === '0') {
+    $classLink .= ' js-menu-parent-link-top';
+}
+
+?>
+<a  <?php if ($block->getNodeFontColor() || $block->getNodeFontWeight()) : ?>
+    style="color: <?= $block->getNodeFontColor() ?>; font-weight: <?= $block->getNodeFontWeight() ?>"
+    <?php endif; ?>
+    href="<?= $productUrl ?>"
+    class="<?= $classLink ?>"
+    <?= $dataAttribute ?>
+>
+    <?= $title ?>
+    <?php if ($isParent) : ?>
+        <svg width="19" height="22" viewBox="0 0 25 25"
+             class="main-nav__parent-arrow icon icon-arrow icon-arrow--right">
+            <use xlink:href="#icon-arrow"></use>
+        </svg>
+    <?php endif; ?>
+</a>

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\PageBuilder\Model\WidgetInitializerConfig">
+        <arguments>
+            <argument name="config" xsi:type="array">
+
+                <!-- Add default Slider widget -->
+                <item name="faq" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Gene_PageBuilder/js/content-type/faq/appearance/default/widget</item>
+                    </item>
+                </item>
+
+                <!-- Add default Slider widget -->
+                <item name="gene-image-slider" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Gene_PageBuilder/js/content-type/slider/appearance/default/widget</item>
+                    </item>
+                </item>
+
+                <!-- Add default Slider widget -->
+                <item name="gene-driver-slider" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Gene_PageBuilder/js/content-type/slider/appearance/default/widget</item>
+                    </item>
+                </item>
+            </argument>
+
+            <argument name="config" xsi:type="array">
+
+                <!-- Add default Slider widget -->
+                <item name="history" xsi:type="array">
+                    <item name="default" xsi:type="array">
+                        <item name="component" xsi:type="string">Gene_PageBuilder/js/content-type/history/appearance/default/widget</item>
+                    </item>
+                </item>
+
+            </argument>
+
+            <argument name="config" xsi:type="array">
+
+                <!-- Add inline buttons scroll widget -->
+                <item name="buttons" xsi:type="array">
+                    <item name="inline" xsi:type="array">
+                        <item name="component" xsi:type="string">Gene_PageBuilder/js/content-type/buttons/appearance/inline/widget</item>
+                    </item>
+                </item>
+
+            </argument>
+        </arguments>
+    </type>
+
+</config>

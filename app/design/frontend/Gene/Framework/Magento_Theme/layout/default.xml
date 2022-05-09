@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Default
+
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <!-- Add Html No Javascript Class  -->
+    <html>
+        <attribute name="class" value="no-js"/>
+    </html>
+
+    <head>
+        <remove src="mage/calendar.css"/>
+    </head>
+
+    <body>
+        <!-- Header Begin -->
+
+            <!-- Remove Advanced Search -->
+            <referenceBlock name="header" remove="true" />
+
+            <!-- Add Header Message -->
+            <referenceContainer name="header.panel" htmlId="header-panel">
+                <container name="panel.switcher" htmlTag="div" htmlClass="panel__switcher" />
+
+                <block class="Gene\Framework\Block\Theme\SystemConfig"  name="header.panel.promotion" template="Gene_Framework::system-config.phtml">
+                    <arguments>
+                        <argument name="mobile_config_path" xsi:type="string">gene_theme/header/header_promotion_mobile</argument>
+                        <argument name="config_path" xsi:type="string">gene_theme/header/header_promotion</argument>
+                        <argument name="class" xsi:type="string">panel-promotion</argument>
+                    </arguments>
+                </block>
+            </referenceContainer>
+
+            <move element="currency" destination="panel.switcher" />
+
+            <referenceContainer name="header.container">
+                <container name="header.main.container" htmlClass="page-header__main" htmlTag="div" />
+            </referenceContainer>
+
+            <!-- Add Header Columns -->
+            <referenceContainer name="header-wrapper">
+
+                <!-- Add Responsive header toggles -->
+                <block class="Magento\Framework\View\Element\Template" name="header.menu.toggles" template="Magento_Theme::html/header/toggles.phtml" />
+
+                <!-- Add generic header Columns -->
+                <container name="header.primary" htmlTag="div" htmlClass="header__column header__column--primary" />
+                <container name="header.secondary" htmlTag="div" htmlClass="header__column header__column--secondary" />
+                <container name="header.tertiary" htmlTag="div" htmlClass="header__column header__column--tertiary" />
+            </referenceContainer>
+
+            <move element="header-wrapper" destination="header.main.container" />
+
+            <move element="logo" destination="header.primary" />
+            <move element="top.search" destination="header.secondary" />
+            <move element="my-account-link" destination="header.tertiary" before="-" />
+
+            <referenceBlock name="top.links" remove="true" />
+            <referenceBlock name="store.settings" remove="true" />
+
+            <!-- Set Logo dimensions -->
+            <referenceBlock name="logo">
+                <arguments>
+                    <argument name="logo_img_width" xsi:type="number">200</argument>
+                    <argument name="logo_img_height" xsi:type="number">57</argument>
+                </arguments>
+            </referenceBlock>
+
+            <!-- Mobile Menu -->
+            <referenceBlock name="store.menu">
+                <block class="Magento\Customer\Block\Account\Link" name="mobile.footer.nav" template="Magento_Customer::mobile-links.phtml" after="-"/>
+            </referenceBlock>
+
+            <move element="navigation.sections" destination="header.container" after="-" />
+
+        <!-- Header End -->
+
+
+        <!-- Footer Begin -->
+
+            <!-- Remove core blocks that are not needed -->
+            <referenceBlock name="report.bugs" remove="true"/>
+            <referenceBlock name="footer_links" remove="true" />
+
+            <!-- Move Copyright -->
+            <move element="copyright" destination="footer.secondary.wrapper" before="-" />
+
+            <!-- Create Footer Secondary -->
+            <referenceContainer name="footer-container">
+                <container name="footer.secondary" htmlTag="div" htmlClass="footer-secondary">
+                    <container name="footer.secondary.wrapper" htmlTag="div" htmlClass="wrapper" />
+                </container>
+            </referenceContainer>
+
+            <!-- Move Store Switcher -->
+            <move element="store_switcher" destination="footer.column.1" after="-" />
+
+        <!-- Footer End -->
+    </body>
+
+</page>

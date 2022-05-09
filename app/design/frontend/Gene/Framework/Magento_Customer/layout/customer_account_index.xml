@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Customer Account - Dashboard
+ * Author Oliver Mansfield oliver.mansfield@gene.co.uk
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceContainer name="content" >
+            <block class="Magento\Customer\Block\Account\Dashboard\Info" name="customer_account_dashboard_welcome" template="Magento_Customer::account/dashboard/welcome.phtml" before="customer_account_dashboard_info" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

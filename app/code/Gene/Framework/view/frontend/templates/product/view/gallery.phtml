@@ -1,0 +1,166 @@
+<?php
+/**
+ * @var Magento\Catalog\Block\Product\View\Gallery $block
+ * @var Gene\Framework\ViewModel\GalleryPlaceholderImages $viewModel
+ */
+
+$images = $block->getGalleryImages()->getItems();
+$count = 0;
+$totalCount = count($images);
+$viewModel = $block->getViewModel();
+$placeHolderImage = $viewModel->getPlaceholderImage();
+?>
+<?php if ($images) : ?>
+    <section class="gallery-container" data-mage-init='{"GeneSlider":{}}'>
+        <h2 class="sr-only"><?= $block->escapeHtml(__('Product Gallery')); ?></h2>
+
+        <div class="gallery-container__thumbs gene-slider-container">
+            <ul
+                id="gallery-thumbs"
+                class="thumbs gene-slider gene-slider--vertical is-loading">
+                <?php foreach ($images as $imageCount => $image) : ?>
+                     <?php if ($image->getMediaType() === 'external-video') : ?>
+                        <li class="gene-slider__item thumbs__item gene-slider__item--video">
+                            <a href="<?= $block->escapeUrl($image['medium_image_url']); ?>" tabindex="-1">
+                                <img itemprop="image"
+                                     loading="lazy"
+                                     src="<?= $block->escapeUrl($image['small_image_url']); ?>"
+                                     alt="<?= $block->escapeUrl($image['label']); ?>"
+                                />
+                                <svg width="25" height="25" viewBox="0 0 100 100" class="icon icon-video">
+                                    <use xlink:href="#icon-video"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    <?php else : ?>
+                        <?php
+                        $lazyAttribute = 'eager';
+                        if ($imageCount > 0) {
+                            $lazyAttribute = 'lazy';
+                        }
+                        ?>
+                    <li class="gene-slider__item thumbs__item">
+                        <a href="<?= $block->escapeUrl($image['large_image_url']); ?>" tabindex="-1">
+                            <img itemprop="image"
+                                loading="lazy"
+                                src="<?= $block->escapeUrl($image['medium_image_url']); ?>"
+                                alt="<?= $block->escapeUrl($image['label']); ?>"
+                            />
+                        </a>
+                    </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+
+        <div class="gallery-container__gallery gene-slider-container">
+            <ul
+                id="product-gallery"
+                class="gallery gene-slider is-loading">
+                <?php foreach ($images as $imageCount => $image) : ?>
+                    <?php if ($image->getMediaType() === 'external-video') : ?>
+                        <li data-gslider-video class="gene-slider__item gene-slider__item--video gallery__item">
+                            <?php
+                            $lazyAttribute = 'eager';
+
+                            if ($imageCount > 0) {
+                                $lazyAttribute = 'lazy';
+                            }
+                            ?>
+                            <figure data-gslider-video-item>
+                                <a href="<?= $block->escapeUrl($image['video_url']); ?>">
+                                    <img itemprop="image"
+                                         loading="lazy"
+                                         src="<?= $block->escapeUrl($image['medium_image_url']); ?>"
+                                         alt="<?= $block->escapeUrl($image['label']); ?>"
+                                         data-video-url="<?= $block->escapeUrl($image['video_url']); ?>"
+                                    />
+                                    <svg width="50" height="50" viewBox="0 0 100 100" class="icon icon-video">
+                                        <use xlink:href="#icon-video"></use>
+                                    </svg>
+                                </a>
+                            </figure>
+                        </li>
+                    <?php else : ?>
+                        <li class="gene-slider__item gallery__item">
+                            <?php
+                            $lazyAttribute = 'eager';
+
+                            if ($imageCount > 0) {
+                                $lazyAttribute = 'lazy';
+                            }
+                            ?>
+                            <figure class="gene-slider__item-zoom">
+                                <a href="<?= $block->escapeUrl($image['large_image_url']); ?>">
+                                    <img itemprop="image"
+                                        loading="lazy"
+                                        src="<?= $block->escapeUrl($image['medium_image_url']); ?>"
+                                        alt="<?= $block->escapeUrl($image['label']); ?>"
+                                    />
+                                </a>
+                            </figure>
+                        </li>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+    require([
+        'jquery',
+        'GeneMGSlider'
+    ], function ($) {
+
+        window.productGallery = {
+            config: {
+                lightbox: true,
+                arrows: true,
+                dots: true,
+                zoom: 'outside',
+            }
+        };
+
+        window.productThumbs = {
+            config: {
+                vertical: true,
+                arrows: true,
+                clickslide: true,
+            }
+        };
+
+        var gallery = document.getElementById('product-gallery');
+        var thumbs = document.getElementById('gallery-thumbs');
+
+        if (!gallery || !thumbs) {
+            return;
+        }
+
+        var gallerySlider = new GeneMGSlider(
+             gallery, window.productGallery.config
+         );
+
+         var thumbsSlider = new GeneMGSlider(
+             thumbs, window.productThumbs.config
+         );
+
+         gallerySlider.initSlider(false, thumbsSlider);
+         thumbsSlider.initSlider(false, gallerySlider);
+    });
+    </script>
+<?php elseif ($placeHolderImage) : ?>
+    <section class="gallery-container gallery-container--placeholder">
+        <h2 class="sr-only"><?= $block->escapeHtml(__('Product Gallery')); ?></h2>
+        <ul id="product-gallery"
+            class="gallery">
+            <li class="gallery__item">
+                <figure>
+                    <img itemprop="image"
+                         src="<?= $block->escapeUrl($placeHolderImage['medium_image_url']); ?>"
+                         alt="<?= $block->escapeHtmlAttr($placeHolderImage['label']); ?>""
+                    />
+                </figure>
+            </li>
+        </ul>
+    </section>
+<?php endif; ?>

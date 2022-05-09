@@ -1,0 +1,37 @@
+<?php
+/**
+ * Minicart Action Template for Sidebar
+ * @var \Gene\Framework\Block\Cart\MiniCart $block
+ */
+?>
+<a class="minicart__action minicart__action--header js-open-minicart"
+   href="<?= $block->escapeUrl($block->getShoppingCartUrl()) ?>"
+   aria-label="<?= $block->escapeHtmlAttr(__('Basket'));?>"
+   data-bind="scope: 'minicart_content'"
+   data-mage-init='{"minicart_sidebar":{}}'>
+
+    <div class="minicart__icon">
+        <svg viewBox="0 0 100 100" class="icon icon-basket">
+            <use xlink:href="#icon-basket"></use>
+        </svg>
+        <!-- ko if: getCartParam('summary_count') -->
+            <span class="basket-count empty" data-bind="css: { empty: !!getCartParam('summary_count') == false }">
+                <!-- ko text: getCartParam('summary_count') --><!-- /ko -->
+            </span>
+        <!-- /ko -->
+    </div>
+
+    <span class="visually-hidden">
+        <?= $block->escapeHtml(__('Basket')); ?>
+    </span>
+
+    <!-- ko ifnot: getCartParam('summary_count') -->
+    <div class="minicart-empty">
+        <div class="minicart-empty__container">
+            <span>
+                <?= $block->escapeHtml(__('Your shopping basket is empty')); ?>
+            </span>
+        </div>
+    </div>
+    <!-- /ko -->
+</a>

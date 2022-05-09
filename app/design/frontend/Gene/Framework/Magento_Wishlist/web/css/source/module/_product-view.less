@@ -1,0 +1,84 @@
+//
+//  Magento WishList - Product View
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+
+  .product-info-main {
+
+    //
+    // Container
+    //
+    .product-addto-links {
+      width: 100%;
+    }
+
+    //
+    // Anchor Link
+    //
+    .towishlist {
+      display: inline-block;
+      color: @text__color;
+      text-decoration: none;
+      border: 1px solid @border-color__base;
+      border-radius: @button__border-radius;
+      line-height: ~'calc(@{button__line-height} - 2px)'; // To account for border
+      padding: @button__padding;
+      max-width: @product-action__min-width;
+      width: 100%;
+      margin-bottom: @indent__base;
+
+      &:hover {
+        border-color: @primary__color;
+      }
+
+      ._keyfocus & {
+        &:focus {
+          border-color: @primary__color;
+        }
+      }
+    }
+
+
+    //
+    // Span
+    //
+    .wishlist {
+
+      //
+      // Label
+      //
+      &__label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      //
+      // Icon
+      //
+      &__icon {
+        fill: @wishlist-icon__fill;
+        margin-right: @indent__xs;
+      }
+
+    }
+
+
+    //
+    // Update Wishlist on Product Page
+    //
+    .wishlist-index-configure & {
+
+      .product-info__links {
+        max-width: 300px; // Space for Update Button
+      }
+
+    }
+  }
+
+}
+

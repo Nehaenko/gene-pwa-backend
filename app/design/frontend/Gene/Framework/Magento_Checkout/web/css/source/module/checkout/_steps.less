@@ -1,0 +1,135 @@
+//
+//  Steps & Steps Titles
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //
+  //  Opc wrapper
+  //  _____________________________________________
+
+  .opc-wrapper {
+
+    //
+    //  Login Form
+    //  _____________________________________________
+
+    .form-login,
+    .form-login .fieldset {
+      margin-bottom: 0;
+    }
+
+    //
+    //  Step Titles
+    //  _____________________________________________
+
+    .step-title {
+      .lib-css(margin, @checkout-step-title-mobile__margin);
+
+      &--underlined {
+        padding-bottom: @indent__s;
+        border-bottom: 1px solid @color-theme__medium-grey;
+      }
+
+      &--spaced {
+        .lib-css(margin, @checkout-step-title-spaced-mobile__margin);
+      }
+    }
+  }
+
+  //
+  //  Additional Payment steps
+  //  Discount code / Giftcards
+  //  _____________________________________________
+
+  .giftcardaccount,
+  .discount-code {
+
+    .action-toggle {
+      &:extend(.abs-action-button-as-link all);
+      text-decoration: underline;
+      margin: @indent__s 0;
+      color: @text__color;
+    }
+
+    .payment-option-content {
+      padding: @indent__s 0;
+
+      .form {
+        display: flex;
+      }
+
+      .payment-option-inner {
+        flex: 1;
+      }
+    }
+  }
+
+
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+  //
+  //  Opc wrapper
+  //  _____________________________________________
+
+  .opc-wrapper {
+    //
+    //  Login Form (override core)
+    //  Core uses same variables for login form as for shipping methods
+    //  _____________________________________________
+
+    .form-login {
+      margin-bottom: 0;
+      border-bottom: none;
+    }
+
+    .step-title {
+      &--underlined {
+        padding-bottom: @indent__s;
+        border-bottom: 1px solid @color-theme__medium-grey;
+      }
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  .checkout-index-index .page-main {
+    .lib-css(max-width, @checkout-page__max-width);
+  }
+
+
+  .opc-wrapper {
+      padding: @checkout-wrapper__padding;
+
+
+      .form-login {
+        margin-bottom: @indent__l;
+      }
+
+      //
+      //  Step Titles
+      //  _____________________________________________
+
+      .step-title {
+        .lib-css(margin, @checkout-step-title__margin);
+
+        &--spaced {
+          .lib-css(margin, @checkout-step-title-spaced__margin);
+        }
+      }
+  }
+}

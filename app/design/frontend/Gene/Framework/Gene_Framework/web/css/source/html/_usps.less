@@ -1,0 +1,66 @@
+//
+//  Common
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+    .usp-banner-wrapper {
+        .lib-css(background, @usp-container-background);
+    }
+
+    .usp-banner {
+        display: flex;
+        margin: 0;
+        padding: 0;
+
+        &__item {
+            .lib-css(flex-basis, @usp-item-width__mobile);
+
+            .lib-css(padding, @usp-item-padding);
+
+            .lib-css(background, @usp-item-background);
+            .lib-css(color, @usp-item-color);
+
+            .lib-font-size(@usp-item-font-size);
+
+            // Only show first child
+            display: none;
+
+            &:nth-child(1) {
+                display: flex;
+            }
+        }
+
+        &__content {
+            .lib-css(color, @usp-item-color);
+        }
+
+        &__icon {
+            .lib-css(width, @usp-icon-size);
+            .lib-css(height, @usp-icon-size);
+
+            .lib-css(margin, @usp-icon-margin);
+            .lib-css(fill, @usp-icon-fill);
+        }
+    }
+
+}
+
+//
+//  Desktop
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .usp-banner {
+        margin: 0 auto;
+        width: 100%;
+        max-width: @layout__max-width;
+        padding-left: @layout-indent__width;
+        padding-right: @layout-indent__width;
+
+        &__item {
+            display: flex;
+            .lib-css(flex-basis, @usp-item-width);
+        }
+    }
+}

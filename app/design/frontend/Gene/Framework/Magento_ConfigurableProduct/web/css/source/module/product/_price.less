@@ -1,0 +1,107 @@
+//
+//  Magento Configurable Product Price
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+
+  .page-product-configurable {
+
+    //
+    // Price Label
+    //
+    .price-label {
+      display: block;
+      line-height: 1.3;
+    }
+
+    //
+    // Product Price in Product Info Main
+    // Nesting needed for core override
+    //
+    .product-info-price {
+
+      //
+      // Price Wrapper
+      //
+      .price-wrapper {
+        display: block;
+        line-height: 1;
+      }
+
+      .normal-price {
+
+        //
+        // Container
+        //
+        .price-container {
+          display: flex;
+          align-items: flex-end;
+        }
+      }
+
+      //
+      // Old Price
+      //
+      .old-price {
+        display: inline-block;
+
+        //
+        // Container
+        //
+        .price-container {
+          display: flex;
+          align-items: flex-end;
+        }
+
+        //
+        // Label
+        //
+        .price-label {
+          .lib-font-size(@font-size__base);
+          margin-right: @indent__xs;
+        }
+
+        //
+        // Price
+        //
+        .price {
+          .lib-font-size(@font-size__base);
+        }
+
+        //
+        // Wrapper
+        //
+        .price-wrapper {
+          margin: 0;
+        }
+
+      }
+
+    }
+
+    //
+    // Price Box
+    //
+    .price-box {
+      margin: 0;
+    }
+
+    //
+    // Tier Prices
+    //
+    .prices-tier {
+
+      //
+      // Price - Override Core
+      //
+      .price-container .price {
+        .lib-font-size(@font-size__base);
+      }
+
+    }
+
+  }
+}

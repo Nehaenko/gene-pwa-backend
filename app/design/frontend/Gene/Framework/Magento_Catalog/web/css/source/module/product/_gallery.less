@@ -1,0 +1,138 @@
+//
+//  Common
+//  _____________________________________________
+& when (@media-common = true) {
+    .gallery-container {
+        margin-bottom: @indent__s;
+        
+        &__thumbs {
+            display: none;
+        }
+
+        //
+        // Placeholder Gallery
+        //
+        &--placeholder {
+
+            .gallery {
+                margin: 0 auto;
+                padding: 0;
+                max-width: 400px;
+            }
+        }
+    }
+
+    .gallery {
+        &__item {
+            flex-basis: 100%;
+            min-width: 100%;
+        }
+    }
+
+    // Light box
+    .gallery-lightbox {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+
+        z-index: 9999;
+
+        background: @color-white;
+
+        display: none;
+
+        &__slider {
+            width: 100%;
+            margin: 0 auto;
+            max-width: 1000px;
+            max-height: 80vh;
+
+            & > ul,
+            img {
+                max-height: 80vh;
+                margin: 0 auto;
+            }
+        }
+
+        &__button {
+            position: absolute;
+            top: @indent__m;
+            right: @indent__m;
+            background: none;
+            width: 20px;
+            height: 20px;
+
+            padding: 0;
+            display: flex;
+            align-items: center;
+
+            svg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        &.is-lightbox-active {
+            display: flex;
+            align-items: center;
+            justify-content: center;    
+        }
+    }
+}
+
+
+//
+//  Tablet Up
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+    .gallery-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__thumbs {
+            display: block;
+            flex-basis: 30%;
+            .lib-css(max-width, @product-gallery-thumbs__max-width);
+        }
+
+        &__gallery {
+            flex-basis: 70%;
+            flex-grow: 1;
+            margin-right: @indent__m;
+        }
+
+        //
+        // Placeholder Gallery
+        //
+        &--placeholder {
+            justify-content: center;
+            height: 100%;
+
+            .gallery {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+
+    .thumbs {
+        padding: 60px 0;
+
+        &__item {
+            flex-basis: 25%;
+            max-height: 25%;
+            opacity: 0.7;
+
+            &.is-active {
+                opacity: 1;
+            }
+        }
+
+    }
+
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\StoreGraphQl\Model\Resolver\Store\StoreConfigDataProvider">
+        <arguments>
+            <argument name="extendedConfigData" xsi:type="array">
+                <item name="header_promotion" xsi:type="string">gene_theme/header/header_promotion</item>
+                <item name="header_promotion_mobile" xsi:type="string">gene_theme/header/header_promotion_mobile</item>
+
+                <item name="header_usp_1" xsi:type="string">gene_theme/header/header_usp_1</item>
+                <item name="header_usp_1_icon" xsi:type="string">gene_theme/header/header_usp_1_icon</item>
+                <item name="header_usp_1_link" xsi:type="string">gene_theme/header/header_usp_1_link</item>
+
+                <item name="header_usp_2" xsi:type="string">gene_theme/header/header_usp_2</item>
+                <item name="header_usp_2_icon" xsi:type="string">gene_theme/header/header_usp_2_icon</item>
+                <item name="header_usp_2_link" xsi:type="string">gene_theme/header/header_usp_2_link</item>
+
+                <item name="header_usp_3" xsi:type="string">gene_theme/header/header_usp_3</item>
+                <item name="header_usp_3_icon" xsi:type="string">gene_theme/header/header_usp_3_icon</item>
+                <item name="header_usp_3_link" xsi:type="string">gene_theme/header/header_usp_3_link</item>
+
+                <item name="header_usp_4" xsi:type="string">gene_theme/header/header_usp_4</item>
+                <item name="header_usp_4_icon" xsi:type="string">gene_theme/header/header_usp_4_icon</item>
+                <item name="header_usp_4_link" xsi:type="string">gene_theme/header/header_usp_4_link</item>
+
+                <item name="column_1_title" xsi:type="string">gene_theme/footer/column_1_title</item>
+                <item name="column_1_links" xsi:type="string">gene_theme/footer/column_1_links</item>
+                <item name="column_1" xsi:type="string">gene_theme/footer/column_1</item>
+
+                <item name="column_2_title" xsi:type="string">gene_theme/footer/column_2_title</item>
+                <item name="column_2_links" xsi:type="string">gene_theme/footer/column_2_links</item>
+                <item name="column_2" xsi:type="string">gene_theme/footer/column_2</item>
+
+                <item name="column_3_title" xsi:type="string">gene_theme/footer/column_3_title</item>
+                <item name="column_3_links" xsi:type="string">gene_theme/footer/column_3_links</item>
+                <item name="column_3" xsi:type="string">gene_theme/footer/column_3</item>
+
+                <item name="column_4_title" xsi:type="string">gene_theme/footer/column_4_title</item>
+                <item name="column_4" xsi:type="string">gene_theme/footer/column_4</item>
+
+                <item name="delivery_message" xsi:type="string">gene_theme/product/delivery_message</item>
+                <item name="delivery_tab_content" xsi:type="string">gene_theme/product/delivery_tab_content</item>
+
+                <item name="message" xsi:type="string">gene_theme/cookie/message</item>
+
+                <item name="facebook" xsi:type="string">gene_theme/social/facebook</item>
+                <item name="twitter" xsi:type="string">gene_theme/social/twitter</item>
+                <item name="instagram" xsi:type="string">gene_theme/social/instagram</item>
+                <item name="pinterest" xsi:type="string">gene_theme/social/pinterest</item>
+                <item name="youtube" xsi:type="string">gene_theme/social/youtube</item>
+                <item name="vimeo" xsi:type="string">gene_theme/social/vimeo</item>
+
+                <item name="maestro" xsi:type="string">gene_theme/payment_gateway/maestro</item>
+                <item name="maestro_icon" xsi:type="string">gene_theme/payment_gateway/maestro_icon</item>
+                <item name="visa" xsi:type="string">gene_theme/payment_gateway/visa</item>
+                <item name="visa_icon" xsi:type="string">gene_theme/payment_gateway/visa_icon</item>
+                <item name="mastercard" xsi:type="string">gene_theme/payment_gateway/mastercard</item>
+                <item name="mastercard_icon" xsi:type="string">gene_theme/payment_gateway/mastercard_icon</item>
+                <item name="paypal" xsi:type="string">gene_theme/payment_gateway/paypal</item>
+                <item name="paypal_icon" xsi:type="string">gene_theme/payment_gateway/paypal_icon</item>
+
+                <item name="newsletter_title" xsi:type="string">gene_theme/newsletter/newsletter_title</item>
+                <item name="newsletter_content" xsi:type="string">gene_theme/newsletter/newsletter_content</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

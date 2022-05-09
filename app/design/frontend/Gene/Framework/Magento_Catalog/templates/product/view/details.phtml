@@ -1,0 +1,88 @@
+<?php
+/**
+ * Gene - Product Details
+ * @var \Magento\Catalog\Block\Product\View\Details $block
+ */
+$detailedInfoGroup = $block->getGroupSortedChildNames('detailed_info', 'getChildHtml');
+?>
+<?php if ($detailedInfoGroup) : ?>
+    <div class="product info detailed gt-tabs">
+        <?php $layout = $block->getLayout(); ?>
+        <div class="product data items gt-tabs__wrapper wrapper"
+             data-mage-init='{"tabs":{"openedState":"active"}}'>
+            <ul role="tablist" class="gt-tabs__links gt-tabs__links--desktop">
+                <?php foreach ($detailedInfoGroup as $name) : ?>
+                    <?php
+                    $html = $layout->renderElement($name);
+                    if (!trim($html)) {
+                        continue;
+                    }
+                    $alias = $layout->getElementAlias($name);
+                    $label = $block->getChildData($alias, 'title');
+                    ?>
+                    <li class="data item title gt-tabs__title js-tab-<?= $block->escapeHtmlAttr($alias);?>"
+                        aria-labelledby="tab-label-<?= $block->escapeHtmlAttr($alias) ?>-title-desktop"
+                        data-role="collapsible"
+                        role="presentation"
+                        id="tab-label-<?= $block->escapeHtmlAttr($alias) ?>-desktop">
+                        <a class="data switch"
+                           tabindex="-1"
+                           data-toggle="switch"
+                           role="tab"
+                           aria-controls="<?= $block->escapeHtmlAttr($alias) ?>"
+                           href="#<?= $block->escapeHtmlAttr($alias) ?>"
+                           id="tab-label-<?= $block->escapeHtmlAttr($alias) ?>-title-desktop">
+                            <span class="label"><?= $block->escapeHtml($label) ?></span>
+                            <svg width="21" height="24" viewBox="0 0 14 16" class="icon icon-arrow icon-arrow--down">
+                                <use xlink:href="#icon-arrow"></use>
+                            </svg>
+                        </a>
+                    </li>
+                <?php endforeach;?>
+            </ul>
+            <div class="gt-tabs__info">
+                <?php /* Add count to activate first tab when collapsible*/
+                $count = 1; ?>
+                <?php foreach ($detailedInfoGroup as $name) : ?>
+                    <?php
+                    $html = $layout->renderElement($name);
+                    if (!trim($html)) {
+                        continue;
+                    }
+                    $alias = $layout->getElementAlias($name);
+                    $label = $block->getChildData($alias, 'title');
+                    ?>
+                    <div data-mage-init='{"collapsible":{
+                         "header": "[data-role=accordion-title]",
+                         "content": ".gt-tabs__content",
+                         "collapsible": true,
+                         "openedState": "gt-tabs__accordion--open"
+                            <?= $count === 1 ? ',"active" : true' : '' ;?>
+                         }}'>
+                        <div class="gt-tabs__title gt-tabs__links--mobile js-tab-<?= $block->escapeHtmlAttr($alias);?>"
+                             data-role="accordion-title"
+                             id="tab-label-<?= $block->escapeHtmlAttr($alias)?>-mobile">
+                            <a href="#<?= $block->escapeHtmlAttr($alias) ?>"
+                               class="data switch"
+                               tabindex="-1"
+                               data-toggle="switch"
+                               id="tab-label-<?= $block->escapeHtmlAttr($alias) ?>-title-mobile">
+                                <span class="label"><?= $block->escapeHtml($label) ?></span>
+                                <svg width="21" height="24" viewBox="0 0 14 16" class="icon icon-arrow icon-arrow--down">
+                                    <use xlink:href="#icon-arrow"></use>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="data item content gt-tabs__content"
+                             id="<?= $block->escapeHtmlAttr($alias) ?>"
+                             role="tabpanel"
+                             data-role="content">
+                            <?= /* @noEscape */ $html ?>
+                        </div>
+                    </div>
+                    <?php $count++;?>
+                <?php endforeach;?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>

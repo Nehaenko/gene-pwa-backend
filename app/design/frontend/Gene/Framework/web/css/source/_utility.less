@@ -1,0 +1,28 @@
+//
+//  Utility Classes
+//  ---------------------------------------------
+
+//
+// Screen Readers only
+//
+.sr-only {
+  &:extend(.abs-visually-hidden all);
+}
+
+//
+//  Flex layout
+//  ---------------------------------------------
+
+//
+// Core is missing Justify-Content
+// Set 2 values as some fallbacks have different values
+//
+.lib-vendor-prefix-justify-content(
+  @_value1: start,
+  @_value2: flex-start
+) {
+  -webkit-justify-content: @_value2;
+  -webkit-box-pack: @_value1;
+  -ms-flex-pack: @_value1;
+  justify-content: @_value2;
+}

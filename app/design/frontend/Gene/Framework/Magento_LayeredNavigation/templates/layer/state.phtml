@@ -1,0 +1,44 @@
+<?php
+/**
+ * Category layered navigation state
+ * @var \Magento\LayeredNavigation\Block\Navigation\State $block
+ */
+$_filters = $block->getActiveFilters();
+
+if (!empty($_filters)) : ?>
+    <ul class="filter-current">
+        <?php foreach ($_filters as $_filter) : ?>
+            <li class="filter-current-item">
+                <span class="filter-current-item__label visually-hidden"><?= $block->escapeHtml(__($_filter->getName())) ?></span>
+                <span class="filter-current-item__value"><?= /* @noEscape */ $block->stripTags($_filter->getLabel()) ?></span>
+
+                <?php
+                $clearLinkUrl = $_filter->getClearLinkUrl();
+                $currentFilterName = $block->escapeHtml(__($_filter->getName())) . " " . $block->stripTags($_filter->getLabel());
+                if ($clearLinkUrl) :
+                    ?>
+                    <a class="filter-current-item__remove" href="<?= $block->escapeUrl($_filter->getRemoveUrl()) ?>">
+                        <span><?= $block->escapeHtml(__('Previous')) ?></span>
+                    </a>
+                    <a class="filter-current-item__remove"
+                       href="<?= $block->escapeUrl($clearLinkUrl) ?>">
+                        <span><?= $block->escapeHtml($_filter->getFilter()->getClearLinkText()) ?></span>
+                        <svg width="21" height="24" viewBox="0 0 14 16" class="icon icon-close">
+                            <use xlink:href="#icon-close"></use>
+                        </svg>
+                    </a>
+                <?php else : ?>
+                    <a class="filter-current-item__remove"
+                       href="<?= $block->escapeUrl($_filter->getRemoveUrl()) ?>">
+                        <span class="visually-hidden"><?= $block->escapeHtml(__('Remove filter')) ?></span>
+                        <svg width="21" height="24" viewBox="0 0 14 16"
+                             class="icon icon-close filter-current-item__icon">
+                            <use xlink:href="#icon-close"></use>
+                        </svg>
+                    </a>
+                <?php endif; ?>
+
+            </li>
+        <?php endforeach; ?>
+    </ul>
+<?php endif; ?>

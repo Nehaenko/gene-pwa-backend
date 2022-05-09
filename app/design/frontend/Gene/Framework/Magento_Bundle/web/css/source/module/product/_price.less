@@ -1,0 +1,103 @@
+//
+//  Magento Bundle - Price
+//  ---------------------------------------------
+
+//
+//  Common
+//  ---------------------------------------------
+& when (@media-common = true) {
+
+  //
+  //  Bundle
+  //  ---------------------------------------------
+  .page-product-bundle {
+
+    //
+    //  Price
+    //  ---------------------------------------------
+
+    //
+    // Override Core - Price Font Size
+    //
+    .product-info-main .price-box .old-price .price {
+      .lib-font-size(@font-size__base);
+    }
+
+    //
+    // Label
+    //
+    .price-label {
+      .lib-font-size(@font-size__l);
+    }
+
+    //
+    // Wrapper
+    //
+    .price-wrapper {
+      display: block;
+    }
+
+    //
+    // Price Box
+    //
+    .product-info-price {
+      .price-box {
+        margin-top: 0;
+      }
+    }
+
+    //
+    // Old Price
+    //
+    .old-price {
+
+      //
+      // Label
+      //
+      .price-label {
+        display: inline-block;
+        .lib-font-size(@font-size__base);
+      }
+
+      //
+      // Wrapper
+      //
+      .price-wrapper {
+        display: inline-block;
+      }
+
+      //
+      // Price
+      //
+      .price {
+        text-decoration: line-through;
+      }
+
+    }
+
+  }
+
+  //
+  // Price - Bundle Options
+  //
+  .bundle-options-container {
+
+    //
+    // Price Box
+    //
+    .price-box {
+      .price {
+        .lib-font-size(@product-bundle-summary-price__font-size);
+        font-weight: @font-weight__bold;
+      }
+    }
+
+    //
+    // Price Notice
+    //
+    .price-notice {
+      &:extend(.abs-adjustment-incl-excl-tax all);
+    }
+  }
+
+}

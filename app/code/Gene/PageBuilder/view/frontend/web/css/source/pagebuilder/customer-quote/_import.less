@@ -1,0 +1,164 @@
+//
+//  Customer Quote styles
+//  ________________________________
+
+//
+//  Variables
+//  ________________________________
+
+@color-light-pink: #ffdff1;
+
+//
+//  Common
+//  ________________________________
+
+& when (@media-common = true) {
+  .pagebuilder-quote {
+
+    //
+    //  Wrapper
+    //  _____________________________________________
+
+    &__wrapper {
+      position: relative;
+    }
+
+    //
+    //  Content
+    //  _____________________________________________
+
+    &__content {
+      .lib-css(background, @color-light-pink);
+      padding: @indent__base;
+      margin: 0 @indent__base @indent__base;
+      position: relative;
+      top: -60px;
+    }
+
+    &__text {
+      .lib-font-size(28px);
+      .lib-line-height(38);
+      font-style: normal;
+      margin: 0;
+    }
+
+    &__author {
+      .lib-font-size(@font-size__l);
+      .lib-line-height(30);
+      margin-bottom: 0;
+    }
+
+    //
+    //  Image
+    //  _____________________________________________
+
+    &__image {
+      width: 100%;
+
+      img {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+}
+
+//
+//  Tablet
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  .pagebuilder-quote {
+
+    //
+    //  Wrapper
+    //  _____________________________________________
+
+    &__wrapper {
+      .lib-vendor-prefix-display();
+      .lib-vendor-box-align(flex-end);
+      justify-content: space-between;
+    }
+
+    //
+    //  Content
+    //  _____________________________________________
+
+    &__content {
+      position: absolute;
+      max-width: 355px;
+      top: auto;
+      margin: 0;
+
+      &:only-child {
+        position: relative;
+      }
+    }
+
+    //
+    //  Image
+    //  _____________________________________________
+
+    &__image {
+      max-width: 65%;
+      margin-left: auto;
+    }
+
+    //
+    //  Alignments
+    //  _____________________________________________
+
+    &--right {
+      .pagebuilder-quote__image {
+        margin-left: 0;
+        margin-right: auto;
+      }
+
+      .pagebuilder-quote__content {
+        right: 0;
+      }
+    }
+
+    &--center {
+      .pagebuilder-quote__image {
+        max-width: 100%;
+        margin: 0 auto;
+      }
+
+      .pagebuilder-quote__content {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+
+  .pagebuilder-quote {
+
+    //
+    //  Content
+    //  _____________________________________________
+
+    &__content {
+      max-width: 555px;
+    }
+
+    &__text {
+      .lib-font-size(34px);
+      .lib-line-height(44);
+    }
+
+    &__author {
+      .lib-font-size(20px);
+      .lib-line-height(54);
+    }
+  }
+}

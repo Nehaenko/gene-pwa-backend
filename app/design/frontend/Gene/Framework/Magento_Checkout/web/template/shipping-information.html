@@ -1,0 +1,29 @@
+<!-- ko if: (isVisible()) -->
+<div class="shipping-information">
+    <div class="ship-to">
+        <div class="shipping-information-title">
+            <span data-bind="i18n: 'Ship To:'"></span>
+        </div>
+        <div class="shipping-information-content">
+            <!-- ko foreach: getRegion('ship-to') -->
+            <!-- ko template: getTemplate() --><!-- /ko -->
+            <!--/ko-->
+
+            <button class="action action-edit action--link" data-bind="click: back">
+                <span data-bind="i18n: 'edit'"></span>
+            </button>
+        </div>
+    </div>
+    <div class="ship-via">
+        <div class="shipping-information-title">
+            <span data-bind="i18n: 'Shipping Method:'"></span>
+        </div>
+        <div class="shipping-information-content">
+            <span class="value" data-bind="text: getShippingMethodTitle()"></span>
+        </div>
+        <button class="action action-edit action--link" data-bind="click: backToShippingMethod">
+            <span data-bind="i18n: 'edit'"></span>
+        </button>
+    </div>
+</div>
+<!--/ko-->

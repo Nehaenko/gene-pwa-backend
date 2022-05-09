@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Default
+
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <!-- Remove link in header -->
+        <referenceBlock name="multiple-wish-list-link" remove="true" />
+
+        <!-- Remove from sidebar -->
+        <referenceBlock name="multiple-wishlist_sidebar" remove="true" />
+    </body>
+</page>

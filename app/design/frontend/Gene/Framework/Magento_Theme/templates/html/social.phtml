@@ -1,0 +1,21 @@
+<?php
+/**
+ * Display social network block
+ * @var \Gene\Framework\Block\Social $block
+ */
+?>
+<?php if ($networks = $block->getEnabledSocialNetwork()) : ?>
+<ul class="social-networks">
+    <?php foreach ($networks as $item) : ?>
+        <li><a href="<?= $block->escapeUrl($item->getUrl()) ?>"
+               title="<?= $block->escapeHtmlAttr($item->getTitle()) ?>"
+               target="_blank" rel="noopener"
+               aria-label="<?= $block->escapeHtmlAttr($item->getTitle()) ?>">
+                <svg viewBox="0 0 100 100" class="icon <?= $block->escapeHtmlAttr($item->getIcon()) ?>">
+                    <use xlink:href="#<?= $block->escapeHtmlAttr($item->getIcon()) ?>"></use>
+                </svg>
+            </a>
+        </li>
+    <?php endforeach; ?>
+</ul>
+<?php endif ?>

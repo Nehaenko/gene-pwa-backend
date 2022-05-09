@@ -1,0 +1,217 @@
+//
+//  Forms
+//  ---------------------------------------------
+
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    // Fieldset
+    .fieldset {
+        .lib-form-fieldset();
+    }
+
+    // Field
+    .field {
+        .lib-form-field();
+
+        &.no-label {
+            > .label {
+                &:extend(.abs-visually-hidden all);
+            }
+        }
+
+        // A shorter variation
+        &--small {
+            height: @form-element-input-small__height;
+            line-height: @form-element-input-small__line-height;
+        }
+
+        // Legend padding fix
+        > .label {
+            padding: 0;
+        }
+
+        // Hide the street address labels
+        &.street > .control .label {
+            .lib-visually-hidden();
+        }
+
+        // hide chevrons
+        .note::before {
+            display: none;
+            content: '';
+        }
+    }
+
+    // Field Error
+    .field-error {
+        color: @error__color;
+        .lib-font-size(@form-validation-note__font-size);
+        .lib-css(font-family, @form-validation-note__font-family);
+        .lib-css(font-style, @form-validation-note__font-style);
+        .lib-css(font-weight, @form-validation-note__font-weight);
+        .lib-css(line-height, @form-validation-note__line-height);
+        .lib-css(margin, @form-validation-note__margin);
+        .lib-css(padding, @form-validation-note__padding);
+    }    
+
+    // Typically the address fieldset
+    fieldset.field {
+        border: 0;
+        padding: 0;
+    }
+
+    // Tooltips
+    .field-tooltip.toggle {
+        display: flex;
+        align-items: center;
+
+        top: 0;
+
+        height: @form-field-tooltip__height;
+    }
+
+    .field-tooltip .field-tooltip-action {
+        background-image: url('@{baseDir}images/icon-tooltip.svg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+
+        width: @form-field-tooltip__size;
+        height: @form-field-tooltip__size;
+
+        &:hover {
+            background-image: url('@{baseDir}images/icon-tooltip-hover.svg');
+        }
+
+        // Core Override
+        &::before {
+            content: ''!important;
+            display: none!important;
+        }
+    }
+
+    // Show tooltips on focus
+    input:focus ~ .tooltip .tooltip-content,
+    select:focus ~ .tooltip .tooltip-content {
+        display: block;
+    }
+
+    //
+    //  Form UI Elements
+    //  -----------------------------------------
+
+    select,
+    .select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        background-repeat: no-repeat;
+        background-position: @select__icon-position;
+        background-size: @select__icon-size;
+
+        // A shorter variation
+        &--small {
+            height: @form-element-input-small__height;
+            line-height: @form-element-input-small__line-height;
+        }
+
+        //
+        // IE Fix
+        //
+        .ie11 & {
+            padding: 0;
+            background: none;
+        }
+    }
+
+    // Radios/Checkboxes
+
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin: 0;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
+    input[type="radio"] {
+        width: @input-radio__size;
+        height: @input-radio__size;
+        border-radius: @input-radio__border-radius;
+        border: solid 1px @input-radio__border-color;
+        box-shadow: inset 0px 0px 0px 4px white, inset 0px 0px 0px 40px @input-radio__color;
+
+        &:checked {
+            box-shadow: inset 0px 0px 0px 4px white, inset 0px 0px 0px 40px @input-radio__active-color;
+        }
+    }
+
+    input[type="checkbox"] {
+        height: @checkbox__box-width;
+        width: @checkbox__box-width;
+        // Stops checkboxes being shrunk
+        min-width: @checkbox__box-width;
+        border: @checkbox__box-line-weight solid @checkbox__box-border-color;
+        border-radius: @checkbox__box-border-radius;
+
+        &:checked {
+            background-color: transparent; // Safari IOS Fix
+            background-image: @checkbox__box-background-tick;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: @checkbox__tick-size;
+        }
+    }
+
+    // Radios/Checkboxes (wrappers)
+
+    .checkbox,
+    .choice {
+        display: flex;
+        align-items: center;
+
+        & > .label {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        input[type="radio"],
+        input[type="checkbox"] {
+            margin-right: @indent__s;
+        }
+    }
+
+    // Actions toolbar (Full Width Modifier)
+    // Blame Magento for this crap CSS
+
+    .actions-toolbar--full-width,
+    .payment-method-content .actions-toolbar {
+        & > .primary,
+        & > .secondary,
+        & > .primary .action.primary,
+        .action {
+            width: 100%;
+        }
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .fieldset {
+        .legend {
+            &:extend(.abs-margin-for-forms-desktop all);
+        }
+
+        > .field {
+            margin: 0 0 @form-field__vertical-indent__desktop;
+        }
+    }
+}

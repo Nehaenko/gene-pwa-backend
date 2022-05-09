@@ -1,0 +1,46 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+  .product.media,
+  .product-item-info {
+    position: relative;
+  }
+  
+  .gene-roundel {
+    position: absolute;
+    z-index: 2;
+
+    width: 60px;
+    height: 60px;
+
+    background: @primary__color;
+    color: @color-white;
+    
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .gene-roundel--topleft,
+  .gene-roundel--topright {
+    top: 0;
+  }
+  
+  .gene-roundel--bottomleft,
+  .gene-roundel--bottomright {
+    bottom: 0;
+  }
+  
+  .gene-roundel--topleft,
+  .gene-roundel--bottomleft {
+    left: 0;
+  }
+  
+  .gene-roundel--topright,
+  .gene-roundel--bottomright {
+    right: 0;
+  }
+}

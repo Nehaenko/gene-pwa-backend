@@ -1,0 +1,87 @@
+//
+//  Newsletter Base
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  .subscribe {
+
+    &__content {
+      margin-bottom: @indent__s;
+    }
+
+    //
+    //  Form
+    //  _____________________________________________
+
+    &__form {
+      display: flex;
+      align-items: flex-end;
+    }
+
+
+    //
+    //  Field
+    //  _____________________________________________
+
+    &__field {
+      flex-grow: 1;
+      margin-bottom: 0;
+
+      input {
+        border: @footer-subscribe-input__border;
+      }
+
+      //
+      //  Error
+      //  _____________________________________________
+
+      div.mage-error[generated] {
+        .lib-css(color, @error__color);
+        line-height: @line-height__base;
+      }
+
+    }
+
+      //
+      //  Actions
+      //  _____________________________________________
+
+      &__actions {
+
+        .action {
+          border-radius: @footer-subscribe-button__border-radius;
+          height: @button__line-height;
+
+          .lib-button(
+            @_button-color: @footer-subscribe-button__color;
+            @_button-background: @footer-subscribe-button__background;
+          );
+
+          span {
+            &:extend(.abs-visually-hidden);
+          }
+
+          svg {
+            width: @footer-subscribe-icon__width;
+            height: @footer-subscribe-icon__height;
+            vertical-align: middle;
+            -webkit-transition: @footer-subscribe-icon__transition;
+            transition: @footer-subscribe-icon__transition;
+          }
+
+          &:hover {
+            svg {
+              transform: @footer-subscribe-icon__transform;
+            }
+          }
+
+        }
+
+      }
+  }
+}

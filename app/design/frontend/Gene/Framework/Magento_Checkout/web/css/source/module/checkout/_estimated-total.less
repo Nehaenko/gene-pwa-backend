@@ -1,0 +1,38 @@
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+    //
+    //  Checkout Estimated Total
+    //  ---------------------------------------------
+
+    .opc-estimated-wrapper {
+        .lib-css(margin, @estimate-wrapper__mobile__margin);
+    }
+
+    .estimated-block {
+        display: flex;
+        justify-content: space-between;
+
+        .lib-css(margin, @estimate-block__margin);
+        .lib-font-size(@estimate-block__font-size);
+    }
+
+    .opc-estimated-wrapper {
+        &:extend(.abs-no-display-desktop all);
+        &:extend(.abs-add-clearfix all);
+    }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .opc-estimated-wrapper {
+        display: none;
+        .lib-css(margin, @estimate-wrapper__margin);
+    }
+}

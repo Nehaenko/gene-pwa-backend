@@ -1,0 +1,49 @@
+//
+//  Gene Framework - Driver
+//  ---------------------------------------------
+
+.pagebuilder-stage {
+
+  .pagebuilder-driver {
+
+    &__content {
+      text-align: left;
+      h3 {
+        .lib-font-size(26);
+      }
+    }
+
+    &--right {
+      .pagebuilder-driver__actions {
+        display: flex;
+        justify-content: flex-end;
+        align-content: center;
+      }
+
+      .pagebuilder-driver__content {
+        text-align: right;
+      }
+
+      .pagebuilder-driver__content h3 {
+        margin-left: auto;
+      }
+    }
+
+    &--centered {
+      .pagebuilder-driver__actions {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+
+      .pagebuilder-driver__content {
+        text-align: center;
+      }
+
+      .pagebuilder-driver__content h3 {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+//
+//  Animation
+//  ---------------------------------------------
+
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //
+  //  Reduced Motion
+  //  _____________________________________________
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001s !important;
+      transition-duration: 0.001s !important;
+    }
+
+  }
+
+}

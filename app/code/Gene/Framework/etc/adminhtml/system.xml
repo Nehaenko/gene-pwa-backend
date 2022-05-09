@@ -1,0 +1,253 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Gene Framework
+
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+
+        <section id="gene_theme" translate="label" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Theme Settings</label>
+            <tab>gene</tab>
+            <resource>Gene_Base::store_config</resource>
+
+            <!-- Header -->
+            <group id="header" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Header</label>
+                <field id="header_promotion" translate="label comment" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header Promotion</label>
+                    <comment>Text content for header</comment>
+                </field>
+                <field id="header_promotion_mobile" translate="label comment" type="textarea" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mobile Header Promotion</label>
+                    <comment>Text content for header on mobile</comment>
+                </field>
+                <field id="hero_preload" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Hero Image Preload</label>
+                    <comment>Enter the exact file name (including extension) of the mobile hero image on the home page. If empty, no preload will be added. Preloading the hero image improves performance.</comment>
+                </field>
+                <field id="enable_sticky_header" translate="label comment" type="select" sortOrder="210" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Sticky Header</label>
+                    <comment>Do you want to have a sticky header?</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="header_usp_1" translate="label comment" type="textarea" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header USP 1</label>
+                    <comment>Text content for first header USP, wrap anything you want to emphasize in a span tag</comment>
+                </field>
+                <field id="header_usp_1_icon" translate="label" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header USP 1 Icon</label>
+                    <comment>Specify the Icon ID</comment>
+                </field>
+                <field id="header_usp_1_link" translate="label" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header USP 1 Link</label>
+                    <comment>Specify the full URL</comment>
+                </field>
+                <field id="header_usp_2" translate="label comment" type="textarea" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header USP 2</label>
+                    <comment>Text content for second header USP, wrap anything you want to emphasize in a span tag</comment>
+                </field>
+                <field id="header_usp_2_icon" translate="label" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header USP 2 Icon</label>
+                    <comment>Specify the Icon ID</comment>
+                </field>
+                <field id="header_usp_2_link" translate="label" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header USP 2 Link</label>
+                    <comment>Specify the full URL</comment>
+                </field>
+                <field id="header_usp_3" translate="label comment" type="textarea" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header USP 3</label>
+                    <comment>Text content for third header USP, wrap anything you want to emphasize in a span tag</comment>
+                </field>
+                <field id="header_usp_3_icon" translate="label" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header USP 3 Icon</label>
+                    <comment>Specify the Icon ID</comment>
+                </field>
+                <field id="header_usp_3_link" translate="label" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header USP 3 Link</label>
+                    <comment>Specify the full URL</comment>
+                </field>
+                <field id="header_usp_4" translate="label comment" type="textarea" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header USP 4</label>
+                    <comment>Text content for fourth header USP, wrap anything you want to emphasize in a span tag</comment>
+                </field>
+                <field id="header_usp_4_icon" translate="label" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header USP 4 Icon</label>
+                    <comment>Specify the Icon ID</comment>
+                </field>
+                <field id="header_usp_4_link" translate="label" type="text" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Header USP 4 Link</label>
+                    <comment>Specify the full URL</comment>
+                </field>
+            </group>
+
+            <!-- Footer -->
+            <group id="footer" translate="label" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Footer</label>
+                <field id="column_1_title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Column 1 Title</label>
+                </field>
+
+                <field id="column_1_links" translate="label comment" type="textarea" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Column One Menu Links</label>
+                    <frontend_model>Gene\Framework\Block\Adminhtml\Form\Field\FooterLinks</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>Add a link menu to the first column.</comment>
+                </field>
+
+                <field id="column_1" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Column 1 Content</label>
+                </field>
+
+                <field id="column_2_title" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Column 2 Title</label>
+                </field>
+
+                <field id="column_2_links" translate="label comment" type="textarea" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Column Two Menu Links</label>
+                    <frontend_model>Gene\Framework\Block\Adminhtml\Form\Field\FooterLinks</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>Add a link menu to the second column.</comment>
+                </field>
+
+                <field id="column_2" translate="label" type="textarea" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Column 2 Content</label>
+                </field>
+
+                <field id="column_3_title" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Column 3 Title</label>
+                </field>
+
+                <field id="column_3_links" translate="label comment" type="textarea" sortOrder="220" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Column Three Menu Links</label>
+                    <frontend_model>Gene\Framework\Block\Adminhtml\Form\Field\FooterLinks</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                    <comment>Add a link menu to the third column.</comment>
+                </field>
+
+                <field id="column_3" translate="label" type="textarea" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Column 3 Content</label>
+                </field>
+
+                <field id="column_4_title" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Column 4 Title</label>
+                </field>
+
+                <field id="column_4" translate="label" type="textarea" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Column 4 Content</label>
+                </field>
+            </group>
+
+            <!-- Product Page -->
+            <group id="product" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Product Page</label>
+                <field id="delivery_message" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Add Delivery Message</label>
+                    <comment>Will appear underneath the "Add to Cart" section.</comment>
+                </field>
+                <field id="delivery_tab_content" translate="label comment" type="editor" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Delivery Tab</label>
+                    <comment>Create a tab with delivery information</comment>
+                    <frontend_model>Gene\Framework\Block\Adminhtml\System\Config\Editor</frontend_model>
+                </field>
+            </group>
+
+            <!-- Cookie Settings -->
+            <group id="cookie" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Cookie</label>
+                <field id="message" translate="label comment" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Message</label>
+                    <comment>Text content for Cookie Banner</comment>
+                </field>
+            </group>
+
+            <!-- Social Networks -->
+            <group id="social" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Social</label>
+                <field id="facebook" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Facebook URL</label>
+                </field>
+                <field id="twitter" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Twitter URL</label>
+                </field>
+                <field id="instagram" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Instagram URL</label>
+                </field>
+                <field id="pinterest" translate="label comment" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Pinterest URL</label>
+                </field>
+                <field id="youtube" translate="label comment" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Youtube URL</label>
+                </field>
+                <field id="vimeo" translate="label comment" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Vimeo URL</label>
+                </field>
+            </group>
+
+            <!-- Payment Gateway -->
+            <group id="payment_gateway" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Payment Gateway</label>
+
+                <field id="maestro" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Maestro</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="maestro_icon" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Maestro Icon</label>
+                    <depends>
+                        <field id="maestxro">1</field>
+                    </depends>
+                </field>
+
+                <field id="visa" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Visa</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="visa_icon" translate="label" type="text" sortOrder="41" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Visa Icon</label>
+                    <depends>
+                        <field id="visa">1</field>
+                    </depends>
+                </field>
+
+                <field id="mastercard" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Mastercard</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="mastercard_icon" translate="label" type="text" sortOrder="21" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Mastercard Icon</label>
+                    <depends>
+                        <field id="mastercard">1</field>
+                    </depends>
+                </field>
+
+                <field id="paypal" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Paypal</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="paypal_icon" translate="label" type="text" sortOrder="31" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Paypal Icon</label>
+                    <depends>
+                        <field id="paypal">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="newsletter" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Newsletter</label>
+                <comment>
+                    <![CDATA[Manage Newsletter header and content on the Footer.]]>
+                </comment>
+                <field id="newsletter_title" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+                <field id="newsletter_content" translate="label" type="textarea" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Content</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,17 @@
+<?php
+/**
+ * Social Networks for Email
+ * @var \Gene\Framework\Block\Social $block
+ */
+$socialNetworks = $block->getEnabledSocialNetwork();
+?>
+<p class="social-networks">
+    <?php foreach ($socialNetworks as $key => $network) : ?>
+        <?php $networkImageUrl = $block->getViewFileUrl('Gene_Framework/images/'. $network->getCode() .'.png');?>
+        <a href="<?= $block->escapeUrl($network->getUrl()); ?>"
+           title="<?= $block->escapeHtmlAttr(__('Visit us on %1', $network->getTitle())); ?>">
+            <img src="<?= $block->escapeUrl($networkImageUrl); ?>"
+                 alt="<?= $block->escapeHtmlAttr(__('%1 Logo', $network->getTitle())); ?>" />
+        </a>
+    <?php endforeach; ?>
+</p>

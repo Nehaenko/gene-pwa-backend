@@ -1,0 +1,31 @@
+<?php
+/**
+ * Gene Theme Root
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<!doctype html>
+<html <?= $htmlAttributes ?>>
+    <head <?= $headAttributes ?>>
+
+        <link href="<?= $this->assetRepo->getUrl('jquery.js') ?>" as="script" rel="preload" />
+        <link href="<?= $this->assetRepo->getUrl('knockoutjs/knockout.js') ?>" as="script" rel="preload" />
+        <link href="<?= $this->assetRepo->getUrl('Gene_Framework::js/gene-menu.js') ?>" as="script" rel="preload" />
+
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+        <?= $requireJs ?>
+        <?= $headContent ?>
+        <?= $headAdditional ?>
+
+    </head>
+    <body data-container="body"
+          data-mage-init='{"loaderAjax": {}, "loader": { "icon": "<?= $loaderIcon ?>"}}'
+        <?= $bodyAttributes ?>>
+        <?= $layoutContent ?>
+    <script defer src="<?= $this->assetRepo->getUrl('Magento_Theme/js/head-additional.js') ?>"></script>
+    </body>
+</html>

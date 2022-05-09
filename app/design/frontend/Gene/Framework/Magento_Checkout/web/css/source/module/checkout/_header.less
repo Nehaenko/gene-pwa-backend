@@ -1,0 +1,130 @@
+//
+//  Checkout Header
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+  .checkout-index-index {
+
+    //
+    //  Top Panel
+    //  ---------------------------------------------
+
+    .panel {
+      &.wrapper {
+        background-color: @checkout-header__background;
+        color: @checkout-header__color;
+        text-transform: none;
+        min-height: 40px;
+
+        a,
+        button {
+          color: @color-white;
+          font-family: @heading__font-family__base;
+        }
+      }
+    }
+
+    .panel.header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100%;
+      .lib-css(max-width, @checkout-page__max-width);
+      margin: 0 auto;
+
+      p {
+        margin-bottom: 0;
+      }
+    }
+
+    //
+    //  Container
+    //  ---------------------------------------------
+
+    .page-header {
+      border-bottom: @checkout-header__border;
+      position: relative;
+      text-align: center;
+
+      &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .lib-css(padding-top, @checkout-header__padding--mobile);
+        .lib-css(padding-bottom, @checkout-header__padding--mobile);
+
+        width: 100%;
+        .lib-css(max-width, @checkout-page__max-width);
+        margin: 0 auto;
+      }
+    }
+
+    //
+    //  Phone number
+    //  ---------------------------------------------
+
+    .panel__phone-number {
+      display: flex;
+      align-items: center;
+
+      svg {
+        width: 20px;
+        height: 21px;
+        margin-right: @indent__xs;
+        fill: @checkout-header__color;
+      }
+    }
+
+    //
+    //  Sign in link
+    //  ---------------------------------------------
+
+    .account-signin {
+     .lib-visually-hidden();
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+  .checkout-index-index {
+
+    // core override
+    .page-header {
+      .panel.header {
+        justify-content: space-between;
+      }
+      
+      .panel.wrapper {
+        border: none;
+      }
+
+      &__wrapper {
+        .lib-css(padding-top, @checkout-header__padding);
+        .lib-css(padding-bottom, @checkout-header__padding);
+      }
+    }
+
+    //
+    //  Sign in link
+    //  ---------------------------------------------
+
+    .account-signin {
+      display: flex;
+      justify-content: center;
+
+      &__link {
+        vertical-align: top;
+        margin-left: @indent__s;
+        line-height: 1;
+        padding: 0;
+      }
+    }
+  }
+}

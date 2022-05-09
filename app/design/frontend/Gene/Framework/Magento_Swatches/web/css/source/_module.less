@@ -1,0 +1,148 @@
+// /**
+//  * Copyright © Magento, Inc. All rights reserved.
+//  * See COPYING.txt for license details.
+//  */
+
+//
+//  Variables
+//  ---------------------------------------------
+
+@import '_variables';
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  .swatch {
+
+    //
+    //  Container
+    //  _____________________________________________
+
+    &-opt {
+      margin: @indent__base 0;
+    }
+
+    &-attribute {
+      margin-top: @indent__s;
+
+      //
+      //  Swatch Label
+      //  _____________________________________________
+
+      &-label {
+        font-weight: @font-weight__heavier;
+      }
+
+      //
+      //  Selected Option Label
+      //  _____________________________________________
+
+      &-selected-option {
+        padding-left: @indent__xs;
+      }
+
+      //
+      //  Swatch Options
+      //  _____________________________________________
+
+      &-options {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+
+    //
+    //  Hide Input
+    //  _____________________________________________
+
+    &-input {
+      display: none;
+    }
+
+    //
+    //  Option
+    //  _____________________________________________
+
+    &-option {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      text-overflow: ellipsis;
+      min-width: @swatch-option__min-width;
+      min-height: @swatch-option__min-height;
+      padding: 0 @indent__s;
+      border: 1px solid @border-color__base;
+      margin: @indent__xs @indent__xs 0 0;
+      border-radius: @button__border-radius;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      //
+      //  Focus
+      //  _____________________________________________
+
+      ._keyfocus & {
+        &:focus {
+          border-color: @primary__color;
+        }
+      }
+
+      //
+      //  Text Option
+      //  _____________________________________________
+
+      &.text {
+        min-width: 50px;
+      }
+
+      //
+      //  Colour Option
+      //  _____________________________________________
+
+      &.color {
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        min-width: 30px;
+        min-height: 30px;
+      }
+
+      //
+      //  Selected, Hover and Disabled
+      //  _____________________________________________
+
+      &.selected,
+      &:not(.disabled):hover {
+        border-color: @primary__color;
+      }
+
+      &.disabled {
+        cursor: default;
+        pointer-events: none;
+        opacity: .8;
+      }
+
+      //
+      //  Loading
+      //  _____________________________________________
+
+      &-loading {
+        .lib-css(content, @loading__background-image);
+      }
+
+      //
+      //  Tooltip
+      //  _____________________________________________
+
+      &-tooltip {
+        display: none;
+      }
+    }
+  }
+}

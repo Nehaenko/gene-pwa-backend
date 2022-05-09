@@ -1,0 +1,18 @@
+<?php
+/**
+ * Category Additional Content block
+ * @var \Magento\Catalog\Block\Category\View $block
+ */
+
+// @codingStandardsIgnoreLine
+$helper = $this->helper('Magento\Catalog\Helper\Output');
+?>
+<?php if ($additional = $block->getCurrentCategory()->getCategoryAdditionalContent()) : ?>
+    <div class="category-additional">
+        <?= /* @noEscape */ $helper->categoryAttribute(
+            $block->getCurrentCategory(),
+            $additional,
+            'category_additional_content'
+        ) ?>
+    </div>
+<?php endif ?>

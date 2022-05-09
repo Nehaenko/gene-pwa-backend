@@ -1,0 +1,20 @@
+<li attr="data.main.attributes" ko-style="data.main.style" css="data.main.css">
+    <article>
+        <div data-collapsible="true">
+            <h3 attr="data.question.attributes" ko-style="data.main.style" css="data.main.css" html="data.question.html"></h3>
+            <svg width="31" height="37" viewBox="0 0 31 37">
+                <use xlink:href="#icon-accordion-hide"></use>
+            </svg>
+            <svg width="31" height="37" viewBox="0 0 31 37">
+                <use xlink:href="#icon-accordion-show"></use>
+            </svg>
+        </div>
+        <div data-content="true">
+            <div attr="data.answer.attributes" ko-style="data.main.style" css="data.main.css" html="data.answer.html"></div>
+            <img if="data.image.attributes().src"
+                 attr="data.image.attributes"
+                 css="data.image.css"
+                 ko-style="data.image.style" />
+        </div>
+    </article>
+</li>

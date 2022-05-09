@@ -1,0 +1,115 @@
+//
+//  Footer Secondary
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //
+  //  Footer Secondary
+  //  _____________________________________________
+
+  .footer-secondary {
+    padding: @footer-secondary__padding;
+    background-color: @footer-secondary__background;
+    color: @footer-secondary__color;
+    text-align: center;
+    
+    //
+    //  Wrapper
+    //  _____________________________________________
+
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
+
+  //
+  //  Payment Gateways
+  //  _____________________________________________
+
+  .payment-gateway {
+    width: 100%;
+    .lib-list-reset-styles();
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: initial;
+
+    //
+    //  List Items
+    //  _____________________________________________
+
+    li {
+      margin: @payment-gateway-icon__margin;
+
+      &:first-child {
+        display: none;
+      }
+    }
+
+    //
+    //  Icon
+    //  _____________________________________________
+
+    .icon {
+      width: @payment-gateway-icon__mobile__width;
+      height: @payment-gateway-icon__mobile__height;
+    }
+
+  }
+
+}
+
+//
+//  Tablet
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  //
+  //  Footer Secondary
+  //  _____________________________________________
+
+  .footer-secondary {
+    text-align: left;
+
+    //
+    //  Wrappr
+    //  _____________________________________________
+
+    .wrapper {
+      justify-content: space-between;
+      flex-direction: row;
+      .lib-vendor-box-align(center)
+    }
+
+  }
+
+  //
+  //  Payment Gateways
+  //  _____________________________________________
+
+  .payment-gateway {
+    width: auto;
+
+    //
+    //  List Items
+    //  _____________________________________________
+
+    li {
+
+      &:first-child {
+        display: block;
+      }
+
+    }
+
+  }
+
+}

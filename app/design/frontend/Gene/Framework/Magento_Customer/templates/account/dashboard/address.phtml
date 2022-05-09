@@ -1,0 +1,35 @@
+<?php
+/**
+ * Dashboard Addresses
+ *
+ * The changes are:
+ * Reducing the HTML to be more concise and semantic
+ * Introducing BEM CSS classes
+ *
+ * @var \Magento\Customer\Block\Account\Dashboard\Address $block
+ */
+?>
+<section class="dashboard-addresses">
+    <div class="dashboard-addresses__title">
+        <h3><?= $block->escapeHtml(__('Address Book')) ?></h3>
+        <a href="<?= $block->escapeUrl($block->getAddressBookUrl()) ?>">
+            <span><?= $block->escapeHtml(__('Manage Addresses')) ?></span>
+        </a>
+    </div>
+    <div class="dashboard-addresses__content">
+        <div class="billing-address">
+            <h4><?= $block->escapeHtml(__('Default Billing Address')) ?></h4>
+            <address><?= $block->getPrimaryBillingAddressHtml() ?></address>
+            <a href="<?= $block->escapeUrl($block->getPrimaryBillingAddressEditUrl()) ?>" data-ui-id="default-billing-edit-link">
+                <span><?= $block->escapeHtml(__('Edit Address')) ?></span>
+            </a>
+        </div>
+        <div class="shipping-address">
+            <h4><?= $block->escapeHtml(__('Default Shipping Address')) ?></h4>
+            <address><?= $block->getPrimaryShippingAddressHtml() ?></address>
+            <a href="<?= $block->escapeUrl($block->getPrimaryShippingAddressEditUrl()) ?>" data-ui-id="default-shipping-edit-link">
+                <span><?= $block->escapeHtml(__('Edit Address')) ?></span>
+            </a>
+        </div>
+    </div>
+</section>

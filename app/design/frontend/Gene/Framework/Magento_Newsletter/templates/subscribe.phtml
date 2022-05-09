@@ -1,0 +1,40 @@
+<?php
+/**
+ * Newsletter Subscribe block
+ * @var \Gene\Framework\Block\Newsletter\Subscribe $block
+ */
+?>
+<div class="subscribe column-title">
+    <h3><?= $block->escapeHtml($block->getTitle()) ?></h3>
+</div>
+<div class="subscribe column-content">
+    <div class="subscribe__content content"><?= /* @noEscape */ $block->getContent() ?></div>
+    <form class="subscribe__form form"
+        novalidate
+        action="<?= $block->escapeUrl($block->getFormActionUrl()) ?>"
+        method="post"
+        data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+        id="newsletter-validate-detail">
+        <div class="field newsletter subscribe__field">
+            <label for="newsletter"
+                   class="visually-hidden">
+                <?= $block->escapeHtml(__('Email address')) ?>
+            </label>
+            <div class="control">
+                <input name="email" type="email" id="newsletter"
+                       placeholder="<?= $block->escapeHtml(__('Enter your email address')) ?>"
+                       data-mage-init='{"mage/trim-input":{}}'
+                       data-validate="{required:true, 'validate-email':true}"/>
+            </div>
+        </div>
+        <div class="actions subscribe__actions">
+            <button class="action subscribe primary" title="<?= $block->escapeHtmlAttr(__('Subscribe')) ?>" type="submit">
+                <span><?= $block->escapeHtml(__('Subscribe')) ?></span>
+                <svg width="14" height="16" viewBox="0 0 14 16" class="icon icon-arrow icon-arrow--right">
+                    <use xlink:href="#icon-arrow"></use>
+                </svg>
+            </button>
+        </div>
+    </form>
+</div>
+

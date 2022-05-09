@@ -1,0 +1,50 @@
+<?php
+/**
+ * Added Icon and CSS class js-menu-parent-link-top
+ * @var \Snowdog\Menu\Block\NodeType\CmsPage $block
+ */
+$nodeId = $block->getId();
+$class = $block->getMenuClass();
+$pageUrl = $block->getPageUrl($nodeId);
+$pageUrl = $pageUrl ?: '#';
+$dataAttribute = '';
+$level = $block->getLevel();
+$isParent = $block->getIsParent();
+
+if ($block->getIsViewAllLink()) {
+    $title = __('View All');
+    $classLink = $class . '__inner-link';
+} else {
+    $classLink = $block->getIsRoot() ? $class . '__link' : $class . '__inner-link';
+    $title = $block->getTitle();
+
+    if ($nodeId && $isParent) {
+        $dataAttribute = ' data-menu="menu-' . $nodeId . '"';
+    }
+
+    if ($block->isCurrentPage($nodeId)) {
+        $classLink .= ' current';
+    }
+
+    if ($level === '0') {
+        $classLink .= ' js-menu-parent-link-top';
+    }
+}
+?>
+
+<a  <?php if ($block->getNodeFontColor() && $block->getNodeFontWeight()) : ?>
+    style="color: <?= $block->getNodeFontColor() ?>; font-weight: <?= $block->getNodeFontWeight() ?>"
+    <?php endif; ?>
+    href="<?= $pageUrl ?>"
+    class="<?= $classLink ?>"
+    data-level="level<?= $level ?>"
+    <?= $dataAttribute ?>
+>
+    <span><?= $title ?></span>
+    <?php if ($isParent) : ?>
+        <svg width="19" height="22" viewBox="0 0 25 25"
+            class="main-nav__parent-arrow icon icon-arrow icon-arrow--right">
+            <use xlink:href="#icon-arrow"></use>
+        </svg>
+    <?php endif; ?>
+</a>

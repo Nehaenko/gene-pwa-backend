@@ -1,0 +1,168 @@
+//
+//  Magento Layered Navigation - Filters
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  .filter {
+
+
+    //
+    //  Filter Category Dropdown
+    //  _____________________________________________
+
+    &-category {
+      border-bottom: 1px solid @color-theme__medium-grey;
+      padding: @indent__m 0;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      //
+      //  Filter Category Name
+      //  _____________________________________________
+
+      &-name {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .icon {
+          width: 30px;
+          height: 30px;
+
+          &-minus {
+            display: none;
+          }
+
+          &-plus {
+            display: block;
+          }
+        }
+      }
+
+      //
+      //  Filter Category Open
+      //  _____________________________________________
+
+      &[open] {
+        .icon {
+          &-minus {
+            display: block;
+          }
+
+          &-plus {
+            display: none;
+          }
+        }
+      }
+
+      //
+      //  Filter Category Content
+      //  _____________________________________________
+
+      &__content {
+        padding: @indent__m 0 0;
+
+        //
+        //  Filter Items
+        //  _____________________________________________
+
+        .items {
+          list-style: none;
+          padding: 0;
+          margin: 0;
+
+          a {
+            text-decoration: none;
+          }
+        }
+
+        //
+        //  Filter Count
+        //  _____________________________________________
+
+        .count {
+          margin: 0 0 0 @indent__xs;
+
+          &:before {
+            content: '(';
+          }
+
+          &:after {
+            content: ')';
+          }
+        }
+
+        .filter-count-label {
+          .lib-visually-hidden;
+        }
+      }
+    }
+
+    //
+    //  Selected Filters
+    //  _____________________________________________
+
+    &-current {
+      display: flex;
+      list-style: none;
+      margin: @indent__m 0;
+      padding: 0;
+
+      &-item {
+        display: flex;
+        align-items: center;
+        background-color: whitesmoke;
+        border-radius: 2px;
+        margin: 0 @indent__s 0 0;
+        padding: @indent__xs;
+
+        &__icon {
+          width: 12px;
+          height: 12px;
+          margin: 0 0 0 @indent__s;
+          display: block;
+        }
+
+
+        &:hover {
+          background-color: @primary__color;
+          color: @color-white;
+
+          .icon {
+            fill: @color-white;
+          }
+        }
+      }
+    }
+  }
+}
+
+//
+//  Desktop
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+  .filter {
+
+    &-title {
+      position: relative;
+      display: flex;
+      align-items: center;
+      margin: 0;
+
+      .lib-css(padding-bottom, @toolbar__padding-bottom);
+      .lib-css(min-height, @toolbar__min-height);
+      .lib-css(border-bottom, @toolbar__border-bottom);
+
+    }
+  }
+
+}

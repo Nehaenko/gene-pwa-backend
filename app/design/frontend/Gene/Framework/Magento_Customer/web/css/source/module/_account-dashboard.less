@@ -1,0 +1,69 @@
+//
+//  Account Dashboard
+//  ---------------------------------------------
+
+
+& when (@media-common = true) {
+  .dashboard-info,
+  .dashboard-addresses,
+  .dashboard-contact {
+    &__content {
+      padding:@indent__s 0 @indent__l 0;
+      border-bottom: 1px solid @color-theme__medium-grey;
+    }
+  }
+
+  .dashboard-info {
+    &__name {
+      font-weight: @font-weight__semibold;
+    }
+
+    p {
+      margin-bottom: @indent__xs;
+    }
+
+    a {
+      margin: @indent__xs @indent__s 0 0;
+    }
+  }
+
+  .dashboard-addresses {
+    &__title {
+      h3 {
+        display: inline-block !important;
+      }
+
+      a{
+        display: inline-block;
+        margin: 0 0 0 @indent__s;
+      }
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+
+      @media screen and (min-width: @screen__m) {
+        flex-direction: row;
+      }
+
+      h4 {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+    }
+
+    .billing-address{
+      margin: 0 0 @indent__m 0;
+
+      @media screen and (min-width: @screen__m) {
+        margin: 0 20% 0 0;
+      }
+    }
+  }
+
+  .block-dashboard-orders {
+    padding-top: @indent__m;
+  }
+
+}

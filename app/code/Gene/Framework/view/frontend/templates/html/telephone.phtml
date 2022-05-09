@@ -1,0 +1,14 @@
+<?php
+/**
+ * Telephone Template
+ * @var \Gene\Framework\Block\Theme\SystemConfig $block
+ */
+?>
+<?php if ($config = $block->getConfig()) : ?>
+    <a href="tel:<?= $block->escapeHtmlAttr(str_replace(' ', '', $block->getConfig())) ?>" class="<?= $block->escapeHtmlAttr($block->getClass()) ?>">
+        <svg width="14" height="16" viewBox="0 0 14 16" class="icon icon-phone">
+            <use xlink:href="#icon-phone"></use>
+        </svg>
+        <?= $block->escapeHtml($block->getConfig()) ?>
+    </a>
+<?php endif; ?>

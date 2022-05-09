@@ -1,0 +1,167 @@
+//
+//  Tables
+//  Overridden to tidy up - see original vendor/magento/theme-frontend-blank/web/css/source/_tables.less
+//  Removed selectors like &:not(.cart) &:not(.totals)
+//  ---------------------------------------------
+
+//
+//  Common
+//  _____________________________________________
+
+& when (@media-common = true) {
+
+  //
+  //  Table Wrapper
+  //  _____________________________________________
+
+  .table-wrapper {
+    margin-bottom: @indent__base;
+  }
+
+  //
+  //  All Tables
+  //  _____________________________________________
+
+  table {
+    .lib-table-caption();
+
+    //
+    // Align First Child all the way to the left
+    //
+    > thead > tr > th,
+    > tbody > tr > td {
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+    }
+
+    > thead > tr > th {
+      .lib-css(padding-bottom, @table-th__padding-bottom);
+    }
+
+  }
+
+  .table {
+    .lib-table-bordered(
+      @_table_type: light,
+      @_table_border-width: @table__border-width
+    );
+
+    //
+    //  Table Body
+    //  _____________________________________________
+
+    tbody {
+      border-bottom: @table__border-width @table__border-style @table__border-color;
+    }
+
+    //
+    //  Table Foot - First th & td
+    //  _____________________________________________
+
+    tfoot {
+
+      > tr {
+
+        &:first-child {
+
+          th,
+          td {
+            border-top: @table__border-width @table__border-style @table__border-color;
+            padding-top: @indent__base;
+          }
+
+        }
+
+      }
+
+      //
+      //  Table Foot - Mark
+      //  _____________________________________________
+
+      .mark {
+        font-weight: @font-weight__regular;
+        text-align: right;
+      }
+
+    }
+
+  }
+}
+
+//
+//  Mobile
+//  _____________________________________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+
+  //
+  //  Table Wrapper
+  //  _____________________________________________
+
+  .table-wrapper {
+    .lib-table-overflow();
+    position: relative; // To hide unnecessary horizontal scrollbar in Safari
+  }
+
+  //
+  //  Responsive Tables
+  //  _____________________________________________
+
+  .table--responsive {
+    .lib-table-responsive();
+
+    tbody > tr {
+      > td:first-child {
+        padding-top: @indent__base;
+      }
+
+      > td:last-child {
+        padding-bottom: @indent__base;
+      }
+    }
+
+    tfoot {
+      display: block;
+      border-top: @table__border-width @table__border-style @table__border-color;
+
+      > tr {
+        display: flex;
+        justify-content: space-between;
+
+        td,
+        th {
+          display: block;
+          border: none;
+          padding: 0 0 @indent__s;
+        }
+
+      }
+
+    }
+
+  }
+
+  //
+  //  Cookie Table on Privacy Policy Page
+  //  _____________________________________________
+
+  .data-table-definition-list {
+    thead {
+      display: none;
+    }
+
+    tbody th {
+      padding-bottom: 0;
+    }
+
+    tbody th,
+    tbody td {
+      display: block;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

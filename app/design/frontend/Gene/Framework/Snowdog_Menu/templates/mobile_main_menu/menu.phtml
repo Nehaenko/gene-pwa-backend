@@ -1,0 +1,45 @@
+<?php
+/**
+ * Update CSS classes
+ * @var \Snowdog\Menu\Block\Menu $block
+ */
+if ($block->getMenu()): ?>
+    <?php $menuClass = $block->getMenu()->getCssClass() ?>
+
+    <div class="main-nav__wrapper mobile-menu is-hidden-desktop expanded">
+        <nav class="<?= $menuClass ?>">
+            <ul class="<?= $menuClass ?>__list main-nav__container">
+                <?php foreach ($block->getNodes() as $node): ?>
+                    <?php
+                    $childrenLevel = $node->getLevel() + 1;
+                    $children = $block->getNodes($childrenLevel, $node);
+                    $node->setIsParent((bool) $children);
+                    $parentClass = $children ? ' ' . $menuClass . '__item--parent' : '';
+                    $additionalClasses = $node->getClasses() ? ' ' . $node->getClasses() : '';
+                    $itemClasses = $parentClass . $additionalClasses;
+                    ?>
+                    <li class="<?= $menuClass ?>__item <?= $itemClasses ?>"
+                        data-mage-init='{"collapsible":{"openedState": "active"}}'>
+                            <div data-role="title">
+                                <?= $block->renderMenuNode($node) ?>
+                                <svg width="20" height="20" viewBox="0 0 20 20" class="icon icon-arrow icon-arrow--down">
+                                    <use xlink:href="#icon-arrow"></use>
+                                </svg>
+                            </div>
+                            <div data-role="content"><?= $block->renderSubmenu($children, $node, $childrenLevel) ?></div>
+                    </li>
+                <?php endforeach ?>
+            </ul>
+            <div class="<?= $menuClass ?>__mobile-bg"></div>
+        </nav>
+    </div>
+
+    <script type="text/x-magento-init">
+        {
+            "*" : {
+                "GeneMenu": {}
+            }
+        }
+    </script>
+
+<?php endif; ?>

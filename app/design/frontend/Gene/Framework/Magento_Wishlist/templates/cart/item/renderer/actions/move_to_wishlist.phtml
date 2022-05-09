@@ -1,0 +1,24 @@
+<?php
+/**
+ * Add Wishlist Icon
+ * @var \Magento\Wishlist\Block\Cart\Item\Renderer\Actions\MoveToWishlist $block
+ */
+
+?>
+<?php if ($block->isAllowInCart() && $block->isProductVisibleInSiteVisibility()) : ?>
+<div class="wishlist-action__container">
+    <a href="#"
+       data-post='<?= /* @noEscape */ $block->getMoveFromCartParams() ?>'
+       class="use-ajax action towishlist action-towishlist wishlist-action__toggle"
+       aria-label="<?= $block->escapeHtml(__('Move to Wishlist')) ?>"
+       title="<?= $block->escapeHtml(__('Move to Wishlist')) ?>">
+        <svg width="22" height="20" viewBox="0 0 22 20" class="icon icon-wishlist">
+            <use xlink:href="#icon-wishlist"></use>
+        </svg>
+        <span class="wishlist-action__content">
+            <?= $block->escapeHtml(__('Move to Wishlist')) ?>
+        </span>
+    </a>
+</div>
+
+<?php endif ?>

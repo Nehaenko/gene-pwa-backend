@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Default
+
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <!-- Remove register link from header -->
+    <referenceBlock name="register-link" remove="true" />
+
+    <!-- Remove authorization link from header -->
+    <referenceBlock name="authorization-link" remove="true" />
+
+    <!-- Replace header link -->
+    <referenceBlock name="my-account-link">
+        <action method="setTemplate">
+            <argument name="template" xsi:type="string">Magento_Customer::account-link.phtml</argument>
+        </action>
+    </referenceBlock>
+
+</page>

@@ -1,0 +1,57 @@
+//
+//  Common
+//  ---------------------------------------------
+
+& when (@media-common = true) {
+
+    .usp-banner {
+        &__item {
+            margin: 0;
+
+            .lib-vendor-prefix-display(flex);
+            .lib-vendor-box-align(center);
+            justify-content: center;
+
+            .lib-vendor-prefix-flex-basis(100%);
+        }
+
+        &__content {
+            .lib-vendor-prefix-display(flex);
+            .lib-vendor-box-align(center);
+        }
+
+        &__link {
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: none;
+
+                span {
+                    color: @color-white;
+                }
+            }
+
+            span {
+                color: @color-white;
+            }
+        }
+    }
+
+}
+
+//
+//  Desktop
+//  ---------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+
+    .usp-banner {
+        justify-content: center;
+
+        &__item {
+            .lib-vendor-prefix-flex-basis(25%);
+            min-width: 25%;
+        }
+    }
+
+}

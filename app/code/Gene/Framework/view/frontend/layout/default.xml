@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Default
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="3columns"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+
+        <!-- Add sticky header to body if enabled in admin -->
+        <referenceContainer name="after.body.start">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="gene.framework.stickyheader"
+                   template="Gene_Framework::sticky-header.phtml"
+                   after="-"
+                   ifconfig="gene_theme/header/enable_sticky_header">
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="page.wrapper">
+            <block class="Gene\Framework\Block\Theme\SystemConfig" name="page.usp" template="Gene_Framework::html/usp.phtml" after="header.container">
+                <arguments>
+                    <argument name="configs" xsi:type="array">
+                        <item name="config_1" xsi:type="array">
+                            <item name="config_icon" xsi:type="string">gene_theme/header/header_usp_1_icon</item>
+                            <item name="config_link" xsi:type="string">gene_theme/header/header_usp_1_link</item>
+                            <item name="config_path" xsi:type="string">gene_theme/header/header_usp_1</item>
+                        </item>
+                        <item name="config_2" xsi:type="array">
+                            <item name="config_icon" xsi:type="string">gene_theme/header/header_usp_2_icon</item>
+                            <item name="config_link" xsi:type="string">gene_theme/header/header_usp_2_link</item>
+                            <item name="config_path" xsi:type="string">gene_theme/header/header_usp_2</item>
+                        </item>
+                        <item name="config_3" xsi:type="array">
+                            <item name="config_icon" xsi:type="string">gene_theme/header/header_usp_3_icon</item>
+                            <item name="config_link" xsi:type="string">gene_theme/header/header_usp_3_link</item>
+                            <item name="config_path" xsi:type="string">gene_theme/header/header_usp_3</item>
+                        </item>
+                        <item name="config_4" xsi:type="array">
+                            <item name="config_icon" xsi:type="string">gene_theme/header/header_usp_4_icon</item>
+                            <item name="config_link" xsi:type="string">gene_theme/header/header_usp_4_link</item>
+                            <item name="config_path" xsi:type="string">gene_theme/header/header_usp_4</item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+
+        <!-- Top Menu -->
+        <referenceBlock name="catalog.topnav" template="Gene_Framework::html/topmenu.phtml" />
+        <referenceBlock name="navigation.sections" template="Gene_Framework::html/menu-sections.phtml" />
+        <referenceBlock name="store.setting" remove="true" />
+        <referenceBlock name="store.links" remove="true" />
+
+        <referenceContainer name="main.content">
+            <block class="Magento\Framework\View\Element\Template"
+                   name="gene.framework.lightbox"
+                   template="Gene_Framework::product/view/lightbox.phtml"
+                   after="-">
+            </block>
+        </referenceContainer>
+
+        <referenceContainer name="footer">
+            <block class="Gene\Framework\Block\Html\FooterMenuLinks" name="footer.column.4" template="Gene_Framework::html/footer-column.phtml">
+                <block class="Gene\Framework\Block\Social" name="footer.social_media" template="Magento_Theme::html/social.phtml"/>
+                <arguments>
+                    <argument name="config_path" xsi:type="string">gene_theme/footer/column_4</argument>
+                    <argument name="config_path_title" xsi:type="string">gene_theme/footer/column_4_title</argument>
+                    <argument name="class_name" xsi:type="string">footer-column--additional</argument>
+                </arguments>
+            </block>
+
+            <container name="footer.columns" htmlTag="div" htmlClass="footer-column-group js-footer-accordion">
+
+                <block class="Gene\Framework\Block\Html\FooterMenuLinks" name="footer.column.1" template="Gene_Framework::html/footer-column.phtml">
+                    <arguments>
+                        <argument name="config_path" xsi:type="string">gene_theme/footer/column_1</argument>
+                        <argument name="config_path_title" xsi:type="string">gene_theme/footer/column_1_title</argument>
+                        <argument name="class_name" xsi:type="string">footer__links js-collapsible</argument>
+                        <argument name="footer_menu" xsi:type="string">one</argument>
+                    </arguments>
+                </block>
+
+                <block class="Gene\Framework\Block\Html\FooterMenuLinks" name="footer.column.2" template="Gene_Framework::html/footer-column.phtml">
+                    <arguments>
+                        <argument name="config_path" xsi:type="string">gene_theme/footer/column_2</argument>
+                        <argument name="config_path_title" xsi:type="string">gene_theme/footer/column_2_title</argument>
+                        <argument name="class_name" xsi:type="string">footer__links js-collapsible</argument>
+                        <argument name="footer_menu" xsi:type="string">two</argument>
+                    </arguments>
+                </block>
+
+                <block class="Gene\Framework\Block\Html\FooterMenuLinks" name="footer.column.3" template="Gene_Framework::html/footer-column.phtml">
+                    <arguments>
+                        <argument name="config_path" xsi:type="string">gene_theme/footer/column_3</argument>
+                        <argument name="config_path_title" xsi:type="string">gene_theme/footer/column_3_title</argument>
+                        <argument name="class_name" xsi:type="string">footer__links js-collapsible</argument>
+                        <argument name="footer_menu" xsi:type="string">three</argument>
+                    </arguments>
+                </block>
+            </container>
+        </referenceContainer>
+
+    </body>
+</page>
